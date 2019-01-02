@@ -117,7 +117,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                       <li><a data-target="#update_company_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -288,7 +288,106 @@
                         
                     </div>
                 </div>
-            </div><!-- /.row -->
+            </div>
+             <!-- /.row -->
+             <div class="row">
+                 <div class="col-lg-12">
+                    <button data-target="#publish_company_job_modal" data-toggle="modal" class="btn btn-primary" style="margin:5px 0 10px 0">+Publish Jobs</button> 
+                 
+                 </div><!--Publish company Job modal-->
+        <div>
+           <div class="modal fade" id="publish_company_job_modal" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
+                        <h3 class="modal-title">+Publish Job <small>on <?=date('Y-n-j') ?></small></h3>
+                    </div>
+                    <div class="modal-body">
+                        <form action="./query_boxes/company_publish_jobs.php" autocomplete="on" method="post">
+                            Enter Job Title
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" name="jobTitle">
+                            </div>
+                            Enter Job Type
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobType" placeholder="Enter Job type" name="jobType">
+                            </div>
+                            Enter Job Amount
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobAmount" placeholder="Enter Job Amount" name="jobAmount">
+                            </div>
+                            Enter Job Period
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobPeriod" placeholder="Enter Job Period" name="jobPeriod">
+                            </div>
+                            Enter Job Price
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobPrice" placeholder="Enter Job Price" name="jobPrice">
+                            </div>
+                            <div class="form-group hidden">
+                                <input type="text" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate">
+                            </div>                        
+                           
+                            <div class="form-row text-right">
+                                <div class="col-12">
+                                <button type="submit" name="addComJob" id="save" class="btn btn-primary">Publish</button>
+                               </div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Publish company Job modal-->
+             
+                   
+        <!--Update company Profile model-->
+        <div>
+           <div class="modal fade" id="update_company_profile_modal" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
+                        <h3 class="modal-title">Profile <small>on <?=date('Y-n-j') ?></small></h3>
+                    </div>
+                    <div class="modal-body">
+                        <form action="./query_boxes/company_update_profile.php" autocomplete="on" method="post">
+                            Company Id
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='"<?=$_SESSION['userID']?>"' readonly>
+                            </div>
+                            Company Name
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='"<?=$_SESSION['userName']?>"'>
+                            </div>
+                            Company Contact No 
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="ContactNo" name="ContactNo" value='"<?=$_SESSION['userMobile']?>"'>
+                            </div>
+                            Company Address
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='"<?=$_SESSION['userAddress']?>"'>
+                            </div>
+                            Company Email Address
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyEmail" name="CompanyEmail" value='"<?=$_SESSION['userEmail']?>"'>
+                            </div>
+                                                    
+                           
+                            <div class="form-row text-right">
+                                <div class="col-12">
+                                <button type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
+                               </div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Update company Profile modal-->
             <div class="row">
                 <div class="col-lg-8">
                     <div class="panel panel-default">
