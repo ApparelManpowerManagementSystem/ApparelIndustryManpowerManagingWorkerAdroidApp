@@ -1,42 +1,58 @@
 <?php
-    $queryJob="SELECT * FROM company_job WHERE jobStatus='online' LIMIT 10";
+    $comID = $_SESSION["userID"];
+
+    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='start' and comID ='$comID' LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
             $totalDays=$rowJob['jobPeriod'];
-            $estimatedDeliveryDate=date('Y-m-d', strtotime($rowJob['jobDate']. ' + '.$totalDays. ' days'));
             
-            $daysLeft = 0;
-            $fromDate = $estimatedDeliveryDate;
-            $curDate = date('Y-m-d');
-            $daysLeft = abs(strtotime($curDate) - strtotime($fromDate));
-            $days = ($daysLeft/(60 * 60 * 24));
+            // $daysLeft = 0;
+            // $fromDate = $estimatedDeliveryDate;
+            // $curDate = date('Y-m-d');
+            // $daysLeft = abs(strtotime($curDate) - strtotime($fromDate));
+            // $days = ($daysLeft/(60 * 60 * 24));
 
-            $average=(($totalDays-$days)/$totalDays)*100;
+            // $average=(($totalDays-$days)/$totalDays)*100;
 
-            echo "<div style='line-height:14px;border-radius:10px;width:100%;height:100%;border:1px solid lightgrey;border-left:6px solid green;background-color:rgb(239, 240, 242,0.5);margin:0 0 5px 0;padding:4px'>
-                <strong>
-                    <font style='font-size:15px'>
-                        <p>Job Number ".$rowJob['jobID']." | ".$rowJob['jobTitle']."  <lable class='btn btn-danger'>".$rowJob['jobStatus']."</lable></p><hr>
-                    </font>
-                </strong>
-                
-                <p>Started on <font style='color:green;'>".$rowJob['jobDate']."</font>
-                </p>
-                <p>Estimated Delivery on <font style='color:green;'>$estimatedDeliveryDate</font>
-                </p>
-                <p>
-                    <div class='progress'>
-                      <div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='$average'
-  aria-valuemin='0' aria-valuemax='100' style='width:$average%'>
-                        $days Days Remaining
-                      </div>
-                      
+            echo "<tr>
+                    <td>".$rowJob['jobID']."</td>
+                    <td>".$rowJob['jobTitle']."</td>
+                    <td>".$rowJob['jobStatus']."</td>
+                    <td>".$rowJob['jobCount']."</td>
+                    <td>".$rowJob['jobProgress']."%</td>
+                    <td><button style='margin:2px' class='btn btn-danger' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button></td>
+                </tr>
+                ";
+
+            echo "<div>
+                <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
+                    <div class='modal-dialog'>
+                      <div class='modal-content'>
+                        <div class='modal-header'>
+                           <h3>Update Progress <small>".$rowJob['jobTitle']."</small></h3>
+                        </div>                       
+                        <div class='modal-body'>
+                            <form action='./query_boxes/company_update_progress.php' autocomplete='on' method='post'>
+                                <div  class='form-group'>
+                                    <lable>Job ID<lable>
+                                    <input value='".$rowJob['jobID']."' type='text' class='form-control' name='jobID' required readonly>
+                                </div>
+                                
+                                <div class='form-group'>
+                                    <lable>Job Progress<lable>
+                                    <input value='".$rowJob['jobProgress']."' type='text' class='form-control' name='jobProgress' required>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='submit' class='form-control btn btn-success' style='width:100%'' value='Update' name='updateJob' required>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
                     </div>
-                </p>
-
-                </div>";
+                </div>
+            </div>";
             
         }
     }

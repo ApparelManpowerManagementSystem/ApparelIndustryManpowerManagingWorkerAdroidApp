@@ -43,6 +43,7 @@ if(isset($_POST['submitLogin'])){
             $queryUser="SELECT * FROM company WHERE comID='$username' LIMIT 1";
             $resultUser=mysqli_query($conn,$queryUser);
             $userDetails=mysqli_fetch_assoc($resultUser);
+            $_SESSION["userID"]=$userDetails["comID"];
             $_SESSION["userName"]=$userDetails["comName"];
             $_SESSION["userMobile"]=$userDetails["comPhone"];
             $_SESSION["userEmail"]=$userDetails["comEmail"];
