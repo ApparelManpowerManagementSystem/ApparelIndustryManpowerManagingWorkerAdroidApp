@@ -59,7 +59,7 @@ var myChart = new Chart(ctx, {
   });
 
 
-var colorChangeValue = 1500;
+var colorChangeValue = 850;
 var dataset = myChart.data.datasets[0];
 for (var i = 0; i < dataset.data.length; i++) {
   if (dataset.data[i] > colorChangeValue) {
