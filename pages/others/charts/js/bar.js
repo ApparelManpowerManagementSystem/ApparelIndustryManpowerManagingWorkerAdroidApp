@@ -1,6 +1,6 @@
  $(document).ready(function(){
     $.ajax({
-        url: "http://localhost/chartjs/data.php",
+        url: "http://localhost/ManpowerFinal/pages/others/charts/datareports.php",
         method: "GET",
         success: function (data) {
             console.log(data);
