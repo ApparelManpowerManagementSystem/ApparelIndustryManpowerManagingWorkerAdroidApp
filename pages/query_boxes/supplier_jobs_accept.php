@@ -15,17 +15,16 @@
             
                         
             echo "<div class='single-post d-flex flex-row'><div class='thumb'>
-									<img src='../img/img-worker/post.png' alt=''>
-									
-								</div>
-            <div class='details'>
+				    <img src='../img/img-worker/post.png' alt=''>
+                    </div>
+                <div class='details'>
                     <div class='title d-flex flex-row justify-content-between'>
                         <div class='titles'>
                             <a href=''><h4>".$rowJob['jobTitle']."<small> Published on ".$rowJob['jobPublished']."</small></h4></a>
                             <h6>By ".$locationName."</h6>					
                         </div>
-                        <ul class='btns'>
-                            <li><a href='#'>Apply</a></li>
+                        <ul>
+                            <li><a class='btn btn-primary' href='./query_boxes/worker_accept_jobs.php?jobID=".$rowJob['jobID']."'>Apply</a></li>
                         </ul>
                     </div>
                     <p >".$rowJob['jobCount']." pieces needs to do ".$rowJob['jobType'].". Every manpower member has to work at most ".$rowJob['jobPeriod']." days. 

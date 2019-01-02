@@ -2,15 +2,20 @@
 	session_start();
 	require_once '../../db_config/config.php';
 	$workerID=$_SESSION['userID'];
+    $jobID=$_SESSION['jobID'];
 	$queryDelete="DELETE FROM worker_pending WHERE workerID='$workerID'";
 	
 	$queryUpdate="UPDATE worker SET workerStatus='online' WHERE workerID='$workerID'";
+    $queryUpdate2="UPDATE supplier_job SET workersJoined=workersJoined-1 WHERE jobID='$jobID'";
+
+
 	$_SESSION['userStatus']='online';
     $userID=$_SESSION['userID'];
     $userType=$_SESSION['userType'];
-    $notification="You leaved from the job";
+    $notification=$userID." leaved from the job";
 	if(mysqli_query($conn,$queryDelete)){
 		mysqli_query($conn,$queryUpdate);
+        mysqli_query($conn,$queryUpdate2);
         
         echo "
             <form method='post' action='insertnoti.php' id='comment_form'>

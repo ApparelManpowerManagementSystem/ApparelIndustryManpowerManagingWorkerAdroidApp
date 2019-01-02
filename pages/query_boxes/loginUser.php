@@ -30,7 +30,7 @@ if(isset($_POST['submitLogin'])){
             $_SESSION["userEmail"]=$userDetails["workerEmail"];
             $_SESSION["userImage"]=$userDetails["workerImage"];
             $_SESSION["userStatus"]=$userDetails["workerStatus"];
-            echo "<script>window.location.replace('../worker.php');alert('Login Success!!!');</script>";
+            echo "<script>window.location.replace('../worker.php');</script>";
         }
         else if($userlogin["userType"]==2){
             $queryUser="SELECT * FROM supplier WHERE supID='$username' LIMIT 1";

@@ -1,5 +1,5 @@
 <?php
-    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='offline' order by jobID DESC";
+    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='offline' order by jobID DESC LIMIT 5";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){

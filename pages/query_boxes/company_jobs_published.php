@@ -5,22 +5,15 @@
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
             $date=date("y-m-d");
-            echo "<div style='line-height:14px;border-radius:10px;width:100%;height:100%;border:1px solid lightgrey;border-left:6px solid green;background-color:rgb(239, 240, 242,0.5);margin:0 0 5px 0;padding:4px'>
-                <strong>
-                    <font style='font-size:15px'>
-                        <p>Job Number ".$rowJob['jobID']." | ".$rowJob['jobTitle']."  <lable class='btn btn-danger'>".$rowJob['jobStatus']."</lable></p><hr>
-                    </font>
-                </strong>
-                <p >Amount: ".$rowJob['jobAmount']." pieces</p>
+            echo "<div style='line-height:14px;width:100%;height:100%;border:1px solid lightgrey;background-color:rgb(239, 240, 242,0.5);margin:0 0 5px 0;padding:4px'>
+                <h3>".$rowJob['jobTitle']." <small>Published on ".$rowJob['jobDate']."</small> <li class='btn btn-default'> ".$rowJob['jobStatus']."</li></h3>
+                <hr>
                 
-                <p>Maximum Job Duration: ".$rowJob['jobPeriod']." days</p>
-                <p>Price: <font style='color:red'>Rs. ".$rowJob['jobPrice']."/=</font></p>
-                <p>Published on <font style='color:green;'>".$rowJob['jobDate']."</font>
-                </p>
-
                 <p>
                     <div style='text-align:right'>
-                        <button data-target='#".$rowJob['jobID']."' data-toggle='modal' class='btn btn-success' >Change Job Details</button>
+                        <button data-target='#".$rowJob['jobID']."' data-toggle='modal' class='btn btn-success' >Edit</button>
+                        
+                        <button class='btn btn-danger' >Cancel</button>
                         
                     </div>
                 </p>

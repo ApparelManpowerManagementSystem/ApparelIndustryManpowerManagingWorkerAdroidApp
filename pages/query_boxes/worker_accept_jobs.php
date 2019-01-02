@@ -17,16 +17,16 @@ if(isset($_GET['jobID'])){
         $queryUpdate="UPDATE worker SET workerStatus='offline' WHERE workerID='$workerID'";
         mysqli_query($conn,$queryUpdate);
 
-        $userquery="INSERT INTO worker_pending VALUES('$jobID','$workerID')";
+        $userquery="INSERT INTO worker_pending VALUES('$jobID','$workerID',0)";
 
         if(mysqli_query($conn,$userquery)){
-            $updateQuery="UPDATE supplier_job SET jobStatus='online' WHERE jobID='$jobID'";
+            $updateQuery="UPDATE supplier_job SET jobStatus='pending',workersJoined=workersJoined+1 WHERE jobID='$jobID'";
             mysqli_query($conn,$updateQuery);
             echo "<script>window.location.replace('../worker.php')</script>";
             
         }
         else{
-            echo "<script>alert('Oops something went wrong!');</script>";
+            echo "<script>window.location.replace('../worker.php');alert('Oops something went wrong!');</script>";
         } 
 
     }

@@ -12,34 +12,29 @@
             $rowLocation=mysqli_fetch_assoc($resultLocation);
             $locationName=$rowLocation['locName'];
             $locationAddress=$rowLocation['locStreet'].", ".$rowLocation['locVillage'].", ".$rowLocation['locCity'];
-           
             
-            echo "<div style='border:1px solid lightgrey;width:100%;height:100%;border-left:6px solid grey;background-color:rgb(239, 240, 242,0.5);margin:0 0 5px 0;padding:4px'>
-                <strong>
-                    <font style='font-size:15px'>
-                        <p>Job ID: ".$rowJob['jobID']."".$rowJob['comID']."</p><hr>
-
-                    </font>
-                </strong>
-                <p>Type: ".$rowJob['jobType']."</p>
-                <p>Started On: ".$rowJob['jobStart']."</p>
-                <p>Ends On: ".$rowJob['jobEnd']."</p>
-                <p>
-                    <div class='progress' style='width:99%'>
-                      <div class='progress-bar progress-bar-stripe active' role='progressbar' aria-valuenow='".$rowJob['jobProgress']."'
-                      aria-valuemin='0' aria-valuemax='100' style='width:".$rowJob['jobProgress']."%'>
-                        ".$rowJob['jobProgress']."% Complete (success)
+            $level="danger";
+           if($rowJob['jobProgress']>75){
+               $level="primary";
+           }else if($rowJob['jobProgress']>50){
+               $level="success";
+           }else if($rowJob['jobProgress']>25){
+               $level="warning";
+           }
+            
+            echo "<div class='progress-group'>
+                      ".$rowJob['jobTitle']." <small>by ".$rowJob['comID']."</small>
+                      <span class='float-right'><b>".$rowJob['jobProgress']."</b>/100</span>
+                      
+                      <div class='progress progress-sm'>
+                        <div class='progress-bar bg-".$level."' style='width: ".$rowJob['jobProgress']."%'></div>
                       </div>
+                      <div style='text-align:right'>
+                        <button style='margin:5px 2px 2px 0' class='btn btn-primary'><i class='fa fa-check' aria-hidden='true'></i> Complete</button>
+                        <button style='margin:5px 0 2px 0' class='btn btn-danger'><i class='fa fa-close' aria-hidden='true'></i> Cancel</button>
                     </div>
-                </p>
-                <p>
-                    <div style='text-align:right'>
-                        <button class='btn btn-primary'><i class='fa fa-check' aria-hidden='true'></i> Complete Job</button>
-                        <button class='btn btn-danger'><i class='fa fa-close' aria-hidden='true'></i> Cancel Job</button>
                     </div>
-                    
-                </p>
-                </div>";
+                    <!-- /.progress-group -->";
           
         }
     }

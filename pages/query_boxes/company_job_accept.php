@@ -5,30 +5,26 @@
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
             $date=date("y-m-d");
-            echo "<a href='#' class='list-group-item'>
-                        <p>".$rowJob['jobTitle']."</p>
-                        
-                        <p >Amount: ".$rowJob['jobAmount']." pieces</p>
-                        
-                        <p>Maximum Job Duration: ".$rowJob['jobPeriod']." days</p>
-                        <p>Price: <font style='color:red'>Rs. ".$rowJob['jobPrice']."/=</font></p>
-                        <p>Published on <font style='color:green;'>".$rowJob['jobDate']."</font> By ".$rowJob['comName']."
-                        </p>
-        
-                        <p>
-                            <div style='text-align:right'>
-                                <button  class='btn btn-primary' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Accept & Publish</button>
-                                <button  class='btn btn-danger' data-target='#reject_warning_modal' data-toggle='modal'>Reject</button>
-                            </div>
-                        </p>
-
-                </a>";
+            echo "<tr>
+                      <td><a href='others/examples/invoice.html'>".$rowJob['jobID']."</a></td>
+                      <td>".$rowJob['jobTitle']."</td>
+                      <td>".$rowJob['jobAmount']." Pieces</td>
+                      <td>".$rowJob['jobPeriod']." Days</td>
+                      <td>RS. <span class='badge badge-danger'>".$rowJob['jobPrice']."</span></td>
+                      <td>".$rowJob['jobDate']."</td>
+                      <td>".$rowJob['comName']."</td>
+                      <td style='text-align:right'>
+                        <button style='margin:6px'  class='btn btn-primary' data-target='#".$rowJob['jobID']."' data-toggle='modal'>+Publish</button>
+                        <button style='margin:6px' class='btn btn-danger' data-target='#reject_warning_modal' data-toggle='modal'>Reject</button>
+                        </td>
+                    </tr>";
+            
             echo "<div>
                     <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
                         <div class='modal-dialog'>
                           <div class='modal-content'>
                             <div class='modal-header'>
-                               <h3>Publish Job ID ".$rowJob['jobID']."</h3>
+                               <h3>+Publish Job <small>".$rowJob['jobID']."</small></h3>
                             </div>
                             
                             <div class='modal-body'>

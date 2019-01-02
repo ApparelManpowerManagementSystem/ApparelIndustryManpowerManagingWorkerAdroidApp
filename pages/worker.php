@@ -33,8 +33,9 @@
 			<link rel="stylesheet" href="../css/css-worker/owl.carousel.css">
 			<link rel="stylesheet" href="../css/css-worker/main.css">
             
-<!--            JS-->
+            <!-- JS-->
             <script type="text/javascript" src="../js/show_div.js"></script>
+            
 		</head>
 		<body>
 
@@ -48,7 +49,7 @@
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="index.html">Home</a></li>
                             <li><a href="about-us.html">About Us</a></li>
-                            <li class="caret"><a href="">User</a>
+                            <li class=""><a href=""><i class="fa fa-user"></i>User</a>
                                 <ul>
                                     <li><a href="">Profile</a></li>
                                     <li><a href="">Leave</a></li>
@@ -64,25 +65,25 @@
 
 
         <!-- start banner Area -->
-			<section class="banner-area relative" id="home">
+			<section class="banner-area relative" id="home" >
 				<div class="overlay overlay-bg" style="background-color:white"></div>
-				<div class="container" style="height:400px;">
-					<div class="row fullscreen d-flex align-items-center justify-content-center">
-						<div class="banner-content col-lg-12" style="padding:0">
-								
-							<form action="search.html" class="serach-form-area">
+				<div class="container" style="height:500px">
+					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
+						<div class="banner-content col-lg-12" style="padding:0;">
+								<h1 style="text-align:left">We have 1500+ Manpower jobs</h1>
+							<form action="./query_boxes/supplier_jobs_view_by_search.php" class="serach-form-area">
 								<div class="row justify-content-center form-wrap" style="background-color: white;border: 0">
 									<div class="col-lg-4 form-cols">
-										<input type="text" class="form-control" name="search" placeholder="what are you looging for?">
+										<input id="myInput" type="text" class="form-control" name="search" placeholder="what are you looking for?">
 									</div>
 									<div class="col-lg-3 form-cols">
 										<div class="default-select" id="default-selects">
 											<select>
 												<option value="1">Select area</option>
-												<option value="2">Dhaka</option>
-												<option value="3">Rajshahi</option>
-												<option value="4">Barishal</option>
-												<option value="5">Noakhali</option>
+												<option value="2">Homagama</option>
+												<option value="3">Maharagama</option>
+												<option value="4">Ranala</option>
+												<option value="5">Pannipitiya</option>
 											</select>
 										</div>
 									</div>
@@ -90,16 +91,15 @@
 										<div class="default-select" id="default-selects2">
 											<select>
 												<option value="1">All Category</option>
-												<option value="2">Medical</option>
-												<option value="3">Technology</option>
-												<option value="4">Goverment</option>
-												<option value="5">Development</option>
+												<option value="2">CPI</option>
+												<option value="3">Shade Segrigation</option>
+												<option value="4">Cutting</option>
+												<option value="5">Ironing</option>
 											</select>
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <button type="button" class="btn btn-primary">Search
-									    </button>
+									    <input type="submit" class="btn btn-primary" value="Search">
 									</div>								
 								</div>
 							</form>
@@ -115,34 +115,45 @@
 				<div class="container">
 					<div class="row justify-content-center d-flex">
 						<div class="col-lg-8 post-list">
-							<ul class="cat-list">
-								<li><a onclick="hide_div('normal');show_div('recent_jobs');">Recent</a></li>
-								<li><a onclick="show_div('full_jobs');">Full Time</a></li>
-								<li><a onclick="show_div('part_jobs');">part Time</a></li>
+							<ul class="nav nav-pills">
+                               
+								<li class="btn btn-primary" style="margin-right:2px"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('part_jobs');show_div('recent_jobs');">Recent</a></li>
+								<li class="btn btn-primary" style="margin-right:2px"><a onclick="hide_div('normal');hide_div('part_jobs');hide_div('recent_jobs');show_div('full_jobs');">Full Time</a></li>
+								<li class="btn btn-primary"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');show_div('part_jobs');">part Time</a></li>
 							</ul>
+                            
+                            <?php
+                                    require_once('../db_config/config.php');
+                                    require_once('./query_boxes/worker_accepted_job.php');
+                            ?>
+                            
+                            
+                           
+                                
 								
-                                <div id="normal">
+                                <div id="normal" style="margin-top:5px">
+                                    <h2>All Jobs</h2>
                                     <?php
                                         require_once('../db_config/config.php');
                                         require_once('./query_boxes/supplier_jobs_accept.php');
                                     ?>
                                 </div>
-                                <div id="full_jobs" style="display:none">
-                                    full
+                                <div id="full_jobs" style="display:none;margin-top:5px">
+                                    <h2>Full Time Jobs</h2>
                                     <?php
                                         require_once('../db_config/config.php');
                                        require_once('./query_boxes/supplier_jobs_accept_full.php');
                                     ?>
                                 </div>
-                                <div id="part_jobs" style="display:none">
-                                    part
+                                <div id="part_jobs" style="display:none;margin-top:5px">
+                                    <h2>Part Time Jobs</h2>
                                     <?php
                                         require_once('../db_config/config.php');
                                        require_once('./query_boxes/supplier_jobs_accept_part.php');
                                     ?>
                                 </div>
-                                <div id="recent_jobs" style="display:none">
-                                    recent
+                                <div id="recent_jobs" style="display:none;margin-top:5px">
+                                    <h2>Recent Jobs</h2>
                                     <?php
                                         require_once('../db_config/config.php');
                                         require_once('./query_boxes/supplier_jobs_accept_recent.php');
@@ -153,69 +164,35 @@
 						<div class="col-lg-4 sidebar">
 							<div class="single-slidebar">
 								<h4>Jobs by Location</h4>
-								<ul class="cat-list">
-									<li><a class="justify-content-between d-flex" href="category.html"><p>New York</p><span>37</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Park Montana</p><span>57</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Atlanta</p><span>33</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Arizona</p><span>36</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Florida</p><span>47</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Rocky Beach</p><span>27</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Chicago</p><span>17</span></a></li>
+								<ul>
+									<?php
+                                        require_once('../db_config/config.php');
+                                        require_once('./query_boxes/supplier_jobs_view_by_location.php');
+                                    
+                                    ?>
 								</ul>
 							</div>
 
 							<div class="single-slidebar">
 								<h4>Top rated job posts</h4>
-								<div class="active-relatedjob-carusel">
-									<div class="single-rated">
-										<img class="img-fluid" src="img/r1.jpg" alt="">
-										<a href="single.html"><h4>Creative Art Designer</h4></a>
-										<h6>Premium Labels Limited</h6>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-										</p>
-										<h5>Job Nature: Full time</h5>
-										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
-										<a href="#" class="btns text-uppercase">Apply job</a>
-									</div>
-									<div class="single-rated">
-										<img class="img-fluid" src="img/r1.jpg" alt="">
-										<a href="single.html"><h4>Creative Art Designer</h4></a>
-										<h6>Premium Labels Limited</h6>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-										</p>
-										<h5>Job Nature: Full time</h5>
-										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
-										<a href="#" class="btns text-uppercase">Apply job</a>
-									</div>
-									<div class="single-rated">
-										<img class="img-fluid" src="img/r1.jpg" alt="">
-										<a href="single.html"><h4>Creative Art Designer</h4></a>
-										<h6>Premium Labels Limited</h6>
-										<p>
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore magna aliqua.
-										</p>
-										<h5>Job Nature: Full time</h5>
-										<p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
-										<p class="address"><span class="lnr lnr-database"></span> 15k - 25k</p>
-										<a href="#" class="btns text-uppercase">Apply job</a>
-									</div>																		
+								<div class="active-relatedjob-carusel">					<?php
+                                        require_once('../db_config/config.php');
+                                        require_once('./query_boxes/supplier_jobs_view_by_rating.php');
+                                    
+                                    ?>											
 								</div>
 							</div>							
 
 							<div class="single-slidebar">
 								<h4>Jobs by Category</h4>
-								<ul class="cat-list">
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Technology</p><span>37</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Media & News</p><span>57</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Goverment</p><span>33</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Medical</p><span>36</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Restaurants</p><span>47</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Developer</p><span>27</span></a></li>
-									<li><a class="justify-content-between d-flex" href="category.html"><p>Accounting</p><span>17</span></a></li>
+								<ul>
+                                    
+                                    <?php
+                                        require_once('../db_config/config.php');
+                                        require_once('./query_boxes/supplier_jobs_view_by_type.php');
+                                    
+                                    ?>
+                                    
 								</ul>
 							</div>
 
@@ -225,8 +202,6 @@
 				</div>	
 			</section>
 			<!-- End post Area -->
-
-
 
 
 			<script src="../js/js-worker/vendor/jquery-2.2.4.min.js"></script>
