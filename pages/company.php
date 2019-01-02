@@ -1,4 +1,6 @@
+<?php session_start();?>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -60,76 +62,13 @@
                         <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
+                       
+                             <?php
+                                require_once '../db_config/config.php';
+                                require_once './query_boxes/company_ongoing_job_progress.php';
+                            ?>
+                        
+                        
                     </ul>
                     <!-- /.dropdown-tasks -->
                 </li>
@@ -158,7 +97,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a data-target="#update_company_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -223,7 +162,10 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php
+                        require_once '../db_config/config.php';
+                        require_once './query_boxes/company_ongoing_jobs_count.php';
+                    ?>  </div>
                                     <div>Ongoing!</div>
                                 </div>
                             </div>
@@ -239,7 +181,10 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php
+                        require_once '../db_config/config.php';
+                        require_once './query_boxes/company_newly_published_jobs_count.php';
+                    ?></div>
                                     <div>Newly Published!</div>
                                 </div>
                             </div>
@@ -255,7 +200,10 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><?php
+                        require_once '../db_config/config.php';
+                        require_once './query_boxes/company_cancel_jobs_count.php';
+                    ?></div>
                                     <div>Canceled!</div>
                                 </div>
                             </div>
@@ -271,7 +219,10 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge"><?php
+                        require_once '../db_config/config.php';
+                        require_once './query_boxes/company_rejected_lobs_count.php';
+                    ?></div>
                                     <div>Rejected!</div>
                                 </div>
                             </div>
@@ -334,7 +285,53 @@
             </div>
         </div>
         <!--end Publish company Job modal-->
-                
+             
+                   
+        <!--Update company Profile model-->
+        <div>
+           <div class="modal fade" id="update_company_profile_modal" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
+                        <h3 class="modal-title">Profile <small>on <?=date('Y-n-j') ?></small></h3>
+                    </div>
+                    <div class="modal-body">
+                        <form action="./query_boxes/company_update_profile.php" autocomplete="on" method="post">
+                            Company Id
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='"<?=$_SESSION['userID']?>"' readonly>
+                            </div>
+                            Company Name
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='"<?=$_SESSION['userName']?>"'>
+                            </div>
+                            Company Contact No 
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="ContactNo" name="ContactNo" value='"<?=$_SESSION['userMobile']?>"'>
+                            </div>
+                            Company Address
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='"<?=$_SESSION['userAddress']?>"'>
+                            </div>
+                            Company Email Address
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="CompanyEmail" name="CompanyEmail" value='"<?=$_SESSION['userEmail']?>"'>
+                            </div>
+                                                    
+                           
+                            <div class="form-row text-right">
+                                <div class="col-12">
+                                <button type="submit" name="addComJob" id="save" class="btn btn-primary">Update</button>
+                               </div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Update company Profile modal-->
             </div>
             <div class="row">
                 <div class="col-lg-8">
