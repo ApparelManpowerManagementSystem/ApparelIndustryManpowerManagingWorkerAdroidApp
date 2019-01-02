@@ -390,9 +390,11 @@
         <!--end Update company Profile modal-->
             <div class="row">
                 <div class="col-lg-8">
+                   
+                    <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                       <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Company Jobs
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -400,11 +402,11 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
+                                        <li><a href="#">Published</a>
                                         </li>
-                                        <li><a href="#">Another action</a>
+                                        <li><a href="#">Rejected</a>
                                         </li>
-                                        <li><a href="#">Something else here</a>
+                                        <li><a href="#">Canceled</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li><a href="#">Separated link</a>
@@ -415,35 +417,17 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                     <?php
+                                    require_once('../db_config/config.php');
+                                    require_once('./query_boxes/company_jobs_published.php');
+                            ?>
                                 </div>
+                              
                             </div>
+                            <!-- /.row -->
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="row">
                                <div class="col-lg-12">
