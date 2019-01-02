@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2018 at 10:37 AM
+-- Generation Time: Jan 02, 2019 at 05:49 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -73,7 +73,8 @@ INSERT INTO `company_job` (`jobID`, `jobTitle`, `jobType`, `jobAmount`, `jobPeri
 (3, 'Ironing Job', 'Ironing', '200', '15', '35000', '2018-08-02', 'cancle', 'C214748364', 'S2147483647'),
 (4, 'Mending Job', 'Mending', '500', '20', '25000', '2018-09-16', 'online', '', 'S2147483647'),
 (5, 'Forin Yarn For T - Shirts', 'Forin Yarn', '300', '20', '34000', '2018-09-18', 'offline', 'C214748364', 'S2147483647'),
-(6, 'CPI Job', 'CPI', '400', '20', '25000', '2018-09-18', 'online', 'W12345', 'S2147483647');
+(6, 'CPI Job', 'CPI', '400', '20', '25000', '2018-09-18', 'online', 'C214748364', 'S2147483647'),
+(7, '', '', '', '', '', '2018-12-31', 'offline', 'C214748364', 'S2147483647');
 
 -- --------------------------------------------------------
 
@@ -85,14 +86,14 @@ CREATE TABLE `invoice` (
   `invoiceID` int(11) NOT NULL,
   `jobID` int(11) DEFAULT NULL,
   `workerID` varchar(45) DEFAULT NULL,
-  `invoice` varchar(5000) DEFAULT NULL
+  `price` varchar(100) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `invoice`
 --
 
-INSERT INTO `invoice` (`invoiceID`, `jobID`, `workerID`, `invoice`) VALUES
+INSERT INTO `invoice` (`invoiceID`, `jobID`, `workerID`, `price`) VALUES
 (12, 180010, 'W12345', 'hddhso');
 
 -- --------------------------------------------------------
@@ -142,30 +143,36 @@ CREATE TABLE `notification` (
   `notificationID` varchar(45) NOT NULL,
   `notification` varchar(200) DEFAULT NULL,
   `userType` int(10) DEFAULT NULL,
-  `status` int(100) NOT NULL
+  `status` int(100) NOT NULL,
+  `time` varchar(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`id`, `notificationID`, `notification`, `userType`, `status`) VALUES
-(1, 'W12345', 'You are left from the job', 3, 1),
-(2, 'W12345', 'You are left from the job', 3, 1),
-(3, 'W12345', 'You are left from the job', 3, 1),
-(4, 'W12345', 'You are left from the job', 3, 1),
-(5, 'W12345', 'You are left from the job', 3, 1),
-(6, '', 'Worker leaft', 2, 1),
-(7, '', 'Ocean lanka published new jobs', 2, 1),
-(8, '', 'Miami company published new jobs', 2, 1),
-(9, '', 'Ocean lanka published new jobs', 2, 1),
-(10, '', 'Brandix published new jobs', 2, 1),
-(11, '', 'Namal bandara worker left from the job', 2, 1),
-(14, 'W12345', ' left from the job', 3, 1),
-(15, 'W89897889', ' left from the job', 3, 1),
-(16, 'W89897889', ' left from the job', 3, 1),
-(17, 'W89897889', ' left from the job', 3, 1),
-(18, 'W89897889', ' left from the job', 3, 1);
+INSERT INTO `notification` (`id`, `notificationID`, `notification`, `userType`, `status`, `time`) VALUES
+(1, 'W12345', 'You are left from the job', 3, 1, NULL),
+(2, 'W12345', 'You are left from the job', 3, 1, NULL),
+(3, 'W12345', 'You are left from the job', 3, 1, NULL),
+(4, 'W12345', 'You are left from the job', 3, 1, NULL),
+(5, 'W12345', 'You are left from the job', 3, 1, NULL),
+(6, '', 'Worker leaft', 2, 1, NULL),
+(7, '', 'Ocean lanka published new jobs', 2, 1, NULL),
+(8, '', 'Miami company published new jobs', 2, 1, NULL),
+(9, '', 'Ocean lanka published new jobs', 2, 1, NULL),
+(10, '', 'Brandix published new jobs', 2, 1, NULL),
+(11, '', 'Namal bandara worker left from the job', 2, 1, '2018'),
+(14, 'W12345', ' left from the job', 3, 1, NULL),
+(15, 'W89897889', ' left from the job', 3, 1, NULL),
+(16, 'W89897889', ' left from the job', 3, 1, NULL),
+(17, 'W89897889', ' left from the job', 3, 1, NULL),
+(18, 'W89897889', ' left from the job', 3, 1, NULL),
+(19, 'W123', ' left from the job', 3, 1, NULL),
+(20, 'W123', ' left from the job', 3, 1, NULL),
+(21, 'W123', ' left from the job', 1, 1, NULL),
+(22, '', 'Miami published new Job', 2, 1, '0'),
+(23, 'W1234', ' left from the job', 3, 0, '0');
 
 -- --------------------------------------------------------
 
@@ -210,31 +217,31 @@ CREATE TABLE `supplier_job` (
   `locationID` int(11) NOT NULL,
   `comID` varchar(100) DEFAULT NULL,
   `jobNature` varchar(10) NOT NULL DEFAULT 'Full Time',
-  `workersJoined` int(10) NOT NULL DEFAULT '0'
+  `workersJoined` int(10) NOT NULL DEFAULT '0',
+  `jobRatings` int(10) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `supplier_job`
 --
 
-INSERT INTO `supplier_job` (`jobID`, `jobTitle`, `jobType`, `jobCount`, `workerCount`, `jobPeriod`, `jobStatus`, `jobStart`, `jobEnd`, `jobPublished`, `jobProgress`, `supID`, `locationID`, `comID`, `jobNature`, `workersJoined`) VALUES
-(180000, 'CPI Job', 'CPI', 100, 15, '10', 'start', '2018-Sep-2', NULL, '2018-Aug-28', '78', 'S2147483647', 2300, 'C214748364', 'Full Time', 0),
-(180001, 'T-Shirts Cutting Job', 'cutting', 1000, 0, '9', 'start', '2018-Sep-13', NULL, NULL, '35', 'S2147483647', 2300, 'C214748364', 'Full Time', 0),
-(180002, 'Ironin Job', 'Ironing', 400, 20, '20', 'online', NULL, NULL, '2018-Sep-14', '0', 'S2147483647', 2300, 'C214748364', 'Full Time', 0),
-(180003, 'Mending Job', 'Mending', 500, 10, '16', 'online', NULL, NULL, '2018-sep-13', '0', 'S2147483647', 2300, 'C214748364', 'Full Time', 0),
-(180010, 'Cutting Job', 'Cutting', 400, 20, '20', 'done', '2018-Jul-1', '2018-jul-25', '2018-Jun-28', '100', 'S2147483647', 2302, 'C214748364', 'Full Time', 0),
-(180019, 'Ironing Job', 'Ironing', 200, 30, '', 'online', NULL, NULL, '', NULL, 'S2147483647', 2302, 'C214748364', 'Part Time', 0),
-(180023, 'Ironing Job', 'Ironing', 200, 20, '15', 'online', NULL, NULL, '18-09-15', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0),
-(180024, 'CPI Job', 'CPI', 202, 20, '11', 'offline', NULL, NULL, '18-09-15', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0),
-(180025, '1000 T-Shirts Cutting Job', 'cutting', 200, 20, '9', 'online', NULL, NULL, '18-09-17', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0),
-(180026, 'Mending Job', 'Mending', 500, 20, '20', 'online', NULL, NULL, '18-09-18', NULL, 'S2147483647', 2301, '', 'Full Time', 0),
-(180027, 'CPI Job', 'CPI', 400, 25, '20', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'W12345', 'Full Time', 0),
-(180028, 'CPI Job', 'CPI', 202, 25, '25', 'online', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0),
-(180029, 'CPI Job', 'CPI', 202, 25, '25', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0),
-(180030, '$jobTitle', '$jobType', 0, 0, '$jobPeriod', 'offline', NULL, NULL, '$jobPublished', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0),
-(180031, 'CPI Job', 'CPI', 202, 20, '25', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0),
-(180032, 'CPI Job', 'CPI', 202, 20, '25', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0),
-(180033, 'CPI Job', 'CPI', 202, 20, '25', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0);
+INSERT INTO `supplier_job` (`jobID`, `jobTitle`, `jobType`, `jobCount`, `workerCount`, `jobPeriod`, `jobStatus`, `jobStart`, `jobEnd`, `jobPublished`, `jobProgress`, `supID`, `locationID`, `comID`, `jobNature`, `workersJoined`, `jobRatings`) VALUES
+(180000, 'CPI Job', 'CPI', 100, 15, '10', 'start', '2018-Sep-2', NULL, '2018-Aug-28', '78', 'S2147483647', 2300, 'C214748364', 'Full Time', 0, 0),
+(180001, 'T-Shirts Cutting Job', 'Cutting', 1000, 0, '9', 'start', '2018-Sep-13', NULL, NULL, '35', 'S2147483647', 2300, 'C214748364', 'Full Time', 0, 0),
+(180002, 'Ironin Job', 'Ironing', 400, 20, '20', 'pending', NULL, NULL, '2018-Sep-14', '0', 'S2147483647', 2300, 'C214748364', 'Full Time', 0, 0),
+(180003, 'Mending Job', 'Mending', 500, 10, '16', 'online', NULL, NULL, '2018-sep-13', '0', 'S2147483647', 2300, 'C214748364', 'Full Time', 0, 0),
+(180010, 'Cutting Job', 'Cutting', 400, 20, '20', 'done', '2018-Jul-1', '2018-jul-25', '2018-Jun-28', '100', 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0),
+(180019, 'Ironing Job', 'Ironing', 200, 30, '', 'online', NULL, NULL, '', NULL, 'S2147483647', 2302, 'C214748364', 'Part Time', 0, 0),
+(180023, 'Ironing Job', 'Ironing', 200, 20, '15', 'online', NULL, NULL, '18-09-15', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0),
+(180024, 'CPI Job', 'CPI', 202, 20, '11', 'offline', NULL, NULL, '18-09-15', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0),
+(180025, '1000 T-Shirts Cutting Job', 'Cutting', 200, 20, '9', 'online', NULL, NULL, '18-09-17', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 0),
+(180026, 'Mending Job', 'Mending', 500, 20, '20', 'offline', NULL, NULL, '18-09-18', NULL, 'S2147483647', 2301, '', 'Full Time', 0, 0),
+(180027, 'CPI Job', 'CPI', 400, 25, '20', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'W12345', 'Full Time', 0, 11),
+(180028, 'CPI Job', 'CPI', 202, 25, '25', 'online', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0),
+(180029, 'CPI Job', 'CPI', 202, 25, '25', 'offline', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 12),
+(180031, 'CPI Job', 'CPI', 202, 20, '25', 'online', NULL, NULL, '18-09-22', '10', 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 12),
+(180032, 'CPI Job', 'CPI', 202, 20, '25', 'pending', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 11),
+(180033, 'CPI Job', 'CPI', 202, 20, '25', 'pending', NULL, NULL, '18-09-22', NULL, 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -325,7 +332,7 @@ CREATE TABLE `worker` (
   `workerNIC` varchar(45) DEFAULT NULL,
   `workerPhone` varchar(45) DEFAULT NULL,
   `workerMaxWorkPeriod` varchar(45) DEFAULT NULL,
-  `workerRank` int(10) DEFAULT NULL,
+  `workerRank` int(10) DEFAULT '0',
   `workerEmail` varchar(45) DEFAULT NULL,
   `workerStatus` varchar(45) DEFAULT NULL,
   `workerImage` varchar(5000) DEFAULT NULL
@@ -338,19 +345,15 @@ CREATE TABLE `worker` (
 INSERT INTO `worker` (`workerID`, `workerName`, `workerNIC`, `workerPhone`, `workerMaxWorkPeriod`, `workerRank`, `workerEmail`, `workerStatus`, `workerImage`) VALUES
 ('W12', 'Piyumal Rangajeewa', NULL, '12', NULL, 10, 'asithaindrajithk9@gmail.com', 'offline', ''),
 ('W123', 'Piyadasa Sirisena', NULL, '123', NULL, 8, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W12345', 'Nimal Kariyawasam', '952611224V', '12345', NULL, 8, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W1234567890', 'Sunimal Bandara', NULL, '1234567890', NULL, NULL, 'asithakusalk8@gmail.com', NULL, '../Assests/worker/37595595_656646908032881_6851841716211679232_n.jpg'),
-('W192', 'Siripala Sirisena', NULL, '192', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W2147483647', 'Srinath Sekara', NULL, '07668972390', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W3986434', 'Piyal Bandara', NULL, '3986434', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W767899009', 'Sirima Jayanatha', NULL, '0767899009', NULL, NULL, 'asithaindrajithk9@gmail.com', NULL, '../Assests/worker/37595595_656646908032881_6851841716211679232_n.jpg'),
-('W772447123', 'Nivedan Kanakaraja', NULL, '0772447123', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W772447479', 'Devis Imesha', NULL, '0772447479', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W772447656', 'Siripala Jayathunga', NULL, '0772447656', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W772447875', 'Kumaraswami banadara', NULL, '0772447875', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W786578902', 'Pisiri Mangala', NULL, '0786578902', NULL, NULL, 'kentsteinwall@gmail.com', NULL, '../Assests/worker/35417748_435970473496905_2404464409041698816_o.jpg'),
-('W89897889', 'Diyon Malaka', '967856112V', '89897889', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', ''),
-('W987654', 'Piyumal Botheju', NULL, '0987654', NULL, NULL, 'asithaindrajithk9@gmail.com', 'offline', '');
+('W12345', 'Nimal Kariyawasam', '952611224V', '12345', NULL, 8, 'asithaindrajithk9@gmail.com', 'online', ''),
+('W2147483647', 'Srinath Sekara', NULL, '07668972390', NULL, 2, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W3986434', 'Piyal Bandara', NULL, '3986434', NULL, 0, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W772447123', 'Nivedan Kanakaraja', NULL, '0772447123', NULL, 0, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W772447479', 'Devis Imesha', NULL, '0772447479', NULL, 5, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W772447875', 'Kumaraswami banadara', NULL, '0772447875', NULL, 6, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W786578902', 'Pisiri Mangala', NULL, '0786578902', NULL, 7, 'kentsteinwall@gmail.com', NULL, '../Assests/worker/35417748_435970473496905_2404464409041698816_o.jpg'),
+('W89897889', 'Diyon Malaka', '967856112V', '89897889', NULL, 0, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W987654', 'Piyumal Botheju', NULL, '0987654', NULL, 0, 'asithaindrajithk9@gmail.com', 'offline', '');
 
 -- --------------------------------------------------------
 
@@ -372,20 +375,21 @@ CREATE TABLE `worker_leaves` (
 
 CREATE TABLE `worker_pending` (
   `jobID` int(11) NOT NULL,
-  `workerID` varchar(45) NOT NULL
+  `workerID` varchar(45) NOT NULL,
+  `isDone` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `worker_pending`
 --
 
-INSERT INTO `worker_pending` (`jobID`, `workerID`) VALUES
-(180002, 'W123'),
-(180002, 'W772447479'),
-(180002, 'W786578902'),
-(180023, 'W12'),
-(180023, 'W12345'),
-(180028, 'W89897889');
+INSERT INTO `worker_pending` (`jobID`, `workerID`, `isDone`) VALUES
+(180002, 'W772447479', 0),
+(180002, 'W786578902', 0),
+(180023, 'W12', 0),
+(180023, 'W12345', 0),
+(180028, 'W89897889', 0),
+(180031, 'W123', 0);
 
 --
 -- Indexes for dumped tables
@@ -478,7 +482,7 @@ ALTER TABLE `worker_pending`
 -- AUTO_INCREMENT for table `company_job`
 --
 ALTER TABLE `company_job`
-  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `invoice`
 --
@@ -488,7 +492,7 @@ ALTER TABLE `invoice`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `supplier_job`
 --
