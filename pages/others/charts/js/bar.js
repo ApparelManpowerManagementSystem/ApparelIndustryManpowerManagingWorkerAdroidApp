@@ -7,8 +7,8 @@
             var jobType = [];
             var jobCount = [];
 			var chartColors = {
-            green: 'rgb(70, 214, 8)',
-            red: 'rgb(242, 26, 2)'
+            green: 'rgb(5, 140, 16)',
+            red: 'rgb(135, 1, 3)'
            };
 			
 			
@@ -28,14 +28,38 @@ var myChart = new Chart(ctx, {
     datasets: [{
       label: 'Job Progress',
       backgroundColor: [
-       
+
       ],
       data: jobCount 
-    }],
-  }
-});
+    }]},
+      options: {
+          scales: {
+              xAxes: [{
+                  scaleLabel: {
+                      display: true,
+                      labelString: 'Job Type',
+                      fontStyle: "bold",
+                      fontColor: "black"
 
-var colorChangeValue = 500; 
+                  }
+              }],
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true,
+                  },
+                  scaleLabel: {
+                      display: true,
+                      labelString: 'Job Count',
+                      fontStyle: "bold",
+                      fontColor: "black"
+                  }
+              }]
+          }
+      }
+  });
+
+
+var colorChangeValue = 1500;
 var dataset = myChart.data.datasets[0];
 for (var i = 0; i < dataset.data.length; i++) {
   if (dataset.data[i] > colorChangeValue) {

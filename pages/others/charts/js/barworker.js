@@ -7,8 +7,8 @@ $(document).ready(function(){
             var jobType = [];
             var workerCount = [];
             var chartColors = {
-                green: 'rgb(70, 214, 8)',
-                red: 'rgb(242, 26, 2)'
+                green: 'rgb(5, 140, 16)',
+                red: 'rgb(135, 1, 3)'
             };
 
 
