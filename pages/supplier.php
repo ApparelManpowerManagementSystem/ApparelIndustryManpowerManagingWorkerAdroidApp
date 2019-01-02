@@ -171,7 +171,7 @@ session_start();
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="others/charts/chartjs.html" class="nav-link">
+            <a href="others/charts/chartjs.php" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Reports
