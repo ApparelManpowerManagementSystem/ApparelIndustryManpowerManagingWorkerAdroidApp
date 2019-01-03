@@ -19,8 +19,9 @@ if(isset($_POST['updateProfile'])){ // Fetching variables of the form which trav
 
     if(mysqli_query($conn,$querys))
     {
-        echo "Data Updated successfully...!!";
-       /* echo "<script>window.location.replace('../worker.php');</script>";*/
+
+       echo "<script>window.location.replace('../worker.php');</script>";
+        echo "<script>alert('Update Succefull')</script>";
     }
     else{
         echo "<script>window.location.replace('../worker.php');</script>";
