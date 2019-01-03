@@ -1,5 +1,6 @@
 	<?php
         session_start();
+
     
     ?>
     <!DOCTYPE html>
@@ -71,35 +72,37 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
 						<div class="banner-content col-lg-12" style="padding:0;">
 								<h1 style="text-align:left">We have 1500+ Manpower jobs</h1>
-							<form action="./query_boxes/supplier_jobs_view_by_search.php" class="serach-form-area">
+							<form action="./query_boxes/supplier_jobs_view_by_search.php" class="serach-form-area" method="post">
 								<div class="row justify-content-center form-wrap" style="background-color: white;border: 0">
+
 									<div class="col-lg-4 form-cols">
-										<input id="myInput" type="text" class="form-control" name="search" placeholder="what are you looking for?">
+										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?">
 									</div>
 									<div class="col-lg-3 form-cols">
-										<div class="default-select" id="default-selects">
-											<select>
+										<div class="default-select" id="select_area">
+											<select id="select_area" name="select_area">
 												<option value="1">Select area</option>
-												<option value="2">Homagama</option>
-												<option value="3">Maharagama</option>
-												<option value="4">Ranala</option>
-												<option value="5">Pannipitiya</option>
+												<option value="Homagama">Homagama</option>
+												<option value="Maharagama">Maharagama</option>
+												<option value="Ranala">Ranala</option>
+												<option value="Pannipitiya">Pannipitiya</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-lg-3 form-cols">
-										<div class="default-select" id="default-selects2">
-											<select>
+										<div class="default-select" id="select_category">
+											<select id="select_category" name="select_category">
 												<option value="1">All Category</option>
-												<option value="2">CPI</option>
-												<option value="3">Shade Segrigation</option>
-												<option value="4">Cutting</option>
-												<option value="5">Ironing</option>
+												<option value="CPI">CPI</option>
+												<option value="Shade Segrigation">Shade Segrigation</option>
+												<option value="Cutting">Cutting</option>
+												<option value="Ironing">Ironing</option>
 											</select>
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <input type="submit" class="btn btn-primary" value="Search">
+									    <input type="submit" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
+                                       <!-- <li class="btn btn-primary" input type="submit"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')">Search</a></li>-->
 									</div>								
 								</div>
 							</form>
@@ -107,7 +110,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->	
+			<!-- End banner Area -->
 
 			
 			<!-- Start post Area -->
@@ -126,10 +129,16 @@
                                     require_once('../db_config/config.php');
                                     require_once('./query_boxes/worker_accepted_job.php');
                             ?>
-                            
-                            
-                           
-                                
+
+
+                            <div id="showtable" style="margin-top:5px">
+                                <h2>Search Results</h2>
+                                <?php
+                                require_once('../db_config/config.php');
+                                require_once('./query_boxes/supplier_jobs_view_by_search.php');
+                                ?>
+                            </div>
+
 								
                                 <div id="normal" style="margin-top:5px">
                                     <h2>All Jobs</h2>
