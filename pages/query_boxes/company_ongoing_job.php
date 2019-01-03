@@ -1,5 +1,5 @@
 <?php
-    $queryJob="SELECT * FROM company_job WHERE jobStatus='offline'";
+    $queryJob="SELECT * FROM company_job WHERE jobStatus='online'";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
@@ -13,8 +13,7 @@
                     <td>".$rowJob['jobPeriod']."</td>
                     <td>".$rowJob['jobPrice']."</td>
                     <td>".$rowJob['jobDate']."</td>
-                    <td><button style='margin:2px' class='btn btn-warning' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button>
-                    <button class='btn btn-danger' >Cancel</button></td>
+                  
                 </tr>";
             
             echo "<div>

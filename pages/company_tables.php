@@ -121,12 +121,12 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li class="bg-primary">
-                            <a style="color:white" href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <li>
+                            <a href="company.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         
-                        <li>
-                            <a href="./company_tables.php"><i class="fa fa-table fa-fw"></i> Published Jobs Tables</a>
+                        <li class="bg-primary">
+                            <a style="color:white" href="#"><i class="fa fa-table fa-fw"></i> Published Jobs Tables</a>
                         </li>
                         <li>
                             <a href="./company_invoices.php"><i class="fa fa-table fa-fw"></i> Invoices</a>
@@ -143,150 +143,42 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">Data Tables</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
            <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary" >
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
+                                    <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
                                     <?php
                                         require_once '../db_config/config.php';
-                                        require_once './query_boxes/company_ongoing_jobs_count.php';
+                                        require_once './query_boxes/company_all_jobs_count.php';
                                     ?>  </div>
-                                    <div>Ongoings!</div>
+                                    <div>All Jobs</div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="panel-footer" onclick="show_div('all');hide_div('mend');hide_div('iron');hide_div('cut');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('cpi');">
+                           <small>View All Jobs <span class="fa fa-arrow-right"></span></small>
                         </div>
                         
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3" >
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">
-                                        <?php
-                                            require_once '../db_config/config.php';
-                                            require_once './query_boxes/company_newly_published_jobs_count.php';
-                                        ?>
-                                    </div>
-                                    <div>Newly Published!</div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">
-                                        <?php
-                                            require_once '../db_config/config.php';
-                                            require_once './query_boxes/company_cancel_jobs_count.php';
-                                        ?></div>
-                                    <div>Canceled!</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">
-                                        <?php
-                                            require_once '../db_config/config.php';
-                                            require_once './query_boxes/company_rejected_lobs_count.php';
-                                        ?></div>
-                                    <div>Rejected!</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                
+                
             </div>
              <!-- /.row -->
              <div class="row">
-                 <div class="col-lg-12">
-                    <button data-target="#publish_company_job_modal" data-toggle="modal" class="btn btn-primary" style="margin:5px 0 10px 0">+Publish Jobs</button> 
-                 
-                 </div>
-                 
-                 <!--Publish company Job modal-->
-        <div>
-           <div class="modal fade" id="publish_company_job_modal" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
-                        <h3 class="modal-title">+Publish Job <small>on <?=date('Y-n-j') ?></small></h3>
-                    </div>
-                    <div class="modal-body">
-                        <form action="./query_boxes/company_publish_jobs.php" autocomplete="on" method="post">
-                            Enter Job Title
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" name="jobTitle">
-                            </div>
-                            Enter Job Type
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="jobType" placeholder="Enter Job type" name="jobType">
-                            </div>
-                            Enter Job Amount
-                             <div class="form-group">
-                                <input type="text" class="form-control" id="jobAmount" placeholder="Enter Job Amount" name="jobAmount">
-                            </div>
-                            Enter Job Period
-                             <div class="form-group">
-                                <input type="text" class="form-control" id="jobPeriod" placeholder="Enter Job Period" name="jobPeriod">
-                            </div>
-                            Enter Job Price
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="jobPrice" placeholder="Enter Job Price" name="jobPrice">
-                            </div>
-                            <div class="form-group hidden">
-                                <input type="text" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate">
-                            </div>                        
-                           
-                            <div class="form-row text-right">
-                                <div class="col-12">
-                                <button type="submit" name="addComJob" id="save" class="btn btn-primary">+Publish</button>
-                               </div>
-                            </div>
-                      </form>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--end Publish company Job modal-->
-             
-                   
+                
+                
         <!--Update company Profile model-->
         <div>
            <div class="modal fade" id="update_company_profile_modal" role="dialog">
@@ -344,18 +236,40 @@
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
+                                        Select Type
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
+                                        <li><a onclick="show_div('cpi');hide_div('mend');hide_div('iron');hide_div('cut');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('all');">CPI</a>
                                         </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
+                                        <li><a onclick="show_div('mend');hide_div('cpi');hide_div('iron');hide_div('cut');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('all');">Mending</a>
                                         </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
+                                        <li><a onclick="show_div('iron');hide_div('mend');hide_div('cpi');hide_div('cut');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('all');">Ironing</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
+                                        <li><a onclick="show_div('cut');hide_div('mend');hide_div('iron');hide_div('cpi');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('all');">Cutting</a>
+                                        </li><li class="divider"></li>
+                                        <li><a>Other</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Select Price
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a onclick="show_div('10');hide_div('mend');hide_div('iron');hide_div('cpi');hide_div('cut');hide_div('25');hide_div('50');hide_div('75');hide_div('all');">Greater Than Rs. 100000</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="show_div('75');hide_div('mend');hide_div('iron');hide_div('cpi');hide_div('10');hide_div('25');hide_div('50');hide_div('cut');hide_div('all');">Greater Than Rs. 75000</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="show_div('50');hide_div('mend');hide_div('iron');hide_div('cpi');hide_div('10');hide_div('25');hide_div('cut');hide_div('75');hide_div('all');">Greater Than Rs. 50000</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a onclick="show_div('25');hide_div('mend');hide_div('iron');hide_div('cpi');hide_div('10');hide_div('cut');hide_div('50');hide_div('75');hide_div('all');">Greater Than Rs. 25000</a>
+                                        </li><li class="divider"></li>
+                                        <li><a>Less Than Rs. 25000</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -363,9 +277,10 @@
                         </div>
                         <!-- /.panel-heading -->
                         
-                        <div class="panel-body">
+                        <div class="panel-body" id="all">
                             <div class="row">
                                 <div class="col-lg-12">
+                                    <h3>All Jobs</h3>
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
@@ -377,16 +292,17 @@
                                                     <th>Duration</th>
                                                     <th>Cost</th>
                                                     <th>Published</th>
-                                                    <th>Actions</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                  <?php
                                                         require_once('../db_config/config.php');
-                                                        require_once('./query_boxes/company_jobs_published.php');
+                                                        require_once('./query_boxes/company_all_published_jobs.php');
                                                 ?>
                                                 
                                             </tbody>
+                                            
                                         </table>
                                     </div>
                                     
@@ -395,6 +311,289 @@
                             </div>
                             <!-- /.row -->
                         </div>
+                        
+                        
+                        <div class="panel-body" id="cpi" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>All CPI Jobs</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_CPI.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="cut" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>All Cutting Jobs</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                             <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_Cut.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="iron" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>All Ironing Jobs</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_Iron.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="mend" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>All Mending Jobs</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_Mend.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="10" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>Price Greater Than Rs. 1000,00</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_price_lack.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="75" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>Price Greater Than Rs. 75,000</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_price_75.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="50" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>Price Greater Than Rs. 50,000</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_price_50.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        <div class="panel-body" id="25" style="display:none">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>Price Greater Than Rs. 25,000</h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_all_published_jobs_price_25.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                              
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        
+                        
                     </div>
                 </div>
                  </div>
@@ -437,17 +636,16 @@
                                                 <tr>
                                                     <th>Job ID</th>
                                                     <th>Job Title</th>
-                                                    <th>Type</th>
-                                                    <th>Amount</th>
-                                                    <th>Duration</th>
-                                                    <th>Price</th>
-                                                    <th>Published</th>
+                                                    <th>Job Status</th>
+                                                    <th>Job Count</th>
+                                                    <th>Job Progress</th>
+                                                    <th>Progress Update</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                     require_once '../db_config/config.php';
-                                                    require_once './query_boxes/company_ongoing_job.php';
+                                                    require_once './query_boxes/company_ongoing_jobs.php';
                                                 ?>
                                                 
                                             </tbody>
