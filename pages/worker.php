@@ -40,23 +40,21 @@
 		</head>
 		<body>
 
-        <header id="header" id="home">
+        <header id="header" id="home" style="background-color: rgba(0,0,0,0.7);height:60px">
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
                     <div id="logo">
                         <a href="index.html"><img style="width:20%" src="" alt="" title="" /></a>
                     </div>
                     <nav id="nav-menu-container">
+                        
                         <ul class="nav-menu">
-                            <li class="menu-active"><a href="index.html">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li class=""><a href=""><i class="fa fa-user"></i>User</a>
-                                <ul>
-                                    <li><a data-target="#update_worker_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> Profile</a>
-                                    <li><a href="./query_boxes/logout.php">Leave</a></li>
-                                    <li><a href="">Settings</a></li>
-                                </ul>
+                            <li class="menu-active"><a href="./worker.php"><i class="lnr lnr-home"></i></a></li>
+                           
+                            <li class="menu-dropdown"><a href="#" data-target="#update_worker_profile_modal" data-toggle="modal"><i class='lnr lnr-user'></i></a>
+                                
                             </li>
+                              <li><a href="./query_boxes/logout.php">Log Out</a></li>
                         </ul>
                     </nav><!-- #nav-menu-container -->
                 </div>
@@ -67,20 +65,20 @@
 
         <!-- start banner Area -->
 			<section class="banner-area relative" id="home" >
-				<div class="overlay overlay-bg" style="background-color:white"></div>
-				<div class="container" style="height:500px">
+				<div class="overlay overlay-bg" style="background-image:url('../img/banner/banner_image.jpg')"></div>
+				<div class="container" style="height:500px" style="background-image:url('../img/banner/banner_image.jpg')">
 					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
 						<div class="banner-content col-lg-12" style="padding:0;">
-								<h1 style="text-align:left">We have 1500+ Manpower jobs</h1>
+								<h1 style="text-align:left;color:white;padding:5px">We have 1500+ Manpower jobs</h1>
 							<form action="./query_boxes/supplier_jobs_view_by_search.php" class="serach-form-area" method="post">
-								<div class="row justify-content-center form-wrap" style="background-color: white;border: 0">
+								<div class="row justify-content-center form-wrap" style="background-color: rgba(0,0,0,0.3);border-radius: 2px;border:0">
 
 									<div class="col-lg-4 form-cols">
 										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?">
 									</div>
 									<div class="col-lg-3 form-cols">
 										<div class="default-select" id="select_area">
-											<select id="select_area" name="select_area">
+											<select class="form-control" id="select_area" name="select_area">
 												<option value="1">Select area</option>
 												<option value="Homagama">Homagama</option>
 												<option value="Maharagama">Maharagama</option>
@@ -91,7 +89,7 @@
 									</div>
 									<div class="col-lg-3 form-cols">
 										<div class="default-select" id="select_category">
-											<select id="select_category" name="select_category">
+											<select class="form-control" id="select_category" name="select_category">
 												<option value="1">All Category</option>
 												<option value="CPI">CPI</option>
 												<option value="Shade Segrigation">Shade Segrigation</option>
@@ -101,7 +99,7 @@
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <input type="submit" name="search" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
+									    <input style="width:100%" type="submit" name="search" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
                                        <!-- <li class="btn btn-primary" input type="submit"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')">Search</a></li>-->
 									</div>								
 								</div>
@@ -184,7 +182,7 @@
 
 							<div class="single-slidebar">
 								<h4>Top Favourite job posts</h4>
-								<div class="active-relatedjob-carusel">					<?php
+								<div class="active-related-job-carusel">					<?php
                                         require_once('../db_config/config.php');
                                         require_once('./query_boxes/supplier_jobs_view_by_rating.php');
                                     
@@ -217,14 +215,15 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+                            
+                            <h3 class="modal-title"><?=$_SESSION['userName']?> <small> Profile</small></h3>
                             <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
-                            <h3 class="modal-title">Profile <small>on <?=date('Y-n-j') ?></small></h3>
                         </div>
                         <div class="modal-body">
                             <form action="./query_boxes/worker_update_profile.php" autocomplete="on" method="post">
                                 Worker ID
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="workerID"  name="workerID" value='<?=$_SESSION['userID']?>' >
+                                    <input type="text" class="form-control" id="workerID"  name="workerID" value='<?=$_SESSION['userID']?>' readonly>
                                 </div>
                                 Name
                                 <div class="form-group">
@@ -244,9 +243,9 @@
                                 </div>
 
 
-                                <div class="form-row text-right">
+                                <div class="form-row">
                                     <div class="col-12">
-                                        <button type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
+                                        <button style="width:100%" type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </form>
