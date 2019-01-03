@@ -79,7 +79,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <span class id="count" ></span><i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="badge badge-warning navbar-badge" id="count" ></span><i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts" id=notifications>
                         
