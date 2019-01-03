@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,8 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+     <script src="../js/show_div.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,38 +55,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+                <a class="navbar-brand" href="index.html"><strong><?=$_SESSION['userName']?><Small> Pvt. Ltd Company</Small></strong></a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>	
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
+                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -150,52 +126,19 @@
                         </li>
                         
                         <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Published Jobs Tables</a>
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Locations Tables</a>
+                        </li>
+                        <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Invoices</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                       
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        
+                       
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -220,11 +163,12 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php
-                        require_once '../db_config/config.php';
-                        require_once './query_boxes/company_ongoing_jobs_count.php';
-                    ?>  </div>
-                                    <div>Ongoing!</div>
+                                    <div class="huge">
+                                    <?php
+                                        require_once '../db_config/config.php';
+                                        require_once './query_boxes/company_ongoing_jobs_count.php';
+                                    ?>  </div>
+                                    <div>Ongoings!</div>
                                 </div>
                             </div>
                         </div>
@@ -235,14 +179,16 @@
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-3">
+                                <div class="col-xs-3" >
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php
-                        require_once '../db_config/config.php';
-                        require_once './query_boxes/company_newly_published_jobs_count.php';
-                    ?></div>
+                                    <div class="huge">
+                                        <?php
+                                            require_once '../db_config/config.php';
+                                            require_once './query_boxes/company_newly_published_jobs_count.php';
+                                        ?>
+                                    </div>
                                     <div>Newly Published!</div>
                                 </div>
                             </div>
@@ -258,10 +204,11 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php
-                        require_once '../db_config/config.php';
-                        require_once './query_boxes/company_cancel_jobs_count.php';
-                    ?></div>
+                                    <div class="huge">
+                                        <?php
+                                            require_once '../db_config/config.php';
+                                            require_once './query_boxes/company_cancel_jobs_count.php';
+                                        ?></div>
                                     <div>Canceled!</div>
                                 </div>
                             </div>
@@ -277,10 +224,11 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php
-                        require_once '../db_config/config.php';
-                        require_once './query_boxes/company_rejected_lobs_count.php';
-                    ?></div>
+                                    <div class="huge">
+                                        <?php
+                                            require_once '../db_config/config.php';
+                                            require_once './query_boxes/company_rejected_lobs_count.php';
+                                        ?></div>
                                     <div>Rejected!</div>
                                 </div>
                             </div>
@@ -294,7 +242,9 @@
                  <div class="col-lg-12">
                     <button data-target="#publish_company_job_modal" data-toggle="modal" class="btn btn-primary" style="margin:5px 0 10px 0">+Publish Jobs</button> 
                  
-                 </div><!--Publish company Job modal-->
+                 </div>
+                 
+                 <!--Publish company Job modal-->
         <div>
            <div class="modal fade" id="publish_company_job_modal" role="dialog">
                 <div class="modal-dialog">
@@ -331,7 +281,7 @@
                            
                             <div class="form-row text-right">
                                 <div class="col-12">
-                                <button type="submit" name="addComJob" id="save" class="btn btn-primary">Publish</button>
+                                <button type="submit" name="addComJob" id="save" class="btn btn-primary">+Publish</button>
                                </div>
                             </div>
                       </form>
@@ -388,13 +338,15 @@
             </div>
         </div>
         <!--end Update company Profile modal-->
-            <div class="row">
-                <div class="col-lg-8">
+                 
+                 
+            <div id="published" class="row">
+                <div class="col-lg-12">
                    
                     <!-- /.panel -->
                     <div class="panel panel-default">
                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Company Jobs
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Published Jobs
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -402,33 +354,87 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Published</a>
-                                        </li>
-                                        <li><a href="#">Rejected</a>
-                                        </li>
-                                        <li><a href="#">Canceled</a>
+                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- /.panel-heading -->
+                        
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                     <?php
-                                    require_once('../db_config/config.php');
-                                    require_once('./query_boxes/company_jobs_published.php');
-                            ?>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 <?php
+                                                        require_once('../db_config/config.php');
+                                                        require_once('./query_boxes/company_jobs_published.php');
+                                                ?>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
                                 </div>
                               
                             </div>
                             <!-- /.row -->
                         </div>
-                        <div class="panel-body">
+                    </div>
+                </div>
+                 </div>
+                
+                <div id="ongoings" class="row" style="display:none">
+                <div class="col-lg-12">
+                   
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                       <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Ongoings Jobs
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        
+                        <div class="panel-body" >
                             <div class="row">
                                <div class="col-lg-12">
                                     <div class="table-responsive">
@@ -455,36 +461,148 @@
                                     
                                 </div>
 
-                                
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    </div>
+                 </div>
+                    
+                    
+                    <div id="rejected" class="row" style="display:none">
+                <div class="col-lg-12">
+                   
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                       <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Rejected Jobs
+                           <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        
+                        <div  class="panel-body" >
+                            <div class="row">
+                               <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Job ID</th>
+                                                    <th>Job Title</th>
+                                                    <th>Job Status</th>
+                                                    <th>Job Count</th>
+                                                    <th>Job Progress</th>
+                                                    <th>Progress Update</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    require_once '../db_config/config.php';
+                                                   // require_once './query_boxes/company_jobs_rejected.php';
+                                                ?>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+
                               
                             </div>
                             <!-- /.row -->
                         </div>
                         <!-- /.panel-body -->
-                    </div> 
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
+                    </div>
+                    </div>
+                 </div>
+                        
+                <div id="canceled" class="row" style="display:none">
+                    <div class="col-lg-12">
                     <!-- /.panel -->
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Rejected Jobs
+                       <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Canceled Jobs
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
+                                        </li><li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <?php
-                                    require_once '../db_config/config.php';
-                                    require_once './query_boxes/company_jobs_canceled.php';
-                                ?>
+                        
+                        <div  class="panel-body" >
+                            <div class="row">
+                               <div class="col-lg-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Cost</th>
+                                                    <th>Published</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    require_once '../db_config/config.php';
+                                                    require_once './query_boxes/company_jobs_canceled.php';
+                                                ?>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+
+                              
                             </div>
-                            <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                            <!-- /.row -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
+                            </div>
+             
                 </div>
-                <!-- /.col-lg-4 -->
+                
             </div>
             <!-- /.row -->
         </div>

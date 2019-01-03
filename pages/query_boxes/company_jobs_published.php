@@ -5,20 +5,18 @@
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
             $date=date("y-m-d");
-            echo "<div style='line-height:14px;width:100%;height:100%;border:1px solid lightgrey;background-color:rgb(239, 240, 242,0.5);margin:0 0 5px 0;padding:4px'>
-                <h3>".$rowJob['jobTitle']." <small>Published on ".$rowJob['jobDate']."</small> <li class='btn btn-default'> ".$rowJob['jobStatus']."</li></h3>
-                <hr>
-                
-                <p>
-                    <div style='text-align:right'>
-                        <button data-target='#".$rowJob['jobID']."' data-toggle='modal' class='btn btn-success' >Edit</button>
-                        
-                        <button class='btn btn-danger' >Cancel</button>
-                        
-                    </div>
-                </p>
-
-                </div>";
+            echo "<tr>
+                    <td>".$rowJob['jobID']."</td>
+                    <td>".$rowJob['jobTitle']."</td>
+                    <td>".$rowJob['jobType']."</td>
+                    <td>".$rowJob['jobAmount']."</td>
+                    <td>".$rowJob['jobPeriod']."</td>
+                    <td>".$rowJob['jobPrice']."</td>
+                    <td>".$rowJob['jobDate']."</td>
+                    <td><button style='margin:2px' class='btn btn-warning' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button>
+                    <button class='btn btn-danger' >Cancel</button></td>
+                </tr>";
+            
             echo "<div>
                     <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
                         <div class='modal-dialog'>
