@@ -13,7 +13,7 @@
                     <td>".$rowJob['jobTitle']."</td>
                     <td>".$rowJob['price']."</td>
                     <td class='bg-success'>Paid</td>
-                    <td><button class='btn btn-default'>Print</button></td>
+                    <td><a href='../print/print.php?id=".$rowJob['invoiceID']."' target='_blank'><button class='btn btn-default'>Print</button></a></td>
                     
                 </tr>";
             }else{
@@ -23,7 +23,7 @@
                     <td>".$rowJob['jobTitle']."</td>
                     <td>".$rowJob['price']."</td>
                     <td><button class='btn btn-primary'>Pay</button></td>
-                    <td><button class='btn btn-default'>Print</button></td>
+                    <td><a href='../print/print.php?id=".$rowJob['invoiceID']."' target='_blank'><button class='btn btn-default'>Print</button></a></td>
                     
                 </tr>";
             }
