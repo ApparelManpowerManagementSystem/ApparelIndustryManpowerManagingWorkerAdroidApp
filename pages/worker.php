@@ -174,7 +174,7 @@
 							</div>
 
 							<div class="single-slidebar">
-								<h4>Top rated job posts</h4>
+								<h4>Top Favourite job posts</h4>
 								<div class="active-relatedjob-carusel">					<?php
                                         require_once('../db_config/config.php');
                                         require_once('./query_boxes/supplier_jobs_view_by_rating.php');
