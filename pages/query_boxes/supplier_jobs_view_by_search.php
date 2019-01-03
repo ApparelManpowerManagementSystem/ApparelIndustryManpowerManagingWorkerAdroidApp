@@ -1,11 +1,14 @@
 <?php
-if(isset($_POST["search"])) {
+
+if(isset($_POST['search'])) {
+   
+    require_once '../../db_config/config.php';
     $value = $_POST['keyword'];
     $area = $_POST['select_area'];
     $category = $_POST['select_category'];
     $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.jobStatus='offline' AND (supplier_job.jobType='$category' OR location.locCity='$area') AND supplier_job.jobTitle='$value'";
 
-    $result = mysqli_query($conn, $queryview);
+    $result = mysqli_query($conn,$queryview);
 
     if (mysqli_num_rows($result) > 0) {
 

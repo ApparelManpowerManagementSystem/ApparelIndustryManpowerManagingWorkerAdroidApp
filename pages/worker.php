@@ -101,7 +101,7 @@
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <input type="submit" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
+									    <input type="submit" name="search" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
                                        <!-- <li class="btn btn-primary" input type="submit"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')">Search</a></li>-->
 									</div>								
 								</div>
