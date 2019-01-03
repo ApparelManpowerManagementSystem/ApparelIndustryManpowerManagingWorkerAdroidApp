@@ -51,8 +51,8 @@
                             <li><a href="about-us.html">About Us</a></li>
                             <li class=""><a href=""><i class="fa fa-user"></i>User</a>
                                 <ul>
-                                    <li><a href="">Profile</a></li>
-                                    <li><a href="">Leave</a></li>
+                                    <li><a data-target="#update_worker_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> Profile</a>
+                                    <li><a href="./query_boxes/logout.php">Leave</a></li>
                                     <li><a href="">Settings</a></li>
                                 </ul>
                             </li>
@@ -201,6 +201,51 @@
 					</div>
 				</div>	
 			</section>
+
+
+        <div>
+            <div class="modal fade" id="update_worker_profile_modal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
+                            <h3 class="modal-title">Profile <small>on <?=date('Y-n-j') ?></small></h3>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./query_boxes/worker_update_profile.php" autocomplete="on" method="post">
+                                Worker ID
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="workerID"  name="workerID" value='<?=$_SESSION['userID']?>' >
+                                </div>
+                                Name
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="workerName"  name="workerName" value='<?=$_SESSION['userName']?>'>
+                                </div>
+                                Contact No
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="workerPhone" name="workerPhone" value='<?=$_SESSION['userMobile']?>'>
+                                </div>
+                                NIC
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="workerNIC" name="workerNIC" value='<?=$_SESSION['userNIC']?>'>
+                                </div>
+                                Email Address
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="workerEmail" name="workerEmail" value='<?=$_SESSION['userEmail']?>'>
+                                </div>
+
+
+                                <div class="form-row text-right">
+                                    <div class="col-12">
+                                        <button type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 			<!-- End post Area -->
 
 
