@@ -3,11 +3,11 @@
     if(isset($_POST['updateProfile'])){ // Fetching variables of the form which travels in URL
         
         require_once '../../db_config/config.php';
-        $comID=$_POST['comID'];
-        $comName= $_POST['comName'];
-        $comPhone = $_POST['comPhone'];
-        $comAdd = $_POST['comAddress'];
-        $comEmail = $_POST['comEmail'];
+        $comID=$_POST['CompanyId'];
+        $comName= $_POST['CompanyName'];
+        $comPhone = $_POST['ContactNo'];
+        $comAdd = $_POST['CompanyAdd'];
+        $comEmail = $_POST['CompanyEmail'];
         
         $_SESSION['userID']=$comID;
         $_SESSION['userName']=$comName;

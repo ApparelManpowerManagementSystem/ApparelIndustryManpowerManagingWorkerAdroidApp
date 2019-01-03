@@ -356,23 +356,23 @@
                         <form action="./query_boxes/company_update_profile.php" autocomplete="on" method="post">
                             Company Id
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='"<?=$_SESSION['userID']?>"' readonly>
+                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='<?=$_SESSION['userID']?>' readonly>
                             </div>
                             Company Name
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='"<?=$_SESSION['userName']?>"'>
+                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='<?=$_SESSION['userName']?>'>
                             </div>
                             Company Contact No 
                              <div class="form-group">
-                                <input type="text" class="form-control" id="ContactNo" name="ContactNo" value='"<?=$_SESSION['userMobile']?>"'>
+                                <input type="text" class="form-control" id="ContactNo" name="ContactNo" value='<?=$_SESSION['userMobile']?>'>
                             </div>
                             Company Address
                              <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='"<?=$_SESSION['userAddress']?>"'>
+                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='<?=$_SESSION['userAddress']?>'>
                             </div>
                             Company Email Address
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyEmail" name="CompanyEmail" value='"<?=$_SESSION['userEmail']?>"'>
+                                <input type="text" class="form-control" id="CompanyEmail" name="CompanyEmail" value='<?=$_SESSION['userEmail']?>'>
                             </div>
                                                     
                            
