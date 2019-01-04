@@ -166,9 +166,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer" onclick="">
+                        <!--div class="panel-footer" onclick="">
                            <small>View All Invoices <span class="fa fa-arrow-right"></span></small>
-                        </div>
+                        </div-->
                         
                     </div>
                 </div>
