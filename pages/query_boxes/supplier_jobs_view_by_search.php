@@ -2,11 +2,10 @@
 
 if(isset($_POST['search'])) {
    
-    require_once '../../db_config/config.php';
     $value = $_POST['keyword'];
     $area = $_POST['select_area'];
     $category = $_POST['select_category'];
-    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.jobStatus='offline' AND (supplier_job.jobType='$category' OR location.locCity='$area') AND supplier_job.jobTitle='$value'";
+    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.locationID=location.locID AND supplier_job.jobStatus='offline' AND (supplier_job.jobTitle LIKE '$value' OR supplier_job.jobNature='$category' OR location.locCity='$area') ORDER BY supplier_job.jobID DESC";
 
     $result = mysqli_query($conn,$queryview);
 
@@ -20,7 +19,6 @@ if(isset($_POST['search'])) {
 
             $rowLocation = mysqli_fetch_assoc($resultLocation);
             $locationName = $rowLocation['locName'];
-            $locationAddress = $rowLocation['locStreet'] . ", " . $rowLocation['locVillage'] . ", " . $rowLocation['locCity'];
 
 
             echo "<div class='single-post d-flex flex-row'><div class='thumb'>
@@ -33,15 +31,15 @@ if(isset($_POST['search'])) {
                             <a href=''><h4>" . $rowJob['jobTitle'] . "<small> Published on " . $rowJob['jobPublished'] . "</small></h4></a>
                             <h6>By " . $locationName . "</h6>					
                         </div>
-                        <ul class='btns'>
-                            <li><a href='#'>Apply</a></li>
+                        <ul>
+                            <li><a class='btn btn-primary' href='./query_boxes/worker_accept_jobs.php?jobID=".$rowJob['jobID']."'>Apply</a></li>
                         </ul>
                     </div>
-                    <p >" . $rowJob['jobCount'] . " pieces needs to do " . $rowJob['jobType'] . ". Every manpower member has to work at most " . $rowJob['jobPeriod'] . " days. 
+                    <p >" . $rowJob['jobCount'] . " pieces needs to do <label class='bg-warning'>" . $rowJob['jobType'] . ".</label> Every manpower member has to work at most " . $rowJob['jobPeriod'] . " days. 
                     <strong></strong> Job should be complete within " . $rowJob['jobPeriod'] . " days.</p>
 
-                    <h5>Job Nature: " . $rowJob['jobNature'] . "</h5>
-                    <p class='address'><span class=''></span>" . $locationAddress . "</p>
+                    <h5>Job Nature: <label class='bg-warning'>" . $rowJob['jobNature'] . "</label></h5>
+                    <p class='address'><span class=''></span>".$rowLocation['locStreet'] . ", " . $rowLocation['locVillage'] . ", <label class='bg-warning'>" . $rowLocation['locCity']."</label></p>
                     <p class='address'><span class=''></span>" . $rowJob['workersJoined'] . " joined.</p>
                 </div></div>";
 
@@ -57,6 +55,8 @@ if(isset($_POST['search'])) {
 
 
         }
+    }else{
+        echo "No any jobs found!";
     }
 }
 ?>

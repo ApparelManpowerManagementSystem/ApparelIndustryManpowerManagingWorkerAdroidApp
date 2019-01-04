@@ -70,11 +70,11 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
 						<div class="banner-content col-lg-12" style="padding:0;">
 								<h1 style="text-align:left;color:white;padding:5px">We have 1500+ Manpower jobs</h1>
-							<form action="./worker_search.php" class="serach-form-area" method="post">
+							<form action="./worker.php" class="serach-form-area" method="post">
 								<div class="row justify-content-center form-wrap" style="background-color: rgba(0,0,0,0.3);border-radius: 2px;border:0">
 
 									<div class="col-lg-4 form-cols">
-										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?" required>
+										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?">
 									</div>
 									<div class="col-lg-3 form-cols">
 										<div class="default-select" id="select_area">
@@ -93,11 +93,12 @@
 												<option value="1">Select Nature</option>
 												<option value="Full Time">Full Time</option>
 												<option value="Part Time">Part Time</option>
+												
 											</select>
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <input style="width:100%" type="submit" name="search" id="search" class="btn btn-primary" value="Search">
+									    <input style="width:100%" type="submit" name="search" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
                                        <!-- <li class="btn btn-primary" input type="submit"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')">Search</a></li>-->
 									</div>								
 								</div>
@@ -125,6 +126,15 @@
                                     require_once('../db_config/config.php');
                                     require_once('./query_boxes/worker_accepted_job.php');
                             ?>
+
+
+                            <div id="showtable" style="margin-top:5px">
+                                <h2>Search Results of <small><?=$_POST['keyword']?></small></h2>
+                                <?php
+                                require_once('../db_config/config.php');
+                                require_once('./query_boxes/supplier_jobs_view_by_search.php');
+                                ?>
+                            </div>
 
 								
                                 <div id="normal" style="margin-top:5px">
