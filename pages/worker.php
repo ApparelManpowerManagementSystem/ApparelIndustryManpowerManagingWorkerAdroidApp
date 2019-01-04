@@ -70,7 +70,7 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
 						<div class="banner-content col-lg-12" style="padding:0;">
 								<h1 style="text-align:left;color:white;padding:5px">We have 1500+ Manpower jobs</h1>
-							<form action="./worker_search.php" class="serach-form-area" method="post">
+							<form action="./worker_search.php" class="serach-form-area" method="get">
 								<div class="row justify-content-center form-wrap" style="background-color: rgba(0,0,0,0.3);border-radius: 2px;border:0">
 
 									<div class="col-lg-4 form-cols">
@@ -121,11 +121,12 @@
 								<li class="btn btn-primary"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');show_div('part_jobs');">part Time</a></li>
 							</ul>
                             
+                            <div>
                             <?php
                                     require_once('../db_config/config.php');
                                     require_once('./query_boxes/worker_accepted_job.php');
                             ?>
-
+                            </div>
 								
                                 <div id="normal" style="margin-top:5px">
                                     <h2>All Jobs</h2>

@@ -52,6 +52,10 @@ Phone: (+94) 766897230</textarea>
 
                     <table id='meta'>
                         <tr>
+                            <td class='meta-head'>Customer ID</td>
+                            <td><div class='due'>".$userID."</div></td>
+                        </tr>
+                        <tr>
                             <td class='meta-head'>Invoice #</td>
                             <td><textarea>".$rowJob['invoiceID']."</textarea></td>
                         </tr>

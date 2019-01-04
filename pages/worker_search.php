@@ -70,7 +70,7 @@
 					<div class="row fullscreen d-flex align-items-center justify-content-center" style="background-color:white">
 						<div class="banner-content col-lg-12" style="padding:0;">
 								<h1 style="text-align:left;color:white;padding:5px">We have 1500+ Manpower jobs</h1>
-							<form action="./worker.php" class="serach-form-area" method="post">
+							<form action="./worker.php" class="serach-form-area" method="get">
 								<div class="row justify-content-center form-wrap" style="background-color: rgba(0,0,0,0.3);border-radius: 2px;border:0">
 
 									<div class="col-lg-4 form-cols">
@@ -129,7 +129,7 @@
 
 
                             <div id="showtable" style="margin-top:5px">
-                                <h2>Search Results of <small><?=$_POST['keyword']?></small></h2>
+                                <h2>Search Results of <small><?=$_GET['keyword']?></small></h2>
                                 <?php
                                 require_once('../db_config/config.php');
                                 require_once('./query_boxes/supplier_jobs_view_by_search.php');

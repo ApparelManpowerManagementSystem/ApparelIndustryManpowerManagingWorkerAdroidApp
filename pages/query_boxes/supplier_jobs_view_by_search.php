@@ -1,14 +1,12 @@
 <?php
 
-if(isset($_POST['search'])) {
-   
-    $value = $_POST['keyword'];
-    $area = $_POST['select_area'];
-    $category = $_POST['select_category'];
-    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.locationID=location.locID AND supplier_job.jobStatus='offline' AND (supplier_job.jobTitle LIKE '$value' OR supplier_job.jobNature='$category' OR location.locCity='$area') ORDER BY supplier_job.jobID DESC";
-
+if(isset($_GET['search']) or isset($_GET['keyword'])) {
+    $value = $_GET['keyword'];
+    $area = $_GET['select_area'];
+    $category = $_GET['select_category'];
+    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.locationID=location.locID AND (supplier_job.jobStatus='offline' OR supplier_job.jobStatus='pending') AND (supplier_job.jobTitle LIKE '$value' OR supplier_job.jobNature='$category' OR location.locCity='$area' OR location.locCity='$value' OR supplier_job.jobType='$value') ORDER BY supplier_job.jobID DESC";
+    
     $result = mysqli_query($conn,$queryview);
-
     if (mysqli_num_rows($result) > 0) {
 
         while ($rowJob = mysqli_fetch_assoc($result)) {
@@ -42,16 +40,6 @@ if(isset($_POST['search'])) {
                     <p class='address'><span class=''></span>".$rowLocation['locStreet'] . ", " . $rowLocation['locVillage'] . ", <label class='bg-warning'>" . $rowLocation['locCity']."</label></p>
                     <p class='address'><span class=''></span>" . $rowJob['workersJoined'] . " joined.</p>
                 </div></div>";
-
-            /*
-
-            <div style='text-align:right'>
-                    <p>(<font style='color:red;'>".$rowJob['jobPeriod']."</font>/".($rowJob['workerCount']+5).") joined
-                        <a href='./query_boxes/worker_accept_jobs.php?jobID=".$rowJob['jobID']."'><button id='join_btn' class='btn btn-success' onclick="."show_div('job')".">Accept & Join</button></a>
-                    </p>
-                </div>
-                </div>
-            */
 
 
         }
