@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT COUNT(jobID) AS jobCount  FROM company_job WHERE jobStatus='cancel' ";
+    $query="SELECT COUNT(jobID) AS jobCount  FROM company_job WHERE jobStatus='cancle' ";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){
