@@ -166,7 +166,7 @@
           </li>
             
             <li class="nav-item has-treeview">
-            <a href="dataLoc.php" class="nav-link">
+            <a href="dataLoc.php" class="nav-link active">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Locations Tables
@@ -263,6 +263,20 @@
                   <button type="button" class="btn btn-tool" data-widget="remove">
                     <i class="fa fa-times"></i>
                   </button>
+                    
+                </div>
+                <div class='pull-left'>
+                    <button style="margin-top:10px" class="btn btn-primary">+Add Location</button>
+                </div>
+                <div class="pull-right">
+                <form class="form-inline" method="get" action="./dataLocSearch.php">
+                  <div class="form-group">
+                    
+                    <input style="margin:5px" placeholder="search" type="text" class="form-control" name="search" required>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
                 </div>
             </div>
             <!-- /.card-header -->

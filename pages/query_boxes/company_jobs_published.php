@@ -66,8 +66,6 @@
                     <div class='modal fade' id='cancel_job" . $rowJob['jobID'] . "' role='dialog'>
                         <div class='modal-dialog'>
                           <div class='modal-content' style='width: 70%'>
-                            
-                            
                             <div class='modal-body'>
                           
                                 <form action='./query_boxes/cancel_company_job.php' autocomplete='on' method='post'>
@@ -83,9 +81,9 @@
                                       
                                     </div>
                                       <div class=\"modal-footer\">
-                           <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='CanceledJob' required>
+                                        <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='CanceledJob' required>
                                         <input type='button' class='form-control btn btn-default' style='width:25%'' value='No' data-dismiss=\"modal\">
-      </div>
+                                    </div>
                                    
                                 </form>
                             </div>
