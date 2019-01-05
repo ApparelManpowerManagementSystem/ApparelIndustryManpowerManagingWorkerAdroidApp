@@ -2,8 +2,8 @@
 session_start();
 if(isset($_GET['jobID'])){
     if($_SESSION['userStatus']=='offline'){
-        //window.location.replace('../worker.php');
-        echo "<script>alert('You are already joined a job');</script>";
+        //
+        echo "<script>window.location.replace('../worker.php');alert('You are already joined a job');</script>";
 
         
     }else{

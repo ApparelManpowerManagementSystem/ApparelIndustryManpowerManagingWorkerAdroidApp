@@ -4,15 +4,15 @@
 	require_once '../../db_config/config.php';
 	$workerID=$_SESSION['userID'];
     $jobID=$_SESSION['jobID'];
+    $date=date("Y-m-d"); 
+    $time=date("h:i a");
 
+    $tempquery = "INSERT INTO worker_leaves (workerID,JobID,date,time) VALUES ('$workerID','$jobID','$date','$time')";
 
-$tempquery = "INSERT INTO worker_leaves (workerID,JobID,datetime) VALUES ('$workerID','$jobID',NOW())";
-
-$_SESSION['userStatus']='online';
-$userID=$_SESSION['userID'];
-$userType=$_SESSION['userType'];
-$notification=$userID." leaved from the job";
-if(mysqli_query($conn,$tempquery)){
+    $userID=$_SESSION['userID'];
+    $userType=$_SESSION['userType'];
+    $notification=$userID." leaved from the job";
+    if(mysqli_query($conn,$tempquery)){
 
 
     echo "
@@ -27,10 +27,10 @@ if(mysqli_query($conn,$tempquery)){
                 </div>
                 <div class='form-group'>
                  <label>Enter Notification</label>
-                 <input value=' left from the job' name='notification' id='notification' class='form-control' rows='5'>
+                 <input value='".$notification."' name='notification' id='notification' class='form-control' rows='5'>
                 </div>
                 <div class='form-group'>
-                 <input type='submit' name='post' id='post' class='btn btn-info' value='Post' />
+                 <input type='submit' name='notificationID' id='post' class='btn btn-info' value='".$userID."' />
                 </div>
             </form>";
 
@@ -42,7 +42,7 @@ if(mysqli_query($conn,$tempquery)){
 
 
 }else{
-    echo "window.location.replace('../worker.php');alert('Try again!!!');</script>";
+    //echo "window.location.replace('../worker.php');alert('Try again!!!');</script>";
 }
 
 ?>

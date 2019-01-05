@@ -6,10 +6,10 @@ if(isset($_POST["notificationID"])){ // Fetching variables of the form which tra
     $notificationID = mysqli_real_escape_string($connection, $_POST['notificationID']);
 	$notification = mysqli_real_escape_string($connection, $_POST['notification']);
     $userType = mysqli_real_escape_string($connection,$_POST['userType']);
-    
+    $time=date("M,d,Y h:i:s A");
 	
-$query = "INSERT INTO notification(notificationID,notification,userType) VALUES ('$notificationID','$notification','$userType')";
-    
+    $query = "INSERT INTO notification(notificationID,notification,userType,time) VALUES ('$notificationID','$notification','$userType','$time')";
+
     if(mysqli_query($connection,$query)){
         if($_SESSION['userType']==3){
             echo "<script>window.location.replace('../worker.php');hide_div('job')</script>";    
