@@ -70,7 +70,7 @@ if($_SESSION['userStatus']=='offline'){
                     </div>
                     <div style='text-align:right'>
                         <li class='btn btn-danger'><a href='./query_boxes/worker_leave_job.php' style='color:white'>Leave</a></li>
-                        <li class='btn btn-warning'><a href='./query_boxes/worker_temp_leave_job.php' style='color:white'>Temporary Leave</a></li>
+                        <li class='btn btn-warning'><a href='./query_boxes/workertempleave_job.php' style='color:white'>Temporary Leave</a></li>
                     </div>
                 </div></div>";
             }else if($rowJob['jobStatus']=='done'){
