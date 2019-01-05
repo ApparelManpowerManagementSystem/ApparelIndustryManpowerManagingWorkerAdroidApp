@@ -2,7 +2,7 @@
 
 if($_SESSION['userStatus']=='offline'){
     $userID=$_SESSION['userID'];
-    $queryJob="SELECT * FROM worker_pending,supplier_job WHERE worker_pending.workerID='$userID' AND worker_pending.jobID=supplier_job.jobID LIMIT 1";
+    $queryJob="SELECT * FROM worker_pending,supplier_job WHERE worker_pending.workerID='$userID' AND worker_pending.jobID=supplier_job.jobID AND isDone=0 LIMIT 1";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){

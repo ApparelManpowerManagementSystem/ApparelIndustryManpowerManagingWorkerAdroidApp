@@ -10,6 +10,9 @@ if(isset($_GET['jobID'])){
 
         $queryUpdate="UPDATE worker SET workerStatus='online' WHERE workerID='$workerID'";
         mysqli_query($conn,$queryUpdate);
+    
+        $query3="UPDATE worker_pending SET isDone=1 WHERE jobID='$jobID' AND workerID='$workerID'";
+        mysqli_query($conn,$query3);
 
         $userquery="SELECT * FROM invoice WHERE jobID='$jobID' AND userID='$workerID' LIMIT 1";
         $result=mysqli_query($conn,$userquery);

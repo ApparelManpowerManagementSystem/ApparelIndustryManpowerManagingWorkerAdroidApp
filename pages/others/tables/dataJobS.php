@@ -160,7 +160,7 @@
             <a href="./data.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Workers Data Tables
+                Workers Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -179,7 +179,7 @@
             <a href="dataJobP.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Company Jobs Tables
+                Company Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -189,7 +189,7 @@
             <a href="dataJobS.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Published Jobs Tables
+                Published Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>

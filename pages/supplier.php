@@ -187,7 +187,7 @@ session_start();
             <a href="others/tables/data.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Workers Data Tables
+                Workers Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -206,7 +206,7 @@ session_start();
             <a href="others/tables/dataJobP.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Company Jobs Tables
+                Company Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -216,7 +216,7 @@ session_start();
             <a href="others/tables/dataJobS.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Published Jobs Tables
+                Published Jobs
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>

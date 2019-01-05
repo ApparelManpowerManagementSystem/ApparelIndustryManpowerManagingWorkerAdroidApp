@@ -244,32 +244,10 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../supplier.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="data.php">Home</a></li>
               <li class="breadcrumb-item active">Data Tables</li>
             </ol>
           </div>
-            
-            <div style="margin-top:10px" class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>
-                    <?php
-                        require_once '../../../db_config/config.php';
-                        require_once '../../query_boxes/supplier_view_all_worker_count.php';
-                    ?>  
-                  
-                </h3>
-
-                <p>All Workers</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-            
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -293,10 +271,10 @@
                     
                 </div>
                 <div class="pull-right">
-                <form class="form-inline" method="get" action="./dataSearch.php">
+                <form class="form-inline" method="get" action="dataSearch.php">
                   <div class="form-group">
                     
-                    <input style="margin:5px" placeholder="search" type="text" class="form-control" name="search" required>
+                    <input style="margin:5px" placeholder="search" type="text" class="form-control" id="search">
                   </div>
                   
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -325,7 +303,7 @@
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
+                            require_once('../../query_boxes/supplier_view_workers_by_search.php');
                     ?>
                 
                 </tbody>
