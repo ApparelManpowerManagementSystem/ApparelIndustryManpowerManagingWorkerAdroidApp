@@ -166,9 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer" onclick="show_div('all');hide_div('mend');hide_div('iron');hide_div('cut');hide_div('10');hide_div('25');hide_div('50');hide_div('75');hide_div('cpi');">
-                           <small>View All Jobs <span class="fa fa-arrow-right"></span></small>
-                        </div>
+                        
                         
                     </div>
                 </div>

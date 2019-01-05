@@ -14,7 +14,7 @@
                     <td>".$rowJob['jobPrice']."</td>
                     <td>".$rowJob['jobDate']."</td>
                     <td><button style='margin:2px' class='btn btn-warning' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button>
-                    <button class='btn btn-danger' >Cancel</button></td>
+                    <button class='btn btn-danger'  data-target='#cancel_job" . $rowJob['jobID'] . "' data-toggle='modal' >Cancel</button></td>
                 </tr>";
             
             echo "<div>
@@ -55,6 +55,38 @@
                                     <div class='form-group'>
                                         <input type='submit' class='form-control btn btn-success' style='width:100%'' value='Change Job Details' name='publishedJobUpdate' required>
                                     </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+
+            echo "<div>
+                    <div class='modal fade' id='cancel_job" . $rowJob['jobID'] . "' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 70%'>
+                            
+                            
+                            <div class='modal-body'>
+                          
+                                <form action='./query_boxes/cancel_company_job.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='" . $rowJob['jobID'] . "' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                          <lable>Do you want to cancel this '".$rowJob['jobTitle']."' job?<lable>
+                                      
+                                    </div>
+                                      <div class=\"modal-footer\">
+                           <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%'' value='No' data-dismiss=\"modal\">
+      </div>
+                                   
                                 </form>
                             </div>
                             </div>
