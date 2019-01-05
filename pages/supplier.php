@@ -28,6 +28,7 @@ session_start();
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker-bs3.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -186,7 +187,36 @@ session_start();
             <a href="others/tables/data.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Tables
+                Workers Data Tables
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="others/tables/dataLoc.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Locations Tables
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+            <li class="nav-item has-treeview">
+            <a href="others/tables/dataJobP.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Company Jobs Tables
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="others/tables/dataJobS.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Published Jobs Tables
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -254,7 +284,7 @@ session_start();
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6" onclick="show_div('orders');hide_div('ongoings');change_col_2('orders')">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -315,7 +345,7 @@ session_start();
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6" onclick="change_col('orders');show_div('ongoings')">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
@@ -341,10 +371,10 @@ session_start();
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
+          <section id="orders" class="col-lg-12 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <!-- /.card -->
-<!-- TABLE: LATEST ORDERS -->
+              <!-- TABLE: LATEST ORDERS -->
             <div class="card">
               <div class="card-header border-transparent">
                 <h3 class="card-title">Latest Orders</h3>
@@ -397,7 +427,7 @@ session_start();
             
 
             <!-- TO DO List -->
-            <div class="card">
+            <div class="card" style="display:none">
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="ion ion-clipboard mr-1"></i>
@@ -511,7 +541,7 @@ session_start();
           </section>
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section id="ongoings" class="col-lg-5 connectedSortable" style="display:none">
 
 			<div class="row">
             <div class="col-md-12">
@@ -813,6 +843,8 @@ session_start();
 <script src="../dist/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/admin/dist/js/demo.js"></script>
+    
+<script src="../js/show_div.js"></script>
 
 <script>
 

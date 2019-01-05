@@ -155,8 +155,6 @@
             </a>
             
           </li>
-         
-         
           <li class="nav-item has-treeview">
             <a href="./data.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
@@ -252,13 +250,12 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
+      <section class="content">
+        <div class="row">
+        <div class="col-12">  
+            <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Worker Data Table</h3>
+              <h3 class="card-title">Location Data Table</h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
                     <i class="fa fa-minus"></i>
@@ -275,12 +272,9 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                  <th>Street</th>
+                  <th>Village</th>
+                  <th>City</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -288,7 +282,7 @@
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
+                            require_once('../../query_boxes/locations_view.php');
                     ?>
                 
                 </tbody>
@@ -296,12 +290,9 @@
                 <tr>
                   <th>ID</th>
                   <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                  <th>Street</th>
+                  <th>Village</th>
+                  <th>City</th>
                     <th>Actions</th>
                 </tr>
                 </tfoot>
@@ -313,7 +304,7 @@
           </div>
         </div>
       </section>
-        
+      
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

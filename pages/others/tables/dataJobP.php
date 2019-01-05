@@ -155,8 +155,6 @@
             </a>
             
           </li>
-         
-         
           <li class="nav-item has-treeview">
             <a href="./data.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
@@ -314,6 +312,203 @@
         </div>
       </section>
         
+      <section class="content">
+        <div class="row">
+        <div class="col-12">  
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Location Data Table</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Street</th>
+                  <th>Village</th>
+                  <th>City</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                    <?php
+                            require_once('../../../db_config/config.php');
+                            require_once('../../query_boxes/locations_view.php');
+                    ?>
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Street</th>
+                  <th>Village</th>
+                  <th>City</th>
+                    <th>Actions</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          </div>
+        </div>
+      </section>
+      
+      <section class="content">
+          <div class="row">
+            <div class="col-12">
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Published Jobs Data Table</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Published</th>
+                    <th>Progress</th>
+                  <th>Location</th>
+                  <th>Customer</th>
+                  <th>Nature</th>
+                  <th>Joined Workers</th>
+                    <th>Ratings</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                    <?php
+                            require_once('../../../db_config/config.php');
+                            require_once('../../query_boxes/supplier_view_s_jobs.php');
+                    ?>
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Published</th>
+                    <th>Progress</th>
+                  <th>Location</th>
+                  <th>Customer</th>
+                  <th>Nature</th>
+                  <th>Joined Workers</th>
+                    <th>Ratings</th>
+                    <th>Actions</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+            
+        </div>
+        <!-- /.col -->
+        
+      </div>
+      <!-- /.row -->
+    </section>
+      
+      
+      
+       <section class="content">
+          <div class="row">
+            <div class="col-12">
+            <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Company Jobs Data Table</h3>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Published</th>
+                    <th>Status</th>
+                  <th>Customer</th>
+                </tr>
+                </thead>
+                <tbody>
+                    
+                    <?php
+                            require_once('../../../db_config/config.php');
+                            require_once('../../query_boxes/supplier_view_c_jobs.php');
+                    ?>
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Published</th>
+                    <th>Status</th>
+                  <th>Customer</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+            
+        </div>
+        <!-- /.col -->
+        
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
