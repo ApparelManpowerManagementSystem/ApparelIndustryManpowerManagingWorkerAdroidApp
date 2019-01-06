@@ -674,8 +674,10 @@ session_start();
           </div>
       </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-  </div>
+          </div>
+        </div>
+      </section>
+        </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2018-2019 <a href="http://adminlte.io">UCSC CS-7</a>.</strong>
