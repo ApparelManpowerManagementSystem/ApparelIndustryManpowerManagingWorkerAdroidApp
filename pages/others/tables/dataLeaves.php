@@ -156,7 +156,7 @@
          
          
           <li class="nav-item has-treeview">
-            <a href="data.php" class="nav-link active">
+            <a href="data.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Workers Tables
@@ -191,7 +191,7 @@
           </li>
             
             <li class="nav-item has-treeview">
-            <a href="dataLeaves.php" class="nav-link">
+            <a href="dataLeaves.php" class="nav-link active">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Worker Leaves
@@ -200,7 +200,7 @@
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="dataInvoice.php" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link ">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
@@ -245,7 +245,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../supplier.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="./dataLeaves.php">Home</a></li>
               <li class="breadcrumb-item active">Data Tables</li>
             </ol>
           </div>
@@ -257,12 +257,12 @@
                 <h3>
                     <?php
                         require_once '../../../db_config/config.php';
-                        require_once '../../query_boxes/supplier_view_all_worker_count.php';
+                        require_once '../../query_boxes/supplier_view_all_worker_leave_count.php';
                     ?>  
                   
                 </h3>
 
-                <p>All Workers</p>
+                <p>Total Worker Leaves</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -281,7 +281,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Worker Data Table</h3>
+              <h3 class="card-title">Worker Leaves Data Table</h3>
                 <div class="card-tools">
                     
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -294,13 +294,17 @@
                     
                 </div>
                 <div class="pull-right">
-                <form class="form-inline" method="get" action="./dataSearch.php">
+                <form class="form-inline" method="get" action="./dataLeavesSearch.php">
                   <div class="form-group">
                     
-                    <input style="margin:5px" placeholder="search" type="text" class="form-control" name="search" required>
+                    <input style="margin-right:2px" placeholder="Enter Worker ID" type="text" class="form-control" name="workerID" required>
+                  </div>
+                    <div class="form-group">
+                    
+                    <input style="margin-right:2px" placeholder="Enter Job ID" type="text" class="form-control" name="jobID" required>
                   </div>
                   
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 </div>
             </div>
@@ -311,36 +315,28 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                  <th>Worker ID</th>
+                  <th>Worker Name</th>
+                  <th>Job ID</th>
+                  <th>Date</th>
+                  <th>Time</th>
                 </tr>
                 </thead>
                 <tbody>
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
+                            require_once('../../query_boxes/supplier_view_workers_leaves.php');
                     ?>
                 
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                 <th>Worker ID</th>
+                  <th>Worker Name</th>
+                  <th>Job ID</th>
+                  <th>Date</th>
+                  <th>Time</th>
                 </tr>
                 </tfoot>
               </table>

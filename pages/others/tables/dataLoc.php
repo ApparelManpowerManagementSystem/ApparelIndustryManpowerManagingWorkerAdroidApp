@@ -135,32 +135,31 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="../../supplier.php" class="nav-link">
+            <a href="../../supplier.php" class="nav-link ">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
            
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="others/charts/chartjs.html" class="nav-link">
+            <a href="../charts/chartjs.php" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Reports
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             
           </li>
+         
+         
           <li class="nav-item has-treeview">
-            <a href="./data.php" class="nav-link">
+            <a href="data.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Workers Data Tables
-                <i class="fa fa-angle-left right"></i>
+                Workers Tables
               </p>
             </a>
           </li>
@@ -170,16 +169,14 @@
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Locations Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
             <li class="nav-item has-treeview">
-            <a href="dataJobP.php" class="nav-link">
+            <a href="dataJobP.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Company Jobs Tables
-                <i class="fa fa-angle-left right"></i>
+                Company Tables
               </p>
             </a>
           </li>
@@ -188,28 +185,35 @@
             <a href="dataJobS.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Published Jobs Tables
-                <i class="fa fa-angle-left right"></i>
+                Published Jobs
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="dataLeaves.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Worker Leaves
               </p>
             </a>
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="others/examples/invoice.html" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link ">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
+           
 		  
           <li class="nav-item">
-            <a href="others/calendar.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
               <p>
                 Calendar
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -218,7 +222,6 @@
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Mailbox
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -249,7 +252,28 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+      
+      <div style="margin-top:10px" class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>
+                    <?php
+                        require_once '../../../db_config/config.php';
+                        require_once '../../query_boxes/supplier_view_all_location_count.php';
+                    ?>  
+                  
+                </h3>
 
+                <p>All Locations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+      
       <section class="content">
         <div class="row">
         <div class="col-12">  
@@ -266,7 +290,7 @@
                     
                 </div>
                 <div class='pull-left'>
-                    <button style="margin-top:10px" class="btn btn-primary">+Add Location</button>
+                    <button data-target="#addLoc" data-toggle="modal" style="margin-top:10px" class="btn btn-primary">+Add Location</button>
                 </div>
                 <div class="pull-right">
                 <form class="form-inline" method="get" action="./dataLocSearch.php">
@@ -281,6 +305,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -321,6 +346,57 @@
       
   </div>
   <!-- /.content-wrapper -->
+    
+    
+     <!--Add Location modal-->
+        <div>
+           <div class="modal fade" id="addLoc" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        
+                        <h3 class="modal-title">+Add Location</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="../../query_boxes/supplier_add_location.php" autocomplete="on" method="post">
+                            Enter Location ID
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Location ID" name="locID">
+                            </div>
+                            Enter Location Name
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobType" placeholder="Enter Location Namee" name="locName">
+                            </div>
+                            Enter Location Street
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobAmount" placeholder="Enter Location Street" name="locStreet">
+                            </div>
+                            Enter Location Village
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobPeriod" placeholder="Enter Location Village" name="locVillage">
+                            </div>
+                            Enter Location City
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobPrice" placeholder="Enter Location City" name="locCity">
+                            </div>
+                                                 
+                           
+                            <div class="form-row text-right">
+                                <div class="col-12">
+                                <button type="submit" name="addLoc" id="save" class="btn btn-primary">+Add</button>
+                               </div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Add Loc modal-->
+    
+    
+    
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.0.0-alpha

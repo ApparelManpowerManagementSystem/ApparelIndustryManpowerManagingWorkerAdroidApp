@@ -156,7 +156,7 @@
          
          
           <li class="nav-item has-treeview">
-            <a href="data.php" class="nav-link active">
+            <a href="data.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Workers Tables
@@ -173,7 +173,7 @@
             </a>
           </li>
             <li class="nav-item has-treeview">
-            <a href="dataJobP.php" class="nav-link">
+            <a href="dataJobP.php" class="nav-link active">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Company Tables
@@ -200,7 +200,7 @@
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="dataInvoice.php" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link ">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
@@ -245,24 +245,31 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../supplier.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="./dataJobP.php">Home</a></li>
               <li class="breadcrumb-item active">Data Tables</li>
             </ol>
           </div>
-            
-            <div style="margin-top:10px" class="col-lg-3 col-6">
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+      <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6" onclick="show_div('orders');hide_div('ongoings');change_col_2('orders')">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>
                     <?php
                         require_once '../../../db_config/config.php';
-                        require_once '../../query_boxes/supplier_view_all_worker_count.php';
+                        require_once '../../query_boxes/supplier_count_company_jobs.php';
                     ?>  
                   
                 </h3>
 
-                <p>All Workers</p>
+                <p>All Company Jobs</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -270,20 +277,41 @@
               <a class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-            
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>
+                    <?php
+                        require_once '../../../db_config/config.php';
+                        require_once '../../query_boxes/supplier_count_active_com_jobs.php';
+                    ?>    
+                </h3>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
+                <p>Active Company Jobs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+         
+        </div>
+        <!-- /.row -->
+        </div>
+      </section>
+    
+      
+       <section class="content">
+          <div class="row">
+            <div class="col-12">
+            <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Worker Data Table</h3>
+              <h3 class="card-title">Company Jobs Data Table</h3>
                 <div class="card-tools">
-                    
                   <button type="button" class="btn btn-tool" data-widget="collapse">
                     <i class="fa fa-minus"></i>
                   </button>
@@ -291,56 +319,75 @@
                     <i class="fa fa-times"></i>
                   </button>
                     
-                    
                 </div>
-                <div class="pull-right">
-                <form class="form-inline" method="get" action="./dataSearch.php">
+                
+                 <div class="pull-right">
+                <form class="form-inline" method="get" action="./dataJobPSearch.php">
                   <div class="form-group">
+                   <select style="margin:5px" class="form-control" id="select_area" name="type">
+                        <option value="1">Select Type</option>
+                        <option value="CPI">CPI</option>
+                        <option value="Cutting">Cutting</option>
+                        <option value="Ironing">Ironing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                      <select style="margin:5px"  class="form-control" id="select_area" name="price">
+                        <option value="1">Select Price</option>
+                        <option value="100000">100,000></option>
+                        <option value="75000">75,000></option>
+                        <option value="50000">50,000></option>
+                        <option value="25000">25,000></option>
+                    </select>
+                      <select style="margin:5px" class="form-control" id="select_area" name="status">
+                        <option value="1">Select Status</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="cancle">Cancle</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
                     
-                    <input style="margin:5px" placeholder="search" type="text" class="form-control" name="search" required>
                   </div>
                   
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <input name="search" type="submit" class="btn btn-primary" value="Search">
                 </form>
                 </div>
+                
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-               
-                
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Published</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                  <th>Customer</th>
                 </tr>
                 </thead>
                 <tbody>
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
+                            require_once('../../query_boxes/supplier_view_c_jobs_by_search.php');
                     ?>
                 
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
+                  <th>Title</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Published</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                  <th>Customer</th>
                 </tr>
                 </tfoot>
               </table>
@@ -348,10 +395,14 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          </div>
+            
         </div>
-      </section>
+        <!-- /.col -->
         
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

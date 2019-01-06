@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT * FROM company_job ORDER BY jobID DESC";
+    $query="SELECT * FROM company_job,company WHERE company_job.comID=company.comID ORDER BY jobID DESC";
     $result=mysqli_query($conn,$query);
     if(mysqli_num_rows($result)>0){
         while($row=mysqli_fetch_assoc($result)){
@@ -25,7 +25,7 @@
                   <td><lable class='btn btn-danger'>".$row['jobPrice']."</lable></td>
                   <td>".$row['jobDate']."</td>
                   <td><lable class='btn btn-".$status."'>".$row['jobStatus']."</lable></td>
-                  <td>".$row['comID']."</td>
+                  <td>".$row['comName']." Pvt Ltd. Company</td>
                 </tr>";
         }
         

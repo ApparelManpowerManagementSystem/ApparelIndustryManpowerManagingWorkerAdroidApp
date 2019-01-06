@@ -134,35 +134,32 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="../../supplier.php" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="../../supplier.php" class="nav-link ">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
            
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="others/charts/chartjs.html" class="nav-link">
+            <a href="../charts/chartjs.php" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Reports
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             
           </li>
          
          
-          <li class="nav-item has-treeview active">
-            <a href="./data.php" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="data.php" class="nav-link active">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Workers Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -172,7 +169,6 @@
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Locations Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -180,8 +176,7 @@
             <a href="dataJobP.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Company Jobs
-                <i class="fa fa-angle-left right"></i>
+                Company Tables
               </p>
             </a>
           </li>
@@ -191,27 +186,34 @@
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Published Jobs
-                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="dataLeaves.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Worker Leaves
               </p>
             </a>
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="others/examples/invoice.html" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link ">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
+           
 		  
           <li class="nav-item">
-            <a href="others/calendar.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
               <p>
                 Calendar
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -220,7 +222,6 @@
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Mailbox
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>

@@ -135,32 +135,31 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="../../supplier.php" class="nav-link">
+            <a href="../../supplier.php" class="nav-link ">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
            
           </li>
           
           <li class="nav-item has-treeview">
-            <a href="others/charts/chartjs.html" class="nav-link">
+            <a href="../charts/chartjs.php" class="nav-link">
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Reports
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             
           </li>
+         
+         
           <li class="nav-item has-treeview">
-            <a href="./data.php" class="nav-link">
+            <a href="data.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Workers Data Tables
-                <i class="fa fa-angle-left right"></i>
+                Workers Tables
               </p>
             </a>
           </li>
@@ -170,16 +169,14 @@
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Locations Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
             <li class="nav-item has-treeview">
-            <a href="dataJobP.php" class="nav-link">
+            <a href="dataJobP.php" class="nav-link active">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Company Jobs Tables
-                <i class="fa fa-angle-left right"></i>
+                Company Tables
               </p>
             </a>
           </li>
@@ -188,28 +185,35 @@
             <a href="dataJobS.php" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>
-                Published Jobs Tables
-                <i class="fa fa-angle-left right"></i>
+                Published Jobs
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="dataLeaves.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Worker Leaves
               </p>
             </a>
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="others/examples/invoice.html" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link ">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
+           
 		  
           <li class="nav-item">
-            <a href="others/calendar.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
               <p>
                 Calendar
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -218,7 +222,6 @@
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Mailbox
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -249,200 +252,58 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
+      <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Worker Data Table</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                    
-                    <?php
-                            require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
-                    ?>
-                
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-          </div>
-        </div>
-      </section>
-        
-      <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
         <div class="row">
-        <div class="col-12">  
-            <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Location Data Table</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Street</th>
-                  <th>Village</th>
-                  <th>City</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                    
+          <div class="col-lg-3 col-6" onclick="show_div('orders');hide_div('ongoings');change_col_2('orders')">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>
                     <?php
-                            require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/locations_view.php');
-                    ?>
-                
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Street</th>
-                  <th>Village</th>
-                  <th>City</th>
-                    <th>Actions</th>
-                </tr>
-                </tfoot>
-              </table>
+                        require_once '../../../db_config/config.php';
+                        require_once '../../query_boxes/supplier_count_company_jobs.php';
+                    ?>  
+                  
+                </h3>
+
+                <p>All Company Jobs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>
+                    <?php
+                        require_once '../../../db_config/config.php';
+                        require_once '../../query_boxes/supplier_count_active_com_jobs.php';
+                    ?>    
+                </h3>
+
+                <p>Active Company Jobs</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
           </div>
+          <!-- ./col -->
+         
+        </div>
+        <!-- /.row -->
         </div>
       </section>
-      
-      <section class="content">
-          <div class="row">
-            <div class="col-12">
-            <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Published Jobs Data Table</h3>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Type</th>
-                  <th>Status</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Published</th>
-                    <th>Progress</th>
-                  <th>Location</th>
-                  <th>Customer</th>
-                  <th>Nature</th>
-                  <th>Joined Workers</th>
-                    <th>Ratings</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                    
-                    <?php
-                            require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_s_jobs.php');
-                    ?>
-                
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Type</th>
-                  <th>Status</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Published</th>
-                    <th>Progress</th>
-                  <th>Location</th>
-                  <th>Customer</th>
-                  <th>Nature</th>
-                  <th>Joined Workers</th>
-                    <th>Ratings</th>
-                    <th>Actions</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-            
-        </div>
-        <!-- /.col -->
-        
-      </div>
-      <!-- /.row -->
-    </section>
-      
-      
+    
       
        <section class="content">
           <div class="row">
@@ -457,7 +318,40 @@
                   <button type="button" class="btn btn-tool" data-widget="remove">
                     <i class="fa fa-times"></i>
                   </button>
+                    
                 </div>
+                
+                 <div class="pull-right">
+                <form class="form-inline" method="get" action="./dataJobPSearch.php">
+                  <div class="form-group">
+                   <select style="margin:5px" class="form-control" id="select_area" name="type">
+                        <option value="1">Select Type</option>
+                        <option value="CPI">CPI</option>
+                        <option value="Cutting">Cutting</option>
+                        <option value="Ironing">Ironing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                      <select style="margin:5px"  class="form-control" id="select_area" name="price">
+                        <option value="1">Select Price</option>
+                        <option value="100000">100,000></option>
+                        <option value="75000">75,000></option>
+                        <option value="50000">50,000></option>
+                        <option value="25000">25,000></option>
+                    </select>
+                      <select style="margin:5px" class="form-control" id="select_area" name="status">
+                        <option value="1">Select Status</option>
+                        <option value="online">Online</option>
+                        <option value="offline">Offline</option>
+                        <option value="cancle">Cancle</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                </div>
+                
             </div>
             <!-- /.card-header -->
             <div class="card-body">

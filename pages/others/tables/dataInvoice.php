@@ -156,7 +156,7 @@
          
          
           <li class="nav-item has-treeview">
-            <a href="data.php" class="nav-link active">
+            <a href="data.php" class="nav-link ">
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Workers Tables
@@ -200,7 +200,7 @@
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="dataInvoice.php" class="nav-link">
+            <a href="dataInvoice.php" class="nav-link active">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
@@ -245,24 +245,27 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="../../supplier.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="./dataInvoice.php">Home</a></li>
               <li class="breadcrumb-item active">Data Tables</li>
             </ol>
           </div>
-            
-            <div style="margin-top:10px" class="col-lg-3 col-6">
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+      
+      <div style="margin-top:10px" class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>
                     <?php
                         require_once '../../../db_config/config.php';
-                        require_once '../../query_boxes/supplier_view_all_worker_count.php';
+                        require_once '../../query_boxes/supplier_view_all_location_count.php';
                     ?>  
                   
                 </h3>
 
-                <p>All Workers</p>
+                <p>All Invoices</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -270,20 +273,14 @@
               <a class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-            
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
+      
+      <section class="content">
+        <div class="row">
+        <div class="col-12">  
+            <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Worker Data Table</h3>
+              <h3 class="card-title">Location Data Table</h3>
                 <div class="card-tools">
-                    
                   <button type="button" class="btn btn-tool" data-widget="collapse">
                     <i class="fa fa-minus"></i>
                   </button>
@@ -291,34 +288,29 @@
                     <i class="fa fa-times"></i>
                   </button>
                     
-                    
                 </div>
                 <div class="pull-right">
-                <form class="form-inline" method="get" action="./dataSearch.php">
+                <form class="form-inline" method="get" action="./dataInvoiceSearch.php">
                   <div class="form-group">
                     
                     <input style="margin:5px" placeholder="search" type="text" class="form-control" name="search" required>
                   </div>
                   
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-               
                 
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                  <th>Job</th>
+                  <th>User</th>
+                  <th>Price</th>
+                  <th>Status</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -326,20 +318,17 @@
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_workers.php');
+                            require_once('../../query_boxes/supplier_view_invoices.php');
                     ?>
                 
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>ID</th>
-                  <th>Name</th>
-                  <th>NIC</th>
-                  <th>Mobile</th>
-                  <th>Max Work Period</th>
-                    <th>Rank</th>
-                    <th>Email</th>
-                    <th>Status</th>
+                  <th>Job</th>
+                  <th>User</th>
+                  <th>Price</th>
+                  <th>Status</th>
                     <th>Actions</th>
                 </tr>
                 </tfoot>
@@ -351,9 +340,60 @@
           </div>
         </div>
       </section>
-        
+      
   </div>
   <!-- /.content-wrapper -->
+    
+    
+     <!--Add Location modal-->
+        <div>
+           <div class="modal fade" id="addLoc" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        
+                        <h3 class="modal-title">+Add Location</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="../../query_boxes/supplier_add_location.php" autocomplete="on" method="post">
+                            Enter Location ID
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Location ID" name="locID">
+                            </div>
+                            Enter Location Name
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobType" placeholder="Enter Location Namee" name="locName">
+                            </div>
+                            Enter Location Street
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobAmount" placeholder="Enter Location Street" name="locStreet">
+                            </div>
+                            Enter Location Village
+                             <div class="form-group">
+                                <input type="text" class="form-control" id="jobPeriod" placeholder="Enter Location Village" name="locVillage">
+                            </div>
+                            Enter Location City
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="jobPrice" placeholder="Enter Location City" name="locCity">
+                            </div>
+                                                 
+                           
+                            <div class="form-row text-right">
+                                <div class="col-12">
+                                <button type="submit" name="addLoc" id="save" class="btn btn-primary">+Add</button>
+                               </div>
+                            </div>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end Add Loc modal-->
+    
+    
+    
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.0.0-alpha

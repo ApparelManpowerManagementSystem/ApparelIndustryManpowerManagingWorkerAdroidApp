@@ -165,7 +165,6 @@ session_start();
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
            
@@ -176,7 +175,6 @@ session_start();
               <i class="nav-icon fa fa-pie-chart"></i>
               <p>
                 Reports
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             
@@ -188,7 +186,6 @@ session_start();
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Workers Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -198,7 +195,6 @@ session_start();
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Locations Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -207,7 +203,6 @@ session_start();
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Company Tables
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -217,27 +212,34 @@ session_start();
               <i class="nav-icon fa fa-table"></i>
               <p>
                 Published Jobs
-                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="others/tables/dataLeaves.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Worker Leaves
               </p>
             </a>
           </li>
          
 		  <li class="nav-item has-treeview">
-            <a href="others/examples/invoice.html" class="nav-link">
+            <a href="others/tables/dataInvoice.php" class="nav-link">
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Invoices
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
+           
 		  
           <li class="nav-item">
-            <a href="others/calendar.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fa fa-calendar"></i>
               <p>
                 Calendar
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -246,7 +248,6 @@ session_start();
               <i class="nav-icon fa fa-envelope-o"></i>
               <p>
                 Mailbox
-                <i class="fa fa-angle-left right"></i>
               </p>
             </a>
           </li>
@@ -284,7 +285,7 @@ session_start();
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6" onclick="show_div('orders');hide_div('ongoings');change_col_2('orders')">
+          <div class="col-lg-3 col-6" onclick="show_div('orders');hide_div('activeW');hide_div('ongoings');change_col_2('orders')">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -325,7 +326,7 @@ session_start();
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-3 col-6" onclick="hide_div('orders');hide_div('ongoings');show_div('activeW')">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -368,6 +369,8 @@ session_start();
           <!-- ./col -->
         </div>
         <!-- /.row -->
+          
+          
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
@@ -377,7 +380,7 @@ session_start();
               <!-- TABLE: LATEST ORDERS -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Latest Orders</h3>
+                <h3 class="card-title">Latest Job Orders</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse">
@@ -418,129 +421,14 @@ session_start();
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
+                
                 <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
               </div>
               <!-- /.card-footer -->
             </div>
             <!-- /.card -->
-            
-
-            <!-- TO DO List -->
-            <div class="card" style="display:none">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
-                  To Do List
-                </h3>
-
-                <div class="card-tools">
-                  <ul class="pagination pagination-sm">
-                    <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <ul class="todo-list">
-                  <li>
-                    <!-- drag handle -->
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <!-- checkbox -->
-                    <input type="checkbox" value="" name="">
-                    <!-- todo text -->
-                    <span class="text">Design a nice theme</span>
-                    <!-- Emphasis label -->
-                    <small class="badge badge-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                    <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Make the theme responsive</span>
-                    <small class="badge badge-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Check your messages and notifications</span>
-                    <small class="badge badge-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-secondary"><i class="fa fa-clock-o"></i> 1 month</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i> Add item</button>
-              </div>
-            </div>
-            <!-- /.card -->
           </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            
           <section id="ongoings" class="col-lg-5 connectedSortable" style="display:none">
 
 			<div class="row">
@@ -614,10 +502,63 @@ session_start();
               </div>
             </div>
             </div>
+              </div>
+            </section>
                 
-                
-                
-                
+            <section id="activeW" class="col-lg-12 connectedSortable" style='display:none'>
+                <div class="row">   
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title">Active Workers</h5>
+
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                          </button>
+                            <button type="button" class="btn btn-tool" data-widget="remove">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </div>
+                        </div>
+                          <!-- /.card-header -->
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="table-responsive">
+                                  <table class="table m-0">
+                                    <thead>
+                                    <tr>
+                                      <th>ID</th>
+                                      <th>Name</th>
+                                      
+                                      <th>Mobile</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                              <?php
+                                    require_once('../db_config/config.php');
+                                    require_once('./query_boxes/supplier_view_active_workers.php');
+                                ?>
+                                      </tbody>
+                                    </table>
+                                    
+                                </div>
+                              </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+                         
+            </section>
+            
+            
+        <section id="recap" class="col-lg-12 connectedSortable" style="display:none">
+        <div class="row">   
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -631,13 +572,7 @@ session_start();
                     <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
                       <i class="fa fa-wrench"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
-                    </div>
+                    
                   </div>
                   <button type="button" class="btn btn-tool" data-widget="remove">
                     <i class="fa fa-times"></i>
@@ -653,7 +588,7 @@ session_start();
                     </p>
 
                     <div class="progress-group">
-                      Add Products to Cart
+                      Total Recieved Jobs
                       <span class="float-right"><b>160</b>/200</span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-primary" style="width: 80%"></div>
@@ -737,52 +672,6 @@ session_start();
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-           
-            <!-- Calendar -->
-            <div class="card bg-success-gradient">
-              <div class="card-header no-border">
-
-                <h3 class="card-title">
-                  <i class="fa fa-calendar"></i>
-                  Calendar
-                </h3>
-                <!-- tools card -->
-                <div class="card-tools">
-                  <!-- button with a dropdown -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-bars"></i></button>
-                    <div class="dropdown-menu float-right" role="menu">
-                      <a href="#" class="dropdown-item">Add new event</a>
-                      <a href="#" class="dropdown-item">Clear events</a>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">View calendar</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

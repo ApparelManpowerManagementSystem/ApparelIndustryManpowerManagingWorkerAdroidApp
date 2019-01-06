@@ -15,7 +15,7 @@
                       <td>".$rowJob['comName']."</td>
                       <td style='text-align:right'>
                         <button style='margin:6px'  class='btn btn-primary' data-target='#".$rowJob['jobID']."' data-toggle='modal'>+Publish</button>
-                        <button style='margin:6px' class='btn btn-danger' data-target='#reject_warning_modal' data-toggle='modal'>Reject</button>
+                        <button style='margin:6px' class='btn btn-danger' data-target='#reject".$rowJob['jobID']."' data-toggle='modal'>Reject</button>
                         </td>
                     </tr>";
             
@@ -23,8 +23,8 @@
                     <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
                         <div class='modal-dialog'>
                           <div class='modal-content'>
-                            <div class='modal-header'>
-                               <h3>+Publish Job <small>".$rowJob['jobID']."</small></h3>
+                            <div class='modal-header bg-primary'>
+                               <h3>+Publish Company Job <small>".$rowJob['jobID']."</small></h3>
                             </div>
                             
                             <div class='modal-body'>
@@ -71,8 +71,39 @@
 
 
                                     <div class='form-group'>
-                                        <input type='submit' class='form-control btn btn-success' style='width:100%'' value='Publish Job' name='publishJob' required>
+                                        <input type='submit' class='form-control btn btn-primary' style='width:100%'' value='Publish Job' name='publishJob' required>
                                     </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+            
+            echo "<div>
+                    <div class='modal fade' id='reject".$rowJob['jobID']."' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 70%'>
+                            <div class='modal-header bg-danger'>Warning!</div>
+                            <div class='modal-body'>
+                          
+                                <form action='../../query_boxes/supplier_reject_job.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='" .$rowJob['jobID']. "' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                          <lable>Do you want to reject this '".$rowJob['jobTitle']."' job?<lable>
+                                      
+                                    </div>
+                                      <div class=\"modal-footer\">
+                                        <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%'' value='No' data-dismiss=\"modal\">
+                                    </div>
+                                   
                                 </form>
                             </div>
                             </div>

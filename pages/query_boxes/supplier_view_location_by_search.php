@@ -1,5 +1,8 @@
 <?php
-    $queryLoc="SELECT * FROM location LIMIT 10";
+    if(isset($_GET['search'])){
+    $value=$_GET['search'];
+   
+    $queryLoc="SELECT * FROM location WHERE locID LIKE '$value%' OR locName LIKE '%$value%' OR locCity LIKE '%$value%' OR locVillage LIKE '$value%'";
     $resultLoc=mysqli_query($conn,$queryLoc);
 
     if(mysqli_num_rows($resultLoc)>0){
@@ -88,5 +91,9 @@
           
         }
     }
-                
+
+        
+    }
+    
+
 ?>
