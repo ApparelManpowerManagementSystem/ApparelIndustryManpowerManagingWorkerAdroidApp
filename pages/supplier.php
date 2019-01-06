@@ -107,7 +107,7 @@ session_start();
           </a>
           <div class="dropdown-divider"></div>
             
-            <a href="#" class="dropdown-item">
+            <a href="./query_boxes/logout.php" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               
