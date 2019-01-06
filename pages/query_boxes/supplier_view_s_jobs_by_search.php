@@ -1,9 +1,13 @@
 <?php
-    
-    $query="SELECT * FROM supplier_job ORDER BY jobID DESC";
-    $result=mysqli_query($conn,$query);
-    if(mysqli_num_rows($result)>0){
-        while($row=mysqli_fetch_assoc($result)){
+    if(isset($_GET['type'])){
+        $type=$_GET['type'];
+        $status=$_GET['status'];
+        
+        $query="SELECT * FROM supplier_job WHERE jobType='$type' AND jobStatus='$status' ORDER BY jobID DESC";
+        
+        $result=mysqli_query($conn,$query);
+        if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_assoc($result)){
             
             $rank="danger";
             if($row['jobProgress']>75){
@@ -44,5 +48,8 @@
         
     }
 
+    
+    }
+    
 
 ?>

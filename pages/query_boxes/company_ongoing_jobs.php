@@ -1,21 +1,13 @@
 <?php
-    $comID = $_SESSION["userID"];
 
-    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='start' and comID ='$comID' LIMIT 10";
+
+    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='start'";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
             $totalDays=$rowJob['jobPeriod'];
             
-            // $daysLeft = 0;
-            // $fromDate = $estimatedDeliveryDate;
-            // $curDate = date('Y-m-d');
-            // $daysLeft = abs(strtotime($curDate) - strtotime($fromDate));
-            // $days = ($daysLeft/(60 * 60 * 24));
-
-            // $average=(($totalDays-$days)/$totalDays)*100;
-
             echo "<tr>
                     <td>".$rowJob['jobID']."</td>
                     <td>".$rowJob['jobTitle']."</td>

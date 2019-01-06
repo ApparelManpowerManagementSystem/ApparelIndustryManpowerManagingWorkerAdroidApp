@@ -245,7 +245,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="./dataJobS.php">Home</a></li>
               <li class="breadcrumb-item active">Data Tables</li>
             </ol>
           </div>
@@ -269,7 +269,7 @@
                 </div>
                 
                 <div class="pull-right">
-                <form class="form-inline" method="get" action="./dataSJobsSearch.php">
+                <form class="form-inline" method="get" action="./dataJobSSearch.php">
                   <div class="form-group">
                    <select style="margin:5px" class="form-control" id="select_area" name="type">
                         <option value="1">Select Type</option>
@@ -283,10 +283,8 @@
                         <option value="1">Select Status</option>
                         <option value="online">Online</option>
                         <option value="offline">Offline</option>
-                        <option value="start">Started</option>
-                        <option value="done">Completed</option>
-                          <option value="cancle">Cancled</option>
-                          
+                        <option value="cancle">Cancle</option>
+                        <option value="rejected">Rejected</option>
                     </select>
                     
                   </div>
@@ -319,7 +317,7 @@
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_s_jobs.php');
+                            require_once('../../query_boxes/supplier_view_s_jobs_by_search.php');
                     ?>
                 
                 </tbody>

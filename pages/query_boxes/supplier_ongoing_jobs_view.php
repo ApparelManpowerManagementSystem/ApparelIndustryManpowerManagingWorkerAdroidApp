@@ -21,6 +21,7 @@
            }else if($rowJob['jobProgress']>25){
                $level="warning";
            }
+            $prev=((int)$rowJob['jobProgress']/100)*$rowJob['jobCount'];
             
             echo "<div class='progress-group'>
                       ".$rowJob['jobTitle']." <small>by ".$rowJob['comID']."</small>
@@ -30,11 +31,44 @@
                         <div class='progress-bar bg-".$level."' style='width: ".$rowJob['jobProgress']."%'></div>
                       </div>
                       <div style='text-align:right'>
-                        <button style='margin:5px 2px 2px 0' class='btn btn-primary'><i class='fa fa-check' aria-hidden='true'></i> Complete</button>
-                        <button style='margin:5px 0 2px 0' class='btn btn-danger'><i class='fa fa-close' aria-hidden='true'></i> Cancel</button>
+                        <button data-target='#".$rowJob['jobID']."' data-toggle='modal' style='margin:5px 2px 2px 0' class='btn btn-success'>Update</button>
+                        <button style='margin:5px 2px 2px 0' class='btn btn-primary'>Complete</button>
+                        <button style='margin:5px 0 2px 0' class='btn btn-danger'>Cancel</button>
                     </div>
                     </div>
                     <!-- /.progress-group -->";
+            
+             echo "<div>
+                <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
+                    <div class='modal-dialog'>
+                      <div class='modal-content'>
+                        <div class='modal-header bg-success'>
+                           <h3>Update Progress of<small> ".$rowJob['jobID']." ".$rowJob['jobTitle']."</small></h3>
+                        </div>                       
+                        <div class='modal-body'>
+                            <form action='./query_boxes/company_update_progress.php' autocomplete='on' method='post'>
+                                <div  class='form-group' style='display:none'>
+                                    <input value='".$rowJob['jobID']."' type='text' class='form-control' name='jobID' required readonly>
+                                </div>
+                                <div class='form-group' style='display:none'>
+                                    <input value='$prev' type='text' class='form-control' name='prevProgress' required>
+                                </div>
+                                <div class='form-group' style='display:none'>
+                                    <input value='".$rowJob['jobCount']."' type='text' class='form-control' name='jobCount' required>
+                                </div>
+                                <div class='form-group'>
+                                    <lable>Enter Amount Done<lable>
+                                    <input value='$prev' type='text' class='form-control' name='jobProgress' required>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='submit' class='form-control btn btn-success' style='width:100%'' value='Update' name='updateJob' required>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>";
           
         }
     }
