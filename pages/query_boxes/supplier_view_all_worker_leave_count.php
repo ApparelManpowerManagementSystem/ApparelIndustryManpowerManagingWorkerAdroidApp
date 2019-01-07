@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT COUNT(id) AS leaveCount  FROM worker_leaves";
+    $query="SELECT COUNT(jobID) AS leaveCount  FROM worker_leaves";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){
