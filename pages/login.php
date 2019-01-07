@@ -55,6 +55,12 @@
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
                                 </div>
+                                <div style="text-align:right ">
+                                    <label style=>
+                                        <a href="password_reset_email_send.php"> forgot password? </a>
+                                    </label>
+                                </div >
+
                                 <input type=submit name="submitLogin" class="btn btn-lg btn-success btn-block" value="Login">
                             </fieldset>
                         </form>
