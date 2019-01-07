@@ -21,7 +21,8 @@
 		<!-- Site Title -->
 		<title>Job Listing</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
 			<!--
 			CSS
 			============================================= -->
@@ -36,8 +37,11 @@
             
             <!-- JS-->
             <script type="text/javascript" src="../js/show_div.js"></script>
-            
-		</head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    </head>
 		<body>
 
         <header id="header" id="home" style="background-color: rgba(0,0,0,0.7);height:60px">
@@ -203,7 +207,8 @@
 							</div>
                             
                             <div class="single-slidebar">
-								<span id="joblist"></span>
+                                <h4>Rate your Favourite</h4>
+								<span id="job_list"></span>
                                       
 							</div>
 
@@ -275,8 +280,81 @@
 			<script src="../js/js-worker/jquery.nice-select.min.js"></script>			
 			<script src="../js/js-worker/parallax.min.js"></script>		
 			<script src="../js/js-worker/mail-script.js"></script>	
-			<script src="../js/js-worker/main.js"></script>	
-		</body>
+			<script src="../js/js-worker/main.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                load_worker_data();
+
+                function load_worker_data()
+                {
+                    $.ajax({
+                        url:"query_boxes/fetchrate.php",
+                        method:"POST",
+                        success:function(data)
+                        {
+                            $('#job_list').html(data);
+                        }
+                    });
+                }
+
+                $(document).on('mouseenter', '.rating', function(){
+                    var index = $(this).data("index");
+                    var job_id = $(this).data('job_id');
+                    remove_background(job_id);
+                    for(var count = 1; count<=index; count++)
+                    {
+                        $('#'+job_id+'-'+count).css('color', '#ffcc00');
+                    }
+                });
+
+                function remove_background(job_id)
+                {
+                    for(var count = 1; count <= 5; count++)
+                    {
+                        $('#'+job_id+'-'+count).css('color', '#ccc');
+                    }
+                }
+
+                $(document).on('mouseleave', '.rating', function(){
+                    var index = $(this).data("index");
+                    var job_id = $(this).data('job_id');
+                    var rating = $(this).data("rating");
+                    remove_background(job_id);
+                    //alert(rating);
+                    for(var count = 1; count<=rating; count++)
+                    {
+                        $('#'+job_id+'-'+count).css('color', '#ffcc00');
+                    }
+                });
+
+                $(document).on('click', '.rating', function(){
+                    var index = $(this).data("index");
+                    var job_id = $(this).data('job_id');
+                    $.ajax({
+                        url:"query_boxes/rateinsert.php",
+                        method:"POST",
+                        data:{index:index, job_id:job_id},
+                        success:function(data)
+                        {
+                            if(data == 'done')
+                            {
+                                load_worker_data();
+                                alert("You have rate "+index +" out of 5");
+                            }
+                            else
+                            {
+                                alert("There is some problem in System");
+                            }
+                        }
+                    });
+
+                });
+
+            });
+        </script>
+
+        </body>
 	</html>
 
 
