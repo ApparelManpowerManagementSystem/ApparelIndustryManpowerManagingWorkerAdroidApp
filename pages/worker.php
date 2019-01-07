@@ -33,12 +33,10 @@
 			<link rel="stylesheet" href="../css/css-worker/animate.min.css">
 			<link rel="stylesheet" href="../css/css-worker/owl.carousel.css">
 			<link rel="stylesheet" href="../css/css-worker/main.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
             
             <!-- JS-->
             <script type="text/javascript" src="../js/show_div.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            
 		</head>
 		<body>
 
@@ -76,7 +74,7 @@
 								<div class="row justify-content-center form-wrap" style="background-color: rgba(0,0,0,0.3);border-radius: 2px;border:0">
 
 									<div class="col-lg-4 form-cols">
-										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?" required>
+										<input id="keyword" type="text" class="form-control" name="keyword" placeholder="what are you looking for?">
 									</div>
 									<div class="col-lg-3 form-cols">
 										<div class="default-select" id="select_area">
@@ -95,11 +93,12 @@
 												<option value="1">Select Nature</option>
 												<option value="Full Time">Full Time</option>
 												<option value="Part Time">Part Time</option>
+												
 											</select>
 										</div>										
 									</div>
 									<div class="col-lg-2 form-cols">
-									    <input style="width:100%" type="submit" name="search" id="search" class="btn btn-primary" value="Search">
+									    <input style="width:100%" type="submit" name="search" id="search" class="btn btn-primary" onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')" value="Search">
                                        <!-- <li class="btn btn-primary" input type="submit"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');hide_div('part_jobs');show_div('showtable')">Search</a></li>-->
 									</div>								
 								</div>
@@ -123,12 +122,20 @@
 								<li class="btn btn-primary"><a onclick="hide_div('normal');hide_div('full_jobs');hide_div('recent_jobs');show_div('part_jobs');">part Time</a></li>
 							</ul>
                             
-                            <div>
                             <?php
                                     require_once('../db_config/config.php');
                                     require_once('./query_boxes/worker_accepted_job.php');
                             ?>
+
+
+                            <div id="showtable" style="margin-top:5px">
+                                
+                                <?php
+                                require_once('../db_config/config.php');
+                                require_once('./query_boxes/supplier_jobs_view_by_search.php');
+                                ?>
                             </div>
+
 								
                                 <div id="normal" style="margin-top:5px">
                                     <h2>All Jobs</h2>
@@ -194,14 +201,12 @@
                                     
 								</ul>
 							</div>
+                            
                             <div class="single-slidebar">
-                                <h4>Rate your Favourite</h4>
+								<span id="joblist"></span>
+                                      
+							</div>
 
-
-                                <span id="job_list"></span>
-
-
-                            </div>
 
 						</div>
 					</div>
@@ -270,81 +275,8 @@
 			<script src="../js/js-worker/jquery.nice-select.min.js"></script>			
 			<script src="../js/js-worker/parallax.min.js"></script>		
 			<script src="../js/js-worker/mail-script.js"></script>	
-			<script src="../js/js-worker/main.js"></script>
-        <script>
-            $(document).ready(function(){
-
-                load_worker_data();
-
-                function load_worker_data()
-                {
-                    $.ajax({
-                        url:"query_boxes/fetchrate.php",
-                        method:"POST",
-                        success:function(data)
-                        {
-                            $('#job_list').html(data);
-                        }
-                    });
-                }
-
-                $(document).on('mouseenter', '.rating', function(){
-                    var index = $(this).data("index");
-                    var job_id = $(this).data('job_id');
-                    remove_background(job_id);
-                    for(var count = 1; count<=index; count++)
-                    {
-                        $('#'+job_id+'-'+count).css('color', '#ffcc00');
-                    }
-                });
-
-                function remove_background(job_id)
-                {
-                    for(var count = 1; count <= 5; count++)
-                    {
-                        $('#'+job_id+'-'+count).css('color', '#ccc');
-                    }
-                }
-
-                $(document).on('mouseleave', '.rating', function(){
-                    var index = $(this).data("index");
-                    var job_id = $(this).data('job_id');
-                    var rating = $(this).data("rating");
-                    remove_background(job_id);
-                    //alert(rating);
-                    for(var count = 1; count<=rating; count++)
-                    {
-                        $('#'+job_id+'-'+count).css('color', '#ffcc00');
-                    }
-                });
-
-                $(document).on('click', '.rating', function(){
-                    var index = $(this).data("index");
-                    var job_id = $(this).data('job_id');
-                    $.ajax({
-                        url:"query_boxes/rateinsert.php",
-                        method:"POST",
-                        data:{index:index, job_id:job_id},
-                        success:function(data)
-                        {
-                            if(data == 'done')
-                            {
-                                load_worker_data();
-                                alert("You have rate "+index +" out of 5");
-                            }
-                            else
-                            {
-                                alert("There is some problem in System");
-                            }
-                        }
-                    });
-
-                });
-
-            });
-        </script>
-
-        </body>
+			<script src="../js/js-worker/main.js"></script>	
+		</body>
 	</html>
 
 

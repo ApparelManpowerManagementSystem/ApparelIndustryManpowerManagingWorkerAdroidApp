@@ -6,13 +6,13 @@
     $jobID=$_SESSION['jobID'];
 
 
-$tempquery = "INSERT INTO worker_leaves (workerID,JobID,datetime) VALUES ('$workerID','$jobID',NOW())";
+    $tempquery = "INSERT INTO worker_leaves (workerID,JobID,datetime) VALUES ('$workerID','$jobID',NOW())";
 
-$_SESSION['userStatus']='online';
-$userID=$_SESSION['userID'];
-$userType=$_SESSION['userType'];
-$notification=$userID." leaved from the job";
-if(mysqli_query($conn,$tempquery)){
+    $_SESSION['userStatus']='online';
+    $userID=$_SESSION['userID'];
+    $userType=$_SESSION['userType'];
+    $notification=$userID." leaved from the job";
+    if(mysqli_query($conn,$tempquery)){
 
 
     echo "
@@ -39,10 +39,10 @@ if(mysqli_query($conn,$tempquery)){
                 document.getElementById('comment_form').submit();
            </script>";
 
-    echo "window.location.replace('../worker.php');alert('Temporary leave success');</script>";
+    echo "<script>window.location.replace('../worker.php');alert('Temporary leave success');</script>";
 
 }else{
-    echo "window.location.replace('../worker.php');alert('Try again!!!');</script>";
+    echo "<script>window.location.replace('../worker.php');alert('Try again!!!');</script>";
 }
 
 ?>
