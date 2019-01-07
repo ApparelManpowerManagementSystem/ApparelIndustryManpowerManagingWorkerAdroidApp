@@ -7,33 +7,36 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-try {
-    //Server settings
-    $mail->SMTPDebug = 1;                                 // Enable verbose debug output
-    $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'grpproject.testing@gmail.com';                 // SMTP username
-    $mail->Password = 'grpproject123';                           // SMTP password
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 587;                                    // TCP port to connect to
+if(isset($_POST['SendMail'])) {
+    $useremail=$_POST['Cemail'];
+    $PIN=$_POST['randomPIN'];
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+        //Server settings
+        $mail->SMTPDebug = 1;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'grpproject.testing@gmail.com';                 // SMTP username
+        $mail->Password = 'grpproject123';                           // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;                                    // TCP port to connect to
 
-    //Recipients
-    $mail->setFrom('grpproject.testing@gmail.com', 'test');
-    $mail->addAddress('asithaindrajithk9@gmail.com', 'Asitha');     // Add a recipient
-    
-    
-    
-    
-    //Content
-    $mail->isHTML(true);                                  // Set email   format to HTML
-    $mail->Subject = 'Testing ';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        //Recipients
+        $mail->setFrom('grpproject.testing@gmail.com', 'test');
+        $mail->addAddress($useremail, 'A&S ManPower');     // Add a recipient
 
-    $mail->send();
-    echo 'Email has been sent';
-} catch (Exception $e) {
-    echo 'Email could not be sent. Mailer Error: ', $mail->ErrorInfo;
-} 
+
+        //Content
+        $mail->isHTML(true);                                  // Set email   format to HTML
+        $mail->Subject = 'Account Verification ';
+        $mail->Body = "This is the verification code of your account <b>$PIN</b>";
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        $mail->send();
+        echo "<script>window.location.replace('../pages/verification_confirm.php');alert('Oops something went wrong!');</script>";
+    } catch (Exception $e) {
+        echo 'Email could not be sent. Mailer Error: ', $mail->ErrorInfo;
+
+    }
+}
