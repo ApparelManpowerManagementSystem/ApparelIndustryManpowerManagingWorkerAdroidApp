@@ -65,22 +65,19 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active" style="background-image: url('./img/banner/banner_image.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
+              <h3><font color="#E5E8E8">Discover Your Career Path</font></h3>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('./img/banner/banner_image2.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
+              <h3><font color="#E5E8E8">Powering Your Success is Humanly Possible</font></h3>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item" style="background-image: url('./img/banner/banner_image3.jpg')">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
+               <h3><font color="#E5E8E8">Career Resourse</font></h3>
             </div>
           </div>
         </div>
