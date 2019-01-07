@@ -2,7 +2,6 @@
     session_start();
 	if(isset($_POST['publishJob'])){
 		require_once '../../db_config/config.php';
-		print_r($_POST);
 		$jobID=$_POST['jobID'];
 		$jobTitle=$_POST['jobTitle'];
 		$jobType=$_POST['jobType'];
@@ -13,16 +12,20 @@
 		$supID=$_POST['suppID'];
 		$locID=$_POST['locID'];
 		$comID=$_POST['compID'];
+        $comJobID=$_POST['comJobID'];
+        $jobNature=$_POST['jobNature'];
+        $jobPrice=$_POST['jobPrice'];
+        
         
         $userID=$_SESSION['userID'];
 
-		$query="INSERT INTO supplier_job (`jobTitle`,`jobType`,`jobCount`,`workerCount`,`jobPeriod`,`jobStatus`,`jobPublished`,`supID`,`locationID`,`comID`) VALUES ('$jobTitle','$jobType','$jobAmount','$workerCount','$jobPeriod','offline','$jobPublished','$supID','$locID','$comID')";
+		$query="INSERT INTO supplier_job (`jobTitle`,`jobType`,`jobCount`,`workerCount`,`jobPeriod`,`jobStatus`,`jobPublished`,`supID`,`locationID`,`comID`,`comJobID`,`jobPrice`,`jobNature`) VALUES ('$jobTitle','$jobType','$jobAmount','$workerCount','$jobPeriod','online','$jobPublished','$supID','$locID','$comID','$comJobID','$jobPrice','$jobNature')";
 
 		if(mysqli_query($conn,$query)){
 			$queryUpdate="UPDATE company_job SET jobStatus='online' WHERE jobID=$jobID";
 			mysqli_query($conn,$queryUpdate);
 
-            echo "
+           /* echo "
             <form method='post' action='insertnoti.php' id='comment_form'>
                 <div class='form-group'>
                  <label>Enter Notification ID</label>
@@ -44,7 +47,8 @@
         
             echo "<script>
                 document.getElementById('comment_form').submit();
-           </script>";
+           </script>";*/
+            echo "<script>window.location.replace('../supplier.php');</script>";
            
 		}else{
 			echo "alert('Try Again!!!');</script>";

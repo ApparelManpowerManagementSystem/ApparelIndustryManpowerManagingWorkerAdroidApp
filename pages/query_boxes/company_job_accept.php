@@ -1,10 +1,10 @@
 <?php
-    $queryJob="SELECT * FROM company_job,company WHERE company_job.jobStatus='offline' AND company_job.comID=company.comID LIMIT 10";
+    $queryJob="SELECT * FROM company_job,company WHERE company_job.jobStatus='offline' AND company_job.comID=company.comID ORDER BY jobID DESC LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
-            $date=date("y-m-d");
+            $date=date("y-n-d");
             echo "<tr>
                       <td><a href='others/examples/invoice.html'>".$rowJob['jobID']."</a></td>
                       <td>".$rowJob['jobTitle']."</td>
@@ -61,12 +61,22 @@
                                         <lable>Company ID<lable>
                                         <input value='".$rowJob['comID']."' type='text' class='form-control' name='compID' required readonly>
                                     </div>
+                                    <div class='form-group'>
+                                        <lable>Enter Job Nature</lable>
+                                        <input value='Full Time' type='text' class='form-control' name='jobNature' required>
+                                    </div>
                                     <div style='display:none' class='form-group'>
                                         <input value='".$rowJob['supID']."' type='text' class='form-control' name='suppID' required readonly>
                                     </div>
                                     <div style='display:none' class='form-group'>
                                         <lable>Job Publishing Date<lable>
                                         <input value='$date' type='text' class='form-control' name='jobPublishedD' required>
+                                    </div>
+                                    <div style='display:none' class='form-group'>
+                                        <input value='".$rowJob['jobID']."' type='text' class='form-control' name='comJobID' required>
+                                    </div>
+                                    <div style='display:none' class='form-group'>
+                                        <input value='".$rowJob['jobPrice']."' type='text' class='form-control' name='jobPrice' required>
                                     </div>
 
 

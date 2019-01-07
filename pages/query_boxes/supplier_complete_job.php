@@ -1,5 +1,10 @@
 <?php
-    
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    //Load Composer's autoloader
+    require '../../mail/vendor/autoload.php';
+
     if(isset($_POST['completeJob'])){
         require_once('../../db_config/config.php');
         $jobID=$_POST['jobID'];

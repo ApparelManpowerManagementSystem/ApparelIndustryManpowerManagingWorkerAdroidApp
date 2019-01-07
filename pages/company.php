@@ -243,7 +243,7 @@
            <div class="modal fade" id="publish_company_job_modal" role="dialog">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-primary">
                         <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
                         <h3 class="modal-title">+Publish Job <small>on <?=date('Y-n-j') ?></small></h3>
                     </div>
