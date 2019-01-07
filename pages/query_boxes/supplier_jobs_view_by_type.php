@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT jobType,COUNT(*) AS typeCount FROM supplier_job WHERE jobStatus='offline' OR jobStatus='pending' GROUP BY jobType";
+    $query="SELECT jobType,COUNT(*) AS typeCount FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' GROUP BY jobType";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){

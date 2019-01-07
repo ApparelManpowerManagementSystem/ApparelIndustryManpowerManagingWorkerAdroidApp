@@ -41,7 +41,7 @@ if($_SESSION['userStatus']=='offline'){
                     <p class='address'><span class=''></span>".$rowJob['workersJoined']." joined.</p>
                     <div style='text-align:right'><li class='btn btn-danger'><a href='./query_boxes/worker_leave_job.php' style='color:white'>Leave</a></li></div>
                 </div></div>";
-            }else if($rowJob['jobStatus']=='online'){
+            }else if($rowJob['jobStatus']=='start'){
                 echo "<div style='margin-top:10px' class='single-post d-flex flex-row'><div class='thumb'>
 				    <img src='../img/img-worker/post.png' alt=''>
                     </div>
@@ -107,15 +107,6 @@ if($_SESSION['userStatus']=='offline'){
             }
             
             
-            /*
-            
-            <div style='text-align:right'>
-                    <p>(<font style='color:red;'>".$rowJob['jobPeriod']."</font>/".($rowJob['workerCount']+5).") joined
-                        <a href='./query_boxes/worker_accept_jobs.php?jobID=".$rowJob['jobID']."'><button id='join_btn' class='btn btn-success' onclick="."show_div('job')".">Accept & Join</button></a>
-                    </p>
-                </div>
-                </div>
-            */
             
     }
 }

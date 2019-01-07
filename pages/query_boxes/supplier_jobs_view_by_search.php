@@ -4,7 +4,7 @@ if(isset($_GET['search']) or isset($_GET['keyword'])) {
     $value = $_GET['keyword'];
     $area = $_GET['select_area'];
     $category = $_GET['select_category'];
-    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.locationID=location.locID AND (supplier_job.jobStatus='offline' OR supplier_job.jobStatus='pending') AND (supplier_job.jobTitle LIKE '$value' OR supplier_job.jobNature='$category' OR location.locCity='$area' OR location.locCity='$value' OR supplier_job.jobType='$value') ORDER BY supplier_job.jobID DESC";
+    $queryview = "SELECT * FROM supplier_job,location WHERE supplier_job.locationID=location.locID AND supplier_job.locationID=location.locID AND (supplier_job.jobStatus='online' OR supplier_job.jobStatus='pending') AND (supplier_job.jobTitle LIKE '$value' OR supplier_job.jobNature='$category' OR location.locCity='$area' OR location.locCity='$value' OR supplier_job.jobType='$value') ORDER BY supplier_job.jobID DESC";
     
     $result = mysqli_query($conn,$queryview);
     if (mysqli_num_rows($result) > 0) {

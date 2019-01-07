@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT location.locCity, COUNT(*) AS locCount FROM supplier_job,location WHERE location.locID=supplier_job.locationID AND jobStatus='offline' GROUP BY supplier_job.locationID";
+    $query="SELECT location.locCity, COUNT(*) AS locCount FROM supplier_job,location WHERE location.locID=supplier_job.locationID AND jobStatus='online' GROUP BY supplier_job.locationID";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){

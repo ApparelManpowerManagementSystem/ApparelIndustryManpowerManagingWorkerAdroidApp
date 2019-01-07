@@ -1,6 +1,6 @@
 <?php
     
-    $query="SELECT COUNT(jobID) AS jobCount  FROM supplier_job WHERE jobStatus='online' ";
+    $query="SELECT COUNT(jobID) AS jobCount  FROM supplier_job WHERE jobStatus='pending' ";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){

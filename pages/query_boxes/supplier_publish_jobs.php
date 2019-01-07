@@ -30,7 +30,7 @@
                 </div>
                    <div class='form-group'>
                  <label>Enter User Type</label>
-                 <input type='text' name='userType' value=2 id='userType' class='form-control'>
+                 <input type='text' name='userType' value=1 id='userType' class='form-control'>
                 </div>
                 <div class='form-group'>
                  <label>Enter Notification</label>

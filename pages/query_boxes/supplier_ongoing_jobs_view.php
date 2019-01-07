@@ -32,7 +32,7 @@
                       </div>
                       <div style='text-align:right'>
                         <button data-target='#".$rowJob['jobID']."' data-toggle='modal' style='margin:5px 2px 2px 0' class='btn btn-success'>Update</button>
-                        <button style='margin:5px 2px 2px 0' class='btn btn-primary'>Complete</button>
+                        <button data-target='#complete".$rowJob['jobID']."' data-toggle='modal' style='margin:5px 2px 2px 0' class='btn btn-primary'>Complete</button>
                         <button style='margin:5px 0 2px 0' class='btn btn-danger'>Cancel</button>
                     </div>
                     </div>
@@ -62,6 +62,32 @@
                                 </div>
                                 <div class='form-group'>
                                     <input type='submit' class='form-control btn btn-success' style='width:100%'' value='Update' name='updateJob' required>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+            
+            echo "<div>
+                <div class='modal fade' id='complete".$rowJob['jobID']."' role='dialog'>
+                    <div class='modal-dialog'>
+                      <div class='modal-content'>
+                        <div class='modal-header bg-primary'>
+                           <h3>Complete the job <small> ".$rowJob['jobID']." ".$rowJob['jobTitle']."</small></h3>
+                        </div>                       
+                        <div class='modal-body'>
+                            <form action='./query_boxes/supplier_complete_job.php' autocomplete='on' method='post'>
+                                <div  class='form-group' style='display:none'>
+                                    <input value='".$rowJob['jobID']."' type='text' class='form-control' name='jobID' required readonly>
+                                </div>
+                                <div class='form-group'>
+                                    <lable>Enter Per Day Payment (Rs.)<lable>
+                                    <input value=0 type='text' class='form-control' name='unitPrice' required>
+                                </div>
+                                <div class='form-group'>
+                                    <input type='submit' class='form-control btn btn-primary' style='width:100%'' value='Complete' name='completeJob' required>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,6 @@
 <?php
-    
-    $query="SELECT COUNT(invoiceID) AS invoiceCount FROM invoice";
+    $userID=$_SESSION['userID'];
+    $query="SELECT COUNT(invoiceID) AS invoiceCount FROM invoice WHERE userID='$userID'";
     $result=mysqli_query($conn,$query);
 
     if(mysqli_num_rows($result)>0){
