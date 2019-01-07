@@ -16,7 +16,7 @@
                   <td>".$rowLoc['userID']."</td>
                   <td>".$rowLoc['price']."</td>
                   <td class='bg-$status'>$paid</td>
-                  <td><a target='_blank' href='../../../print/print.php?id=".$rowLoc['invoiceID']."'><button style='margin-right:2px' class='btn btn-primary' >Print Inoice</button></a>
+                  <td><a target='_blank' href='../../../print/print.php?id=".$rowLoc['invoiceID']."'><button style='margin-right:2px' class='btn btn-primary' >Print Invoice</button></a>
                   <a href='../../query_boxes/supplier_update_invoice.php?invID=".$rowLoc['invoiceID']."'><button class='btn btn-warning'>Pay</button>
                   </td>";
             

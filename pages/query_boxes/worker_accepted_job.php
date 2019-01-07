@@ -16,7 +16,7 @@ if($_SESSION['userStatus']=='offline'){
             $locationName=$rowLocation['locName'];
             $locationAddress=$rowLocation['locStreet'].", ".$rowLocation['locVillage'].", ".$rowLocation['locCity'];
         
-            $_SESSION['jobID']=$rowJob['jobID'];
+            $_SESSION['JobID']=$rowJob['jobID'];
             
             if($rowJob['jobStatus']=='pending'){
                 echo "<div style='margin-top:10px' class='single-post d-flex flex-row'><div class='thumb'>
@@ -39,8 +39,42 @@ if($_SESSION['userStatus']=='offline'){
                     <h5>Job Nature: ".$rowJob['jobNature']."</h5>
                     <p class='address'><span class=''></span>".$locationAddress."</p>
                     <p class='address'><span class=''></span>".$rowJob['workersJoined']." joined.</p>
-                    <div style='text-align:right'><li class='btn btn-danger'><a href='./query_boxes/worker_leave_job.php' style='color:white'>Leave</a></li></div>
+                    <div style='text-align:right'><li class='btn btn-danger'><a data-target='#leave".$rowJob['jobID']."' data-toggle='modal' style='color:white'>Leave</a></li></div>
                 </div></div>";
+                echo "<!-- worker leave -->
+            <div>
+                    <div class='modal fade' id='leave".$rowJob['jobID']."' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 100%'>
+                          <div class='modal-header bg-danger' style='color:white'>Warning!</div>
+                            <div class='modal-body'>
+                          
+                                <form action='./query_boxes/worker_leave_job.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='".$rowJob['jobID']."' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                        <lable>Do you really want to leave from this ".$rowJob['jobTitle']." job?</lable>
+                                      
+                                    </div>
+                                      <div class='modal-footer'>
+                                        <input type='submit' class='form-control btn btn-danger' style='width:25%' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%' value='No' data-dismiss='modal'>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                
+               
+                
             }else if($rowJob['jobStatus']=='start'){
                 echo "<div style='margin-top:10px' class='single-post d-flex flex-row'><div class='thumb'>
 				    <img src='../img/img-worker/post.png' alt=''>
@@ -69,10 +103,74 @@ if($_SESSION['userStatus']=='offline'){
                         </div>
                     </div>
                     <div style='text-align:right'>
-                        <li class='btn btn-danger'><a href='./query_boxes/worker_leave_job.php' style='color:white'>Leave</a></li>
-                        <li class='btn btn-warning'><a href='./query_boxes/workertempleave.php' style='color:white'>Temporary Leave</a></li>
+                        <li class='btn btn-danger'><a data-target='#leave".$rowJob['jobID']."' data-toggle='modal' style='color:white'>Leave</a></li>
+                        <li class='btn btn-warning'><a data-target='#templeave".$rowJob['jobID']."' data-toggle='modal'  style='color:white'>Temporary Leave</a></li>
                     </div>
                 </div></div>";
+                echo "<!-- worker leave -->
+            <div>
+                    <div class='modal fade' id='leave".$rowJob['jobID']."' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 100%'>
+                          <div class='modal-header bg-danger' style='color:white'>Warning!</div>
+                            <div class='modal-body'>
+                          
+                                <form action='./query_boxes/worker_leave_job.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='".$rowJob['jobID']."' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                        <lable>Do you really want to leave from this ".$rowJob['jobTitle']." job?</lable>
+                                      
+                                    </div>
+                                      <div class='modal-footer'>
+                                        <input type='submit' class='form-control btn btn-danger' style='width:25%' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%' value='No' data-dismiss='modal'>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                
+                 echo "<!-- worker leave -->
+                    <div>
+                    <div class='modal fade' id='templeave".$rowJob['jobID']."' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 100%'>
+                          <div class='modal-header bg-warning' style='color:white'>Warning!</div>
+                            <div class='modal-body'>
+                          
+                                <form action='./query_boxes/workertempleave.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='".$rowJob['jobID']."' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                        <lable>Do you really want to temporaly leave from this ".$rowJob['jobTitle']." job?</lable>
+                                      
+                                    </div>
+                                      <div class='modal-footer'>
+                                        <input type='submit' class='form-control btn btn-warning' style='width:25%' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%' value='No' data-dismiss='modal'>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>";
+                
             }else if($rowJob['jobStatus']=='done'){
                 echo "<div style='margin-top:10px' class='single-post d-flex flex-row'><div class='thumb'>
 				    <img style='width:70%' src='../img/img-worker/post.png' alt=''>

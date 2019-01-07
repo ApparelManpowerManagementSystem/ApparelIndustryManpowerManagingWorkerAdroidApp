@@ -8,7 +8,7 @@
 
     $tempquery = "INSERT INTO worker_leaves (workerID,JobID,datetime) VALUES ('$workerID','$jobID',NOW())";
 
-    $_SESSION['userStatus']='online';
+    $_SESSION['userStatus']='offline';
     $userID=$_SESSION['userID'];
     $userType=$_SESSION['userType'];
     $notification=$userID." leaved from the job";

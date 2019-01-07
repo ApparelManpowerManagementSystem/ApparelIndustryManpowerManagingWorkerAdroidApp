@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | ChartJS</title>
+  <title>A&S Manpower</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -30,7 +30,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="../../supplier.php" class="nav-link">Home</a>
             </li>
 
         </ul>
@@ -132,67 +132,97 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="../../supplier.php" class="nav-link">
-                            <i class="nav-icon fa fa-dashboard"></i>
-                            <p>
-                                Dashboard
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-
-                    </li>
-
                     <li class="nav-item has-treeview">
-                        <a href="others/charts/chartjs.php" class="nav-link active">
-                            <i class="nav-icon fa fa-pie-chart"></i>
-                            <p>
-                                Reports
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-
-                    </li>
-
-
-                    <li class="nav-item has-treeview">
-                        <a href="../tables/data.php" class="nav-link">
-                            <i class="nav-icon fa fa-table"></i>
-                            <p>
-                                Tables
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item has-treeview">
-                        <a href="others/examples/invoice.html" class="nav-link">
-                            <i class="nav-icon fa fa-envelope-o"></i>
-                            <p>
-                                Invoices
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="others/calendar.html" class="nav-link">
-                            <i class="nav-icon fa fa-calendar"></i>
-                            <p>
-                                Calendar
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-envelope-o"></i>
-                            <p>
-                                Mailbox
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-                    </li>
+            <a href="../../supplier.php" class="nav-link ">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+           
+          </li>
+          
+          <li class="nav-item has-treeview">
+            <a href="../../others/charts/chartjs.php" class="nav-link active">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+                Reports
+              </p>
+            </a>
+            
+          </li>
+         
+         
+          <li class="nav-item has-treeview">
+            <a href="../../others/tables/data.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Workers Tables
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="../../others/tables/dataLoc.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Locations Tables
+              </p>
+            </a>
+          </li>
+            <li class="nav-item has-treeview">
+            <a href="../../others/tables/dataJobP.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Company Tables
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="../../others/tables/dataJobS.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Published Jobs
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item has-treeview">
+            <a href="../../others/tables/dataLeaves.php" class="nav-link">
+              <i class="nav-icon fa fa-table"></i>
+              <p>
+                Worker Leaves
+              </p>
+            </a>
+          </li>
+         
+		  <li class="nav-item has-treeview">
+            <a href="../../others/tables/dataInvoice.php" class="nav-link">
+              <i class="nav-icon fa fa-envelope-o"></i>
+              <p>
+                Invoices
+              </p>
+            </a>
+          </li>
+           
+		  
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-calendar"></i>
+              <p>
+                Calendar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-envelope-o"></i>
+              <p>
+                Mailbox
+              </p>
+            </a>
+          </li>
 
 
                 </ul>
@@ -209,7 +239,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>ChartJS</h1>
+            <h1>Data Analysis</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -288,25 +318,7 @@
             </div>
             <!-- /.card -->
 
-            <!-- BAR CHART -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Bar Chart</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="height:230px"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+            
 
           </div>
           <!-- /.col (RIGHT) -->
@@ -318,11 +330,11 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0-alpha
+    <strong>Copyright &copy; 2018-2019 <a href="http://adminlte.io">UCSC CS-7</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0.0-alpha
     </div>
-    <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
   </footer>
 
   <!-- Control Sidebar -->

@@ -1,5 +1,5 @@
 <?php
-    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' order by jobID DESC LIMIT 3";
+    $queryJob="SELECT * FROM supplier_job WHERE (jobStatus='online' OR jobStatus='pending') order by jobID DESC LIMIT 3";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){

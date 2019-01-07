@@ -48,7 +48,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
                     <div id="logo">
-                        <a href="index.html"><img style="width:20%" src="" alt="" title="" /></a>
+                        <a href="#"><img style="width:20%" src="" alt="" title="" /></a>
                     </div>
                     <nav id="nav-menu-container">
                         
@@ -264,6 +264,39 @@
             </div>
         </div>
 			<!-- End post Area -->
+            
+            
+                        
+                <div>
+                    <div class='modal fade' id='cancel_job""' role='dialog'>
+                        <div class='modal-dialog'>
+                          <div class='modal-content' style='width: 70%'>
+                            <div class='modal-body'>
+                          
+                                <form action='./query_boxes/cancel_company_job.php' autocomplete='on' method='post'>
+                                    <div style='display:none' class='.d-none'>
+                                        
+                                        <input value='""' type='text' class='form-control hidden' name='jobID' required>
+                                    </div>
+                                     
+                                   
+                                     
+                                    <div class='form-group' style='margin-top: 25px'>
+                                        <lable>Do you want to cancel this '".$rowJob['jobTitle']."' job?</lable>lable>
+                                      
+                                    </div>
+                                      <div class="modal-footer">
+                                        <input type='submit' class='form-control btn btn-danger' style='width:25%' value='Yes' name='CanceledJob' required>
+                                        <input type='button' class='form-control btn btn-default' style='width:25%' value='No' data-dismiss="modal">
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
 
 
 			<script src="../js/js-worker/vendor/jquery-2.2.4.min.js"></script>

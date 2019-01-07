@@ -51,7 +51,7 @@ $(document).ready(function(){
                             },
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Job Count',
+                                labelString: 'Worker Count',
                                 fontStyle: "bold",
                                 fontColor: "black"
                             }
