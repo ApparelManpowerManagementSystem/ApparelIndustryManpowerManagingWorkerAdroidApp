@@ -9,7 +9,6 @@
         require_once('../../db_config/config.php');
         $jobID=$_POST['jobID'];
         $unit=$_POST['unitPrice'];
-        print_r($_POST);
         $query1="UPDATE supplier_job SET jobStatus='done' WHERE jobID='$jobID'";
         
         
@@ -34,7 +33,6 @@
                     }
                     
                 }
-                echo "add";
                 
             }
             $query9="SELECT * FROM worker_pending,worker,supplier_job WHERE worker_pending.workerID=worker.workerID AND worker_pending.jobID=supplier_job.jobID AND worker_pending.jobID=$jobID";
@@ -45,12 +43,12 @@
                 $price=$row9['jobPrice'];
                 $query8="INSERT INTO invoice VALUES(NULL,'$jobID','$comID','$price',0)";
                 if(mysqli_query($conn,$query8)){
-                    echo "added";
+                    echo "";
                 }
                 $comjobID=
                 $query2="UPDATE company_job SET jobStatus='done' WHERE jobID=".$row9['comJobID']."";
                 if(mysqli_query($conn,$query2)){
-                    echo "<script>window.location.replace('../supplier.php');alert('Temporary leave success');</script>";
+                    echo "<script>window.location.replace('../supplier.php');alert('Job successfully completed!');</script>";
                 }
                 
             }

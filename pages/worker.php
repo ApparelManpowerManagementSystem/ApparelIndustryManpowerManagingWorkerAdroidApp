@@ -223,9 +223,9 @@
             <div class="modal fade" id="update_worker_profile_modal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header bg-success">
                             
-                            <h3 class="modal-title"><?=$_SESSION['userName']?> <small> Profile</small></h3>
+                            <h3 style="color:white" class="modal-title"><?=$_SESSION['userName']?> <small> Profile</small></h3>
                             <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
                         </div>
                         <div class="modal-body">
@@ -254,7 +254,7 @@
 
                                 <div class="form-row">
                                     <div class="col-12">
-                                        <button style="width:100%" type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
+                                        <button style="width:100%" type="submit" name="updateProfile" id="save" class="btn btn-success">Update</button>
                                     </div>
                                 </div>
                             </form>

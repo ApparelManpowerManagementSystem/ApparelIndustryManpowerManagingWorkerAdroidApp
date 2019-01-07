@@ -17,8 +17,11 @@ if(isset($_GET['search']) or isset($_GET['keyword'])) {
 
             $rowLocation = mysqli_fetch_assoc($resultLocation);
             $locationName = $rowLocation['locName'];
+            $locStreet=$rowLocation['locStreet'];
+            $locCity=$rowLocation['locCity'];
+            $locVillage=$rowLocation['locVillage'];
 
-
+            
             if($userStatus=="offline"){
                 echo "<div class='single-post d-flex flex-row'><div class='thumb'>
 				    <img src='../img/img-worker/post.png' alt=''>
@@ -33,11 +36,11 @@ if(isset($_GET['search']) or isset($_GET['keyword'])) {
                             <li><a href='#' class='btn btn-primary' data-target='#apply".$rowJob['jobID']."' data-toggle='modal'>Apply</a></li>
                         </ul>
                     </div>
-                    <p >".$rowJob['jobCount']." pieces needs to do ".$rowJob['jobType'].". Every manpower member has to work at most ".$rowJob['jobPeriod']." days. 
+                    <p >".$rowJob['jobCount']." pieces needs to do <label class='bg-warning'>".$rowJob['jobType'].".</label> Every manpower member has to work at most ".$rowJob['jobPeriod']." days. 
                     <strong></strong> Job should be complete within ".$rowJob['jobPeriod']." days.</p>
 
-                    <h5>Job Nature: ".$rowJob['jobNature']."</h5>
-                    <p class='address'><span class=''></span>".$locationAddress."</p>
+                    <h5>Job Nature: <label class='bg-warning'>".$rowJob['jobNature']."</label></h5>
+                    <p class='address'>$locStreet, $locVillage, <label class='bg-warning'>".$locCity."</label></p>
                     <p class='address'><span class=''></span>".$rowJob['workersJoined']." joined.</p>
                 </div></div>";
                 
@@ -88,8 +91,8 @@ if(isset($_GET['search']) or isset($_GET['keyword'])) {
                     <strong></strong> Job should be complete within ".$rowJob['jobPeriod']." days.</p>
 
                     <h5>Job Nature: ".$rowJob['jobNature']."</h5>
-                    <p class='address'><span class=''></span>".$locationAddress."</p>
-                    <p class='address'><span class=''></span>".$rowJob['workersJoined']." joined.</p>
+                    <p class='address'>$locStreet, $locVillage, <label class='bg-warning'>".$locCity."</label>
+                    <p class='address'>".$rowJob['workersJoined']." joined.</p>
                 </div></div>";
             }
 
