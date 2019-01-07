@@ -18,20 +18,22 @@
 
             for (var i in data) 
 			{
-				if(data[i].comName=="srinath"){
-					if(data[i].jobType==data[i-1].jobType){
-						jobCounttwo.push(data[i].jobCount);
-						comName.push(data[i].comName);
-					}
-					else{
-						jobType.push( data[i].jobType);
-						jobCounttwo.push(data[i].jobCount);
-						comName.push(data[i].comName);
-					}
+				if(data[i].comName=="Srinath") {
+                   
+                    if (data[i].jobCount>0) {
+                        jobCounttwo.push(data[i].jobCount);
+                        comName.push(data[i].comName);
+                    }
+                    else{
+                        jobCounttwo.push(0);
+                        comName.push(data[i].comName);
+                    }
+                }
 					
-				}
+
 				else{
-					
+
+
                 jobType.push( data[i].jobType);
                 jobCount.push(data[i].jobCount);
 				comName.push(data[i].comName);
@@ -58,7 +60,7 @@ var myChart = new Chart(ctx, {
             backgroundColor:"purple",
             borderColor: [],
             borderWidth: 1
-        },
+        }
 		
 		
 		]
