@@ -17,14 +17,16 @@
             }else{
                 $starArray=['fa fa-star','fa fa-star-half-full','fa fa-star-half-full','fa fa-star-half-full'];
             }
-
+            
         echo "<div class='col-lg-4 col-sm-6 portfolio-item'>
           <div class='card h-100' style='text-align: center'>
-            <img class='card-img-top' style='width:60%;margin-left:20%;padding:10px;' src='./Assests/worker/W1234.jpg' alt='Top Worker'>
+            
             <div class='card-body'>
               <h4 class='card-title'>
                 Mr. ".$rowWorker['workerName']."<hr>
               </h4>
+              Tel: ".$rowWorker['workerPhone']."
+              
               
             </div>
           </div>

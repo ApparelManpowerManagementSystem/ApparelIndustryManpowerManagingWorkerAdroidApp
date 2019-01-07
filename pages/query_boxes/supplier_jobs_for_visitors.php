@@ -1,5 +1,5 @@
 <?php
-    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' ORDER BY jobID LIMIT 5";
+    $queryJob="SELECT * FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' ORDER BY jobID DESC LIMIT 5";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
@@ -25,7 +25,7 @@
                 </p>
             </div>
             <div class='card-footer'>
-              <a data-target='#signin_modal' data-toggle='modal' href='#' class='btn btn-primary'>Let's Join</a>
+              <a href='./pages/login.php' class='btn btn-primary'>Let's Join</a>
             </div>
           </div></div>";
             

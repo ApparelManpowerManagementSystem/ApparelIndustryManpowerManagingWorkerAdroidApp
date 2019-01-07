@@ -26,7 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html">A & S Manpower Solutions</a>
+        <a class="navbar-brand" href="../index.php">A & S Manpower Solutions</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -126,9 +126,10 @@
             <div class="modal fade" id="signup_modal" role="dialog">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"></button>
-                        <h4 class="modal-title">Register</h4>
+                    <div class="modal-header bg-primary">
+                        <h4 style="color:white" class="modal-title">Sign Up</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        
                     </div>
                     <div class="modal-body">
                         <!--register form-->
@@ -140,7 +141,7 @@
                                 <input type="tel" class="form-control" placeholder="Enter mobile phone number ex: 0766897330" pattern="[0]{1}[7]{1}[0-9]{8}" name="mobile" minlength="10" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Enter email" name="email" required>
+                                <input type="email" class="form-control" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" required>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="Type a password" name="pwd1" required>
@@ -162,7 +163,7 @@
                             </div>
                             
                             <div style="text-align:right" class="form-group" >
-                                <input type="submit" class="form-control btn btn-success" value="SignUp" name="submitRegister" required style="width:25%">
+                                <input type="submit" class="form-control btn btn-primary" value="SignUp" name="submitRegister" required style="width:100%">
                             </div>
                         </form>
                         <!--end register form-->
@@ -176,36 +177,26 @@
       <!-- Features Section -->
       <div class="row">
         <div class="col-lg-6">
-          <h2>Modern Business Features</h2>
-          <p>The Modern Business template by Start Bootstrap includes:</p>
+          <h2>A&S Manpower Business Features</h2>
+          <p>The Modern manpower Business through new technology and power</p>
           <ul>
             <li>
-              <strong>Bootstrap v4</strong>
+              <strong>User freaindlyness</strong>
             </li>
-            <li>jQuery</li>
-            <li>Font Awesome</li>
-            <li>Working contact form with validation</li>
-            <li>Unstyled page elements for easy customization</li>
+            <li>Fast response</li>
+           <li>Customization</li>
           </ul>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+          <p>We are here to full fill your manpower needs as well as manpower jobs for young generation.</p>
         </div>
         <div class="col-lg-6">
-          <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
+          
         </div>
       </div>
       <!-- /.row -->
 
       <hr>
 
-      <!-- Call to Action Section -->
-      <div class="row mb-4">
-        <div class="col-md-8">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-        </div>
-        <div class="col-md-4">
-          <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
-        </div>
-      </div>
+     
 
     </div>
     <!-- /.container -->

@@ -21,14 +21,14 @@ if(isset($_POST["view"]))
       while($row = mysqli_fetch_array($result))
       {
           
-          $output .=$row['notification'];
+          $output .=$row['notification']."<br>";
           
          
       }
      }
      else
      {
-      $output .= '<li><a class="text-bold text-italic">No Notification Found</a></li>';
+      $output .= '<li><a class="text-bold text-italic">No Notification Found</a></li><br>';
      }
 
      $query_1 = "SELECT * FROM notification WHERE status=0 AND userType=$userType ORDER BY id";

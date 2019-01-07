@@ -15,7 +15,7 @@ if(isset($_POST['submitRegister'])){
     if($usertype==3){
         $id="W".(int)$mobile;
         $name = $_FILES['file']['name'];
-        $target_dir = "../Assests/worker/";
+        $target_dir = "../../img/img-worker/";
         $target_file = $target_dir . $_FILES["file"]["name"];
         // Select file type
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -26,23 +26,28 @@ if(isset($_POST['submitRegister'])){
             // Upload file
             move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
             $userquery="INSERT INTO users VALUES('$id','$hashed_password','$usertype')";
-            mysqli_query($conn,$userquery);
-            $query="INSERT INTO worker (`workerID`,`workerName`,`workerPhone`,`workerEmail`,`workerImage`) VALUES ('$id','$userName','$mobile','$email','".$image."')";
-            $result=mysqli_query($conn,$query);
-            // Upload file
-            move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
-            if($result){
-                echo "<script>window.location.replace('../../index.php');</script>";
-            }
-            else{
-                echo "<script>alert('try again');</script>";
-            } 
+            if(mysqli_query($conn,$userquery)){
+                $query="INSERT INTO worker (`workerID`,`workerName`,`workerPhone`,`workerEmail`,`workerImage`) VALUES ('$id','$userName','$mobile','$email','".$image."')";
+                $result=mysqli_query($conn,$query);
+                // Upload file
+                move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
+                if($result){
+                   echo "<script>window.location.replace('../login.php');alert('You have successfully registered in the system');</script>";
+                }
+                else{
+                    echo "<script>alert('try again');</script>";
+                } 
+            }else{
+                    echo "<script>alert('try again');</script>";
+                } 
+            
+            
         }            
     }
     else if($usertype==1){
         $id="C".(int)$mobile;
         $name = $_FILES['file']['name'];
-        $target_dir = "../Assests/company/";
+        $target_dir = "../../img/img-worker/";
         $target_file = $target_dir . $_FILES["file"]["name"];
         // Select file type
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
