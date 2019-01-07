@@ -45,10 +45,34 @@
                 if(mysqli_query($conn,$query8)){
                     echo "";
                 }
-                $comjobID=
+                $dateNow=date("Y-n-d");
+                $notification="A&S Manpower Solutions completed the job ".$row9['comJobID']." on $dateNow";
                 $query2="UPDATE company_job SET jobStatus='done' WHERE jobID=".$row9['comJobID']."";
                 if(mysqli_query($conn,$query2)){
-                    echo "<script>window.location.replace('../supplier.php');alert('Job successfully completed!');</script>";
+                    echo "
+                        <form method='post' action='insertnoti.php' id='comment_form'>
+                            <div class='form-group'>
+                             <label>Enter Notification ID</label>
+                             <input value='$userID' type='text' name='notificationID' id='notificationID' class='form-control'>
+                            </div>
+                               <div class='form-group'>
+                             <label>Enter User Type</label>
+                             <input type='text' name='userType' value=1 id='userType' class='form-control'>
+                            </div>
+                            <div class='form-group'>
+                             <label>Enter Notification</label>
+                             <input value='$notification' name='notification' id='notification' class='form-control' rows='5'>
+                            </div>
+                            <div class='form-group'>
+                             <input type='submit' class='btn btn-info' value='Post' />
+                            </div>
+                        </form>";
+
+
+                    echo "<script>
+                            document.getElementById('comment_form').submit();
+                       </script>";
+                    
                 }
                 
             }
