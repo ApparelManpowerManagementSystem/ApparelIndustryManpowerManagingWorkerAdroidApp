@@ -292,8 +292,8 @@
            <div class="modal fade" id="update_company_profile_modal" role="dialog">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><font style="font-family:arial">&times;</font></button>
+                    <div class="modal-header bg-success">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 class="modal-title">Profile <small>on <?=date('Y-n-j') ?></small></h3>
                     </div>
                     <div class="modal-body">
@@ -322,7 +322,7 @@
                            
                             <div class="form-row text-right">
                                 <div class="col-12">
-                                <button type="submit" name="updateProfile" id="save" class="btn btn-primary">Update</button>
+                                <button type="submit" name="updateProfile" id="save" class="btn btn-success">Update</button>
                                </div>
                             </div>
                       </form>

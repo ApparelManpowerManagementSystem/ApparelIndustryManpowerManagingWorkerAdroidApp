@@ -13,7 +13,7 @@
                     <td>".$rowJob['jobPeriod']."</td>
                     <td>".$rowJob['jobPrice']."</td>
                     <td>".$rowJob['jobDate']."</td>
-                    <td><button style='margin:2px' class='btn btn-warning' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button>
+                    <td><button style='margin:2px' class='btn btn-success' data-target='#".$rowJob['jobID']."' data-toggle='modal'>Update</button>
                     <button class='btn btn-danger'  data-target='#cancel_job" . $rowJob['jobID'] . "' data-toggle='modal' >Cancel</button></td>
                 </tr>";
             
@@ -21,8 +21,8 @@
                     <div class='modal fade' id='".$rowJob['jobID']."' role='dialog'>
                         <div class='modal-dialog'>
                           <div class='modal-content'>
-                            <div class='modal-header'>
-                               <h3>Publish Job ID ".$rowJob['jobID']."</h3>
+                            <div class='modal-header bg-success'>
+                               <h3>Update Job ID ".$rowJob['jobID']."</h3>
                             </div>
                             
                             <div class='modal-body'>
