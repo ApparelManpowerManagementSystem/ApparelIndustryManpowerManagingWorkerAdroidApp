@@ -3,15 +3,16 @@
 	session_start();
 	require_once '../../db_config/config.php';
 	$workerID=$_SESSION['userID'];
-    $jobID=$_SESSION['jobID'];
+    $jobID=$_SESSION['JobID'];
+    $date=date("Y-n-d");
+    $time=date("h:i:sa");
 
-
-    $tempquery = "INSERT INTO worker_leaves (workerID,JobID,datetime) VALUES ('$workerID','$jobID',NOW())";
+    $tempquery = "INSERT INTO worker_leaves (workerID,JobID,date,time) VALUES ('$workerID','$jobID','$date','$time')";
 
     $_SESSION['userStatus']='offline';
     $userID=$_SESSION['userID'];
     $userType=$_SESSION['userType'];
-    $notification=$userID." leaved from the job";
+    $notification=$userID." temporary leaved from the job";
     if(mysqli_query($conn,$tempquery)){
 
 
@@ -27,10 +28,10 @@
                 </div>
                 <div class='form-group'>
                  <label>Enter Notification</label>
-                 <input value=' left from the job' name='notification' id='notification' class='form-control' rows='5'>
+                 <input value='$notification' name='notification' id='notification' class='form-control' rows='5'>
                 </div>
                 <div class='form-group'>
-                 <input type='submit' name='post' id='post' class='btn btn-info' value='Post' />
+                 <input type='submit' class='btn btn-info' value='Post' />
                 </div>
             </form>";
 
@@ -42,7 +43,7 @@
     echo "<script>window.location.replace('../worker.php');alert('Temporary leave success');</script>";
 
 }else{
-    echo "<script>window.location.replace('../worker.php');alert('Try again!!!');</script>";
+    echo "<script>alert('Sorry! You cannot leave more than one time per day');window.location.replace('../worker.php');</script>";
 }
 
 ?>

@@ -207,7 +207,7 @@
 							</div>
                             
                             <div class="single-slidebar">
-                                <h4>Rate your Favourite</h4>
+                                <h4>Rate your Favourite Job Type</h4>
 								<span id="job_list"></span>
                                       
 							</div>
