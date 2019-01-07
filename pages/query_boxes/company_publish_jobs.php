@@ -19,7 +19,7 @@
         //Insert company job sql query
         $query = "INSERT INTO company_job (jobTitle,jobType,jobAmount,jobPeriod,jobPrice,jobDate,jobStatus,comID,supID) VALUES ('$jobTitle','$jobType','$jobAmount','$jobPeriod','$jobPrice','$jobDate','$jobStatus','$comID','$supID')";
         //Check whether the sql query executed successfully
-        $notification=$comID." Published new job for you.";
+        $notification=$comID." Published new $jobTitle job for you.";
         if(mysqli_query($conn,$query)){
             //If true alert message and redirect to company.php file
              echo "
