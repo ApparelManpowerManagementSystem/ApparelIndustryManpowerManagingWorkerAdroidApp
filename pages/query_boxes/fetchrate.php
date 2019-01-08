@@ -30,7 +30,7 @@ foreach($result as $row)
         {
             $color = 'color:#ccc;';
         }
-        $output .= '<li class="list-inline-item" title="'.$count.'" jobType="'.$row['jobType'].'-'.$count.'" data-index="'.$count.'"  data-job_id="'.$row['jobType'].'" data-rating="'.$rating.'" class="rating list-inline-item" style="cursor:pointer; '.$color.' font-size:16px;">&#9733;</li>';
+        $output .= '<li title="'.$count.'" jobType="'.$row['jobType'].'-'.$count.'" data-index="'.$count.'"  data-job_id="'.$row['jobType'].'" data-rating="'.$rating.'" class="rating list-inline-item" style="cursor:pointer; '.$color.' font-size:16px;">&#9733;</li>';
     }
     $output .= '
  </ul>
