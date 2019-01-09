@@ -290,6 +290,7 @@ session_start();
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>
+<!--                    Display count of jobs published by companies-->
                     <?php
                         require_once '../db_config/config.php';
                         require_once './query_boxes/supplier_view_new_company_jobs_count.php';
@@ -331,6 +332,7 @@ session_start();
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>
+                    <!-- Display count of workers engaged in jobs by companies-->
                     <?php
                         require_once '../db_config/config.php';
                         require_once './query_boxes/supplier_view_workers_count.php';
@@ -351,6 +353,8 @@ session_start();
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>
+                    <!-- Display count of ongoing jobs-->
+                    
                 <?php
                     require_once '../db_config/config.php';
                     require_once './query_boxes/supplier_view_ongoing_job_count.php';
@@ -408,6 +412,7 @@ session_start();
                     </tr>
                     </thead>
                     <tbody>
+                        <!-- Display all jobs published by companies-->
                         <?php
                             require_once('../db_config/config.php');
                             require_once('./query_boxes/company_job_accept.php');
@@ -454,7 +459,7 @@ session_start();
                     <p class="text-center">
                       <strong>Goal Completion</strong>
                     </p>
-
+                      <!-- Display ongoing jobs of supplier-->
                       <?php
                             require_once('../db_config/config.php');
                             require_once('./query_boxes/supplier_ongoing_jobs_view.php');
@@ -490,7 +495,7 @@ session_start();
                     <p class="text-center">
                       <strong>Goal Completion</strong>
                     </p>
-
+                      <!-- Display pending jobs which are accpeted by workers-->
                       <?php
                             require_once('../db_config/config.php');
                             require_once('./query_boxes/supplier_pending_jobs.php');
@@ -539,10 +544,10 @@ session_start();
                                     </tr>
                                     </thead>
                                     <tbody>
-                              <?php
-                                    require_once('../db_config/config.php');
-                                    require_once('./query_boxes/supplier_view_active_workers.php');
-                                ?>
+                                      <?php
+                                            require_once('../db_config/config.php');
+                                            require_once('./query_boxes/supplier_view_active_workers.php');
+                                        ?>
                                       </tbody>
                                     </table>
                                     
@@ -556,128 +561,11 @@ session_start();
                          
             </section>
             
-            
-        <section id="recap" class="col-lg-12 connectedSortable" style="display:none">
-        <div class="row">   
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-wrench"></i>
-                    </button>
-                    
-                  </div>
-                  <button type="button" class="btn btn-tool" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="text-center">
-                      <strong>Goal Completion</strong>
-                    </p>
-
-                    <div class="progress-group">
-                      Total Recieved Jobs
-                      <span class="float-right"><b>160</b>/200</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-primary" style="width: 80%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-
-                    <div class="progress-group">
-                      Complete Purchase
-                      <span class="float-right"><b>310</b>/400</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" style="width: 75%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      <span class="progress-text">Visit Premium Page</span>
-                      <span class="float-right"><b>480</b>/800</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" style="width: 60%"></div>
-                      </div>
-                    </div>
-
-                    <!-- /.progress-group -->
-                    <div class="progress-group">
-                      Send Inquiries
-                      <span class="float-right"><b>250</b>/500</span>
-                      <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" style="width: 50%"></div>
-                      </div>
-                    </div>
-                    <!-- /.progress-group -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- ./card-body -->
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 17%</span>
-                      <h5 class="description-header">$35,210.43</h5>
-                      <span class="description-text">TOTAL REVENUE</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-warning"><i class="fa fa-caret-left"></i> 0%</span>
-                      <h5 class="description-header">$10,390.90</h5>
-                      <span class="description-text">TOTAL COST</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block border-right">
-                      <span class="description-percentage text-success"><i class="fa fa-caret-up"></i> 20%</span>
-                      <h5 class="description-header">$24,813.53</h5>
-                      <span class="description-text">TOTAL PROFIT</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-3 col-6">
-                    <div class="description-block">
-                      <span class="description-percentage text-danger"><i class="fa fa-caret-down"></i> 18%</span>
-                      <h5 class="description-header">1200</h5>
-                      <span class="description-text">GOAL COMPLETIONS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-      </div><!-- /.container-fluid -->
-    </section>
           </div>
         </div>
       </section>
-        </div>
+    </div>
+        
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2018-2019 <a href="http://adminlte.io">UCSC CS-7</a>.</strong>
@@ -728,15 +616,17 @@ session_start();
 <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
+<!-- App -->
 <script src="../dist/admin/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- dashboard demo (This is only for demo purposes) -->
 <script src="../dist/admin/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
+<!-- for demo purposes -->
 <script src="../dist/admin/dist/js/demo.js"></script>
     
+<!--Show hide HTML elements    -->
 <script src="../js/show_div.js"></script>
 
+<!--Show notifications-->
 <script>
 
         $(document).ready(function(){

@@ -1,4 +1,6 @@
 <?php
+
+    //Display company jobs which are offline means that they are not still accpeted
     $queryJob="SELECT * FROM company_job,company WHERE company_job.jobStatus='offline' AND company_job.comID=company.comID ORDER BY jobID DESC LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);
 
@@ -97,7 +99,7 @@
                             <div class='modal-header bg-danger'>Warning!</div>
                             <div class='modal-body'>
                           
-                                <form action='../../query_boxes/supplier_reject_job.php' autocomplete='on' method='post'>
+                                <form action='./query_boxes/supplier_reject_job.php' autocomplete='on' method='post'>
                                     <div style='display:none' class='.d-none'>
                                         
                                         <input value='" .$rowJob['jobID']. "' type='text' class='form-control hidden' name='jobID' required>

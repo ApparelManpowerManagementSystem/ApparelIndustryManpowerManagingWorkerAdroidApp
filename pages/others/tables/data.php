@@ -315,7 +315,6 @@
                   <th>Name</th>
                   <th>NIC</th>
                   <th>Mobile</th>
-                  <th>Max Work Period</th>
                     <th>Rank</th>
                     <th>Email</th>
                     <th>Status</th>
@@ -336,7 +335,6 @@
                   <th>Name</th>
                   <th>NIC</th>
                   <th>Mobile</th>
-                  <th>Max Work Period</th>
                     <th>Rank</th>
                     <th>Email</th>
                     <th>Status</th>

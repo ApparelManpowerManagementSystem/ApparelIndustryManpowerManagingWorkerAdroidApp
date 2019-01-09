@@ -27,7 +27,6 @@
                   <td>".$row['workerName']."</td>
                   <td>".$row['workerNIC']."</td>
                   <td>".$row['workerPhone']."</td>
-                  <td>".$row['workerMaxWorkPeriod']."</td>
                   <td><lable class='btn btn-".$rank."'>".$row['workerRank']."</lable></td>
                   <td>".$row['workerEmail']."</td>
                   <td><lable class='btn btn-".$status."'>".$row['workerStatus']."</lable></td>

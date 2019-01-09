@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['updateProfile'])){ // Fetching variables of the form which travels in URL
+if(isset($_POST['updateProfile'])){ 
 
     require_once '../../db_config/config.php';
     $workerID=$_POST['workerID'];
