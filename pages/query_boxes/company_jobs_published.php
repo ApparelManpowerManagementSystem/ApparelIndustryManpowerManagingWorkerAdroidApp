@@ -41,15 +41,15 @@
                                     </div>
                                     <div class='form-group'>
                                         <lable>Job Quantity (Pieces)<lable>
-                                        <input value='".$rowJob['jobAmount']."' type='text' class='form-control' name='jobAmount' required>
+                                        <input value='".$rowJob['jobAmount']."' type='number' class='form-control' name='jobAmount' required>
                                     </div>
                                     <div class='form-group'>
                                         <lable>Job Duration<lable>
-                                        <input value='".$rowJob['jobPeriod']."' type='text' class='form-control' name='jobPeriod' required>
+                                        <input value='".$rowJob['jobPeriod']."' type='number' class='form-control' name='jobPeriod' required>
                                     </div>
                                     <div class='form-group'>
                                         <lable>Job Price (Rs)<lable>
-                                        <input value='".$rowJob['jobPrice']."' type='text' class='form-control' name='jobPrice' required>
+                                        <input value='".$rowJob['jobPrice']."' type='number' class='form-control' name='jobPrice' required>
                                     </div>
                                      
                                     <div class='form-group'>

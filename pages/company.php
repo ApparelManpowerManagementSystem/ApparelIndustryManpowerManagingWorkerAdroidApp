@@ -55,12 +55,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><strong><?=$_SESSION['userName']?><Small> Pvt. Ltd Company</Small></strong></a>
+                <a class="navbar-brand" href="#"><strong><?=$_SESSION['userName']?><Small> Pvt. Ltd Company</Small></strong></a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                
+                <!-- /.dropdown job progress-->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -95,8 +95,7 @@
                     <ul class="dropdown-menu dropdown-user">
                        <li><a data-target="#update_company_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        
                         <li class="divider"></li>
                         <li><a href="./query_boxes/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -106,21 +105,12 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-
+            
+            <!-- .sidebar-collapse -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                        
                         <li class="bg-primary">
                             <a style="color:white" href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -221,7 +211,7 @@
                                     <div class="huge">
                                         <?php
                                             require_once '../db_config/config.php';
-                                            require_once './query_boxes/company_rejected_lobs_count.php';
+                                            require_once './query_boxes/company_rejected_jobs_count.php';
                                         ?></div>
                                     <div>Rejected!</div>
                                 </div>
@@ -251,26 +241,26 @@
                         <form action="./query_boxes/company_publish_jobs.php" autocomplete="on" method="post">
                             Enter Job Title
                             <div class="form-group">
-                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" name="jobTitle">
+                                <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" name="jobTitle" required>
                             </div>
                             Enter Job Type
                             <div class="form-group">
-                                <input type="text" class="form-control" id="jobType" placeholder="Enter Job type" name="jobType">
+                                <input type="text" class="form-control" id="jobType" placeholder="Enter Job type" name="jobType" required>
                             </div>
                             Enter Job Amount
                              <div class="form-group">
-                                <input type="text" class="form-control" id="jobAmount" placeholder="Enter Job Amount" name="jobAmount">
+                                <input type="number" class="form-control" id="jobAmount" placeholder="Enter Job Amount" name="jobAmount" required>
                             </div>
                             Enter Job Period
                              <div class="form-group">
-                                <input type="text" class="form-control" id="jobPeriod" placeholder="Enter Job Period" name="jobPeriod">
+                                <input type="number" class="form-control" id="jobPeriod" placeholder="Enter Job Period" name="jobPeriod" required>
                             </div>
                             Enter Job Price
                             <div class="form-group">
-                                <input type="text" class="form-control" id="jobPrice" placeholder="Enter Job Price" name="jobPrice">
+                                <input type="number" class="form-control" id="jobPrice" placeholder="Enter Job Price" name="jobPrice" required>
                             </div>
                             <div class="form-group hidden">
-                                <input type="text" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate">
+                                <input type="date" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate" required>
                             </div>                        
                            
                             <div class="form-row text-right">
@@ -300,23 +290,23 @@
                         <form action="./query_boxes/company_update_profile.php" autocomplete="on" method="post">
                             Company Id
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='<?=$_SESSION['userID']?>' readonly>
+                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='<?=$_SESSION['userID']?>' readonly >
                             </div>
                             Company Name
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='<?=$_SESSION['userName']?>'>
+                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='<?=$_SESSION['userName']?>' required>
                             </div>
                             Company Contact No 
                              <div class="form-group">
-                                <input type="text" class="form-control" id="ContactNo" name="ContactNo" value='<?=$_SESSION['userMobile']?>'>
+                                <input type="text" pattern="[07]{2}[0-9]{1}[0-9]{7}" class="form-control" id="ContactNo" name="ContactNo" value='<?=$_SESSION['userMobile']?>' required>
                             </div>
                             Company Address
                              <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='<?=$_SESSION['userAddress']?>'>
+                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='<?=$_SESSION['userAddress']?>' required>
                             </div>
                             Company Email Address
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyEmail" name="CompanyEmail" value='<?=$_SESSION['userEmail']?>'>
+                                <input type="email" class="form-control" id="CompanyEmail" name="CompanyEmail" value='<?=$_SESSION['userEmail']?>' required>
                             </div>
                                                     
                            
@@ -503,16 +493,18 @@
                                                 <tr>
                                                     <th>Job ID</th>
                                                     <th>Job Title</th>
-                                                    <th>Job Status</th>
-                                                    <th>Job Count</th>
-                                                    <th>Job Progress</th>
-                                                    <th>Progress Update</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Price</th>
+                                                    <th>Published</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                     require_once '../db_config/config.php';
-                                                   // require_once './query_boxes/company_jobs_rejected.php';
+                                                    require_once './query_boxes/company_jobs_rejected.php';
                                                 ?>
                                                 
                                             </tbody>
@@ -572,7 +564,6 @@
                                                     <th>Duration</th>
                                                     <th>Cost</th>
                                                     <th>Published</th>
-                                                    <th>Status</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>

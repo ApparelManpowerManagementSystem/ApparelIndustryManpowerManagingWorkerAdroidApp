@@ -55,7 +55,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><strong><?=$_SESSION['userName']?><Small> Pvt. Ltd Company</Small></strong></a>
+                <a class="navbar-brand" href="#"><strong><?=$_SESSION['userName']?><Small> Pvt. Ltd Company</Small></strong></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -95,8 +95,7 @@
                     <ul class="dropdown-menu dropdown-user">
                        <li><a data-target="#update_company_profile_modal" data-toggle="modal"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                        
                         <li class="divider"></li>
                         <li><a href="./query_boxes/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
@@ -110,19 +109,9 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                        
                         <li>
-                            <a href="company.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="./company.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         
                         <li class="bg-primary">
@@ -596,203 +585,8 @@
                 </div>
                  </div>
                 
-                <div id="ongoings" class="row" style="display:none">
-                <div class="col-lg-12">
-                   
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                       <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Ongoings Jobs
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        
-                        <div class="panel-body" >
-                            <div class="row">
-                               <div class="col-lg-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Job ID</th>
-                                                    <th>Job Title</th>
-                                                    <th>Job Status</th>
-                                                    <th>Job Count</th>
-                                                    <th>Job Progress</th>
-                                                    <th>Progress Update</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                    require_once '../db_config/config.php';
-                                                    require_once './query_boxes/company_ongoing_jobs.php';
-                                                ?>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    </div>
-                 </div>
-                    
-                    
-                    <div id="rejected" class="row" style="display:none">
-                <div class="col-lg-12">
-                   
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                       <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Rejected Jobs
-                           <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        
-                        <div  class="panel-body" >
-                            <div class="row">
-                               <div class="col-lg-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>Job ID</th>
-                                                    <th>Job Title</th>
-                                                    <th>Job Status</th>
-                                                    <th>Job Count</th>
-                                                    <th>Job Progress</th>
-                                                    <th>Progress Update</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                    require_once '../db_config/config.php';
-                                                   // require_once './query_boxes/company_jobs_rejected.php';
-                                                ?>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                </div>
-
-                              
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    </div>
-                 </div>
-                        
-                <div id="canceled" class="row" style="display:none">
-                    <div class="col-lg-12">
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                       <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Canceled Jobs
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a onclick="hide_div('rejected');hide_div('canceled');hide_div('ongoings');show_div('published')">Published</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('canceled');hide_div('ongoings');show_div('rejected')">Rejected</a>
-                                        </li><li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('ongoings');show_div('canceled')">Canceled</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a onclick="hide_div('published');hide_div('rejected');hide_div('canceled');show_div('ongoings')">Ongoings</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        
-                        <div  class="panel-body" >
-                            <div class="row">
-                               <div class="col-lg-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Title</th>
-                                                    <th>Type</th>
-                                                    <th>Amount</th>
-                                                    <th>Duration</th>
-                                                    <th>Cost</th>
-                                                    <th>Published</th>
-                                                    <th>Status</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                    require_once '../db_config/config.php';
-                                                    require_once './query_boxes/company_jobs_canceled.php';
-                                                ?>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                </div>
-
-                              
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                            </div>
-             
-                </div>
+                
+                 
                 
             </div>
             <!-- /.row -->
