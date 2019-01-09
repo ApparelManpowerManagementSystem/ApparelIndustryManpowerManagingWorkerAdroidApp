@@ -290,23 +290,23 @@
                         <form action="./query_boxes/company_update_profile.php" autocomplete="on" method="post">
                             Company Id
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='<?=$_SESSION['userID']?>' readonly>
+                                <input type="text" class="form-control" id="CompanyId"  name="CompanyId" value='<?=$_SESSION['userID']?>' readonly >
                             </div>
                             Company Name
                             <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='<?=$_SESSION['userName']?>'>
+                                <input type="text" class="form-control" id="CompanyName"  name="CompanyName" value='<?=$_SESSION['userName']?>' required>
                             </div>
                             Company Contact No 
                              <div class="form-group">
-                                <input type="tel" class="form-control" id="ContactNo" name="ContactNo" value='<?=$_SESSION['userMobile']?>'>
+                                <input type="text" pattern="[07]{2}[0-9]{1}[0-9]{7}" class="form-control" id="ContactNo" name="ContactNo" value='<?=$_SESSION['userMobile']?>' required>
                             </div>
                             Company Address
                              <div class="form-group">
-                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='<?=$_SESSION['userAddress']?>'>
+                                <input type="text" class="form-control" id="CompanyAdd" name="CompanyAdd" value='<?=$_SESSION['userAddress']?>' required>
                             </div>
                             Company Email Address
                             <div class="form-group">
-                                <input type="email" class="form-control" id="CompanyEmail" name="CompanyEmail" value='<?=$_SESSION['userEmail']?>'>
+                                <input type="email" class="form-control" id="CompanyEmail" name="CompanyEmail" value='<?=$_SESSION['userEmail']?>' required>
                             </div>
                                                     
                            
