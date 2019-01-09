@@ -1,10 +1,12 @@
 <?php
-	
-    $queryJob="SELECT * FROM company_job WHERE jobStatus='cancle' LIMIT 10";
+
+
+    $queryJob="SELECT * FROM company_job WHERE jobStatus='rejected'";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
+            $totalDays=$rowJob['jobPeriod'];
             
             echo "<tr>
                     <td>".$rowJob['jobID']."</td>
@@ -24,7 +26,7 @@
                           <div class='modal-content' style='width: 70%'>
                             <div class='modal-body'>
                           
-                                <form action='./query_boxes/delete_company_jobs.php' autocomplete='on' method='post'>
+                                <form action='./query_boxes/delete_rejected_company_jobs.php' autocomplete='on' method='post'>
                                     <div style='display:none' class='.d-none'>
                                         
                                         <input value='" . $rowJob['jobID'] . "' type='text' class='form-control hidden' name='jobID' required>
@@ -48,9 +50,10 @@
                     </div>
                 </div>";
 
+
+            
+            
         }
     }
-    
-
-
+                
 ?>

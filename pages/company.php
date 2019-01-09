@@ -503,16 +503,18 @@
                                                 <tr>
                                                     <th>Job ID</th>
                                                     <th>Job Title</th>
-                                                    <th>Job Status</th>
-                                                    <th>Job Count</th>
-                                                    <th>Job Progress</th>
-                                                    <th>Progress Update</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Duration</th>
+                                                    <th>Price</th>
+                                                    <th>Published</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                     require_once '../db_config/config.php';
-                                                   // require_once './query_boxes/company_jobs_rejected.php';
+                                                    require_once './query_boxes/company_jobs_rejected.php';
                                                 ?>
                                                 
                                             </tbody>
@@ -572,7 +574,6 @@
                                                     <th>Duration</th>
                                                     <th>Cost</th>
                                                     <th>Published</th>
-                                                    <th>Status</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
