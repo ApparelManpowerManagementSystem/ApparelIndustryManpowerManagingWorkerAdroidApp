@@ -25,19 +25,19 @@
                 </div>
                    <div class='form-group'>
                  <label>Enter User Type</label>
-                 <input type='text' name='userType' value=3 id='userType' class='form-control'>
+                 <input type='text' name='userType' value=2 id='userType' class='form-control'>
                 </div>
                 <div class='form-group'>
                  <label>Enter Notification</label>
-                 <input value=' left from the job' name='notification' id='notification' class='form-control' rows='5'>
+                 <input value='$notification' name='notification' id='notification' class='form-control' rows='5'>
                 </div>
                 <div class='form-group'>
-                 <input type='submit' name='post' id='post' class='btn btn-info' value='Post' />
+                 <input type='submit' class='btn btn-info' value='Post' />
                 </div>
             </form>";
-        
-        
-        echo "<script>
+
+
+    echo "<script>
                 document.getElementById('comment_form').submit();
            </script>";
         
