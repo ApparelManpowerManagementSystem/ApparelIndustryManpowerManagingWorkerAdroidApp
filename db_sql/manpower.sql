@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2019 at 07:20 PM
+-- Generation Time: Jan 10, 2019 at 07:54 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -76,19 +76,27 @@ INSERT INTO `company_job` (`jobID`, `jobTitle`, `jobType`, `jobAmount`, `jobPeri
 (4, 'Mending Job', 'Mending', '500', '20', 30000, '2018-09-16', 'offline', 'C214748000', 'S2147483647'),
 (5, 'CPI Job', 'CPI', '300', '30', 25000, '2018-09-01', 'online', 'C214748000', 'S2147483647'),
 (7, 'CPI Job 2', 'CPI', '300', '3', 250000, '2018-09-01', 'online', 'C214748000', 'S2147483647'),
-(8, '1000 T-Shirts Cutting Job two', 'Cutting', '200', '9', 120000, '2018-09-04', 'offline', 'C214748000', 'S2147483647'),
+(8, '1000 T-Shirts Cutting Job two', 'Cutting', '200', '9', 120000, '2018-09-04', 'rejected', 'C214748000', 'S2147483647'),
 (9, 'Ironing Job', 'Ironing', '20', '15', 35000, '2018-08-02', 'cancle', 'C214748000', 'S2147483647'),
-(10, '1000 T-Shirts Cutting Job two', 'Cutting', '200', '9', 3500, '2018-09-04', 'offline', 'C214748000', 'S2147483647'),
+(10, '1000 T-Shirts Cutting Job two', 'Cutting', '200', '9', 3500, '2018-09-04', 'rejected', 'C214748000', 'S2147483647'),
 (11, 'Mending Job', 'Mending', '500', '20', 30000, '2018-09-16', 'rejected', 'C214748000', 'S2147483647'),
-(12, '300 Shorts need Ironing', 'ironing', '300', '10', 12000, '2019-1-3', 'offline', 'C214748364', 'S2147483647'),
+(12, '300 Shorts need Ironing', 'ironing', '300', '10', 12000, '2019-1-3', 'online', 'C214748364', 'S2147483647'),
 (13, '404 T-Shirts for CPI', 'CPI', '200', '10', 43000, '2019-1-7', 'done', 'C214748364', 'S2147483647'),
 (14, '500 Shorts CPI job', 'CPI', '200', '10', 23000, '2019-1-7', 'done', 'C214748364', 'S2147483647'),
-(15, '325 Skirts CPI job', 'CPI', '500', '10', 45000, '2019-1-7', 'offline', 'C214748364', 'S2147483647'),
+(15, '325 Skirts CPI job', 'CPI', '500', '10', 45000, '2019-1-7', 'cancle', 'C214748364', 'S2147483647'),
 (16, '250 Sarong CPI job', 'CPI', '250', '10', 25000, '2019-1-7', 'done', 'C214748364', 'S2147483647'),
 (17, '300 Shorts for CPI', 'CPI', '200', '10', 25000, '2019-1-8', 'done', 'C214748364', 'S2147483647'),
 (18, '200 Shorts For CPI', 'CPI', '20', '10', 24000, '2019-1-8', 'done', 'C214748364', 'S2147483647'),
 (19, '200 T Shirts for CPI', 'CPI', '200', '10', 25000, '2019-1-8', 'done', 'C214748364', 'S2147483647'),
-(20, '4000 Shorts for Cpi Job', 'CPI', '200', '10', 25000, '2019-1-8', 'done', 'C214748364', 'S2147483647');
+(20, '4000 Shorts for Cpi Job', 'CPI', '200', '10', 25000, '2019-1-8', 'done', 'C214748364', 'S2147483647'),
+(21, '524 Shorts CPI job', 'CPI', '200', '10', 25000, '2019-1-10', 'online', 'C214748364', 'S2147483647'),
+(22, '524 Shorts CPI job', 'CPI', '200', '10', 43000, '2019-1-10', 'done', 'C214748364', 'S2147483647'),
+(23, '400 T-Shirts for CPI', '', '200', '10', 25000, '2019-1-10', 'cancle', 'C214748364', 'S2147483647'),
+(24, '5000 Shorts CPI job', '', '500', '10', 43000, '2019-1-10', 'cancle', 'C214748364', 'S2147483647'),
+(25, '345 T-Shirts for CPI', '', '200', '10', 23000, '2019-1-10', 'cancle', 'C214748364', 'S2147483647'),
+(26, '4564 Shorts CPI job', '', '500', '10', 43000, '2019-1-10', 'cancle', 'C214748364', 'S2147483647'),
+(27, '1234 Shorts CPI job', 'CPI', '500', '10', 25000, '2019-1-10', 'offline', 'C214748364', 'S2147483647'),
+(28, '524 Shorts CPI job', 'Cutting', '500', '10', 25000, '2019-1-10', 'offline', 'C214748364', 'S2147483647');
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,10 @@ INSERT INTO `invoice` (`invoiceID`, `jobID`, `userID`, `price`, `isPaid`) VALUES
 (64, 180041, 'C214748364', '25000', 0),
 (65, 180042, 'W12', '5000', 0),
 (66, 180042, 'W987654', '5000', 0),
-(67, 180042, 'C214748364', '25000', 1);
+(67, 180042, 'C214748364', '25000', 1),
+(68, 180044, 'W12', '5000', 0),
+(69, 180044, 'W987654', '4750', 0),
+(70, 180044, 'C214748364', '43000', 0);
 
 -- --------------------------------------------------------
 
@@ -247,7 +258,24 @@ INSERT INTO `notification` (`id`, `notificationID`, `notification`, `userType`, 
 (53, '', 'C214748364 Published new 200 T Shirts for CPI job for you.', 2, 1, 'Jan,08,2019'),
 (54, 'W987654', 'A&S Manpower Solutions completed the job 19 on 2019-1-08', 1, 1, 'Jan,08,2019'),
 (55, '', 'C214748364 Published new 4000 Shorts for Cpi Job job for you.', 2, 1, 'Jan,08,2019'),
-(56, 'W987654', 'A&S Manpower Solutions completed the job 20 on 2019-1-08', 1, 1, 'Jan,08,2019');
+(56, 'W987654', 'A&S Manpower Solutions completed the job 20 on 2019-1-08', 1, 1, 'Jan,08,2019'),
+(57, 'W987654', ' left from the job', 3, 1, 'Jan,09,2019'),
+(58, 'W12', ' left from the job', 3, 1, 'Jan,09,2019'),
+(59, 'S2147483647', 'A&S Manpower Solutions Reject the job 0', 2, 1, 'Jan,09,2019'),
+(60, 'S2147483647', 'A&S Manpower Solutions Reject the job 10', 2, 1, 'Jan,09,2019'),
+(61, 'S2147483647', 'A&S Manpower Solutions Reject the job 8', 1, 1, 'Jan,09,2019'),
+(62, 'W987654', 'W987654 temporary leaved from the job', 2, 1, 'Jan,10,2019'),
+(63, 'W987654', 'W987654 leaved from the job', 2, 1, 'Jan,10,2019'),
+(64, '', 'C214748364 Published new 524 Shorts CPI job job for you.', 2, 1, 'Jan,10,2019'),
+(65, 'W12', 'W12 leaved from the job', 2, 1, 'Jan,10,2019'),
+(66, '', 'C214748364 Published new 524 Shorts CPI job job for you.', 2, 1, 'Jan,10,2019'),
+(67, 'W987654', 'W987654 temporary leaved from the job', 2, 1, 'Jan,10,2019'),
+(68, 'W987654', 'A&S Manpower Solutions completed the job 22 on 2019-1-10', 1, 1, 'Jan,10,2019'),
+(69, '', 'C214748364 Published new 400 T-Shirts for CPI job for you.', 2, 0, 'Jan,10,2019'),
+(70, '', 'C214748364 Published new 5000 Shorts CPI job job for you.', 2, 0, 'Jan,10,2019'),
+(71, '', 'C214748364 Published new 345 T-Shirts for CPI job for you.', 2, 0, 'Jan,10,2019'),
+(72, '', 'C214748364 Published new 1234 Shorts CPI job job for you.', 2, 0, 'Jan,10,2019'),
+(73, '', 'C214748364 Published new 524 Shorts CPI job job for you.', 2, 0, 'Jan,10,2019');
 
 -- --------------------------------------------------------
 
@@ -335,7 +363,7 @@ INSERT INTO `supplier_job` (`jobID`, `jobTitle`, `jobType`, `jobCount`, `workerC
 (180019, 'Ironing Job', 'Ironing', 200, 30, 0, 'online', NULL, NULL, '', 0, 'S2147483647', 2302, 'C214748364', 'Part Time', 0, 3, 0, 0),
 (180023, 'Ironing Job', 'Ironing', 200, 20, 15, 'online', NULL, NULL, '18-09-15', 0, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 3, 0, 0),
 (180024, 'CPI Job', 'CPI', 202, 20, 11, 'offline', NULL, NULL, '18-09-15', 0, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0, 0, 0),
-(180025, '1000 T-Shirts Cutting Job', 'Cutting', 200, 20, 9, 'pending', NULL, NULL, '18-09-17', 0, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 3, 0, 0),
+(180025, '1000 T-Shirts Cutting Job', 'Cutting', 200, 20, 9, 'start', NULL, NULL, '18-09-17', 0, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 3, 0, 0),
 (180026, 'Mending Job', 'Mending', 500, 20, 20, 'offline', NULL, NULL, '18-09-18', 0, 'S2147483647', 2301, '', 'Full Time', 0, 2, 0, 0),
 (180027, 'CPI Job', 'CPI', 400, 25, 20, 'offline', NULL, NULL, '18-09-22', 0, 'S2147483647', 2301, 'W12345', 'Full Time', 1, 0, 0, 0),
 (180028, 'CPI Job', 'CPI', 202, 25, 25, 'offline', NULL, NULL, '18-09-22', 0, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0, 0, 0),
@@ -349,7 +377,10 @@ INSERT INTO `supplier_job` (`jobID`, `jobTitle`, `jobType`, `jobCount`, `workerC
 (180039, '300 Shorts for CPI', 'CPI', 200, 10, 10, 'done', NULL, NULL, '19-1-08', 40, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 0, 25000, 17),
 (180040, '200 Shorts For CPI', 'CPI', 20, 10, 10, 'done', NULL, NULL, '19-1-08', 400, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 0, 24000, 18),
 (180041, '200 T Shirts for CPI', 'CPI', 200, 10, 10, 'done', NULL, NULL, '19-1-08', 10, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 0, 25000, 19),
-(180042, '4000 Shorts for Cpi Job', 'CPI', 200, 10, 10, 'done', NULL, NULL, '19-1-08', 10, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 0, 25000, 20);
+(180042, '4000 Shorts for Cpi Job', 'CPI', 200, 10, 10, 'done', NULL, NULL, '19-1-08', 10, 'S2147483647', 2301, 'C214748364', 'Full Time', 2, 0, 25000, 20),
+(180043, '524 Shorts CPI job', 'CPI', 200, 10, 10, 'pending', NULL, NULL, '19-1-10', 0, 'S2147483647', 2302, 'C214748364', 'Full Time', 0, 0, 25000, 21),
+(180044, '524 Shorts CPI job', 'CPI', 200, 10, 10, 'done', NULL, NULL, '19-1-10', 40, 'S2147483647', 2302, 'C214748364', 'Full Time', 2, 0, 43000, 22),
+(180045, '300 Shorts need Ironing', 'ironing', 300, 10, 10, 'online', NULL, NULL, '19-1-10', 0, 'S2147483647', 2301, 'C214748364', 'Full Time', 0, 0, 12000, 12);
 
 -- --------------------------------------------------------
 
@@ -391,10 +422,15 @@ INSERT INTO `users` (`userID`, `userPassword`, `userType`) VALUES
 ('W454567', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W643298', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W676789', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W711149263', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W721927172', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W766897136', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W766897230', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W766897345', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W766897568', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W767456789', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W767899009', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W768902312', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W772447123', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W772447479', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W772447600', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
@@ -406,6 +442,8 @@ INSERT INTO `users` (`userID`, `userPassword`, `userType`) VALUES
 ('W772447875', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W786578902', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W787689237', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W789237893', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
+('W789345678', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W89897889', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W9387493', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3),
 ('W987654', 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db', 3);
@@ -432,15 +470,22 @@ CREATE TABLE `worker` (
 --
 
 INSERT INTO `worker` (`workerID`, `workerName`, `workerNIC`, `workerPhone`, `workerRank`, `workerEmail`, `workerStatus`, `workerImage`) VALUES
-('W12', 'Piyumal Rangajeewa', '23432987', '+947656778', 10, 'asithaindrajithk9@gmail.com', 'offline', ''),
+('W12', 'Piyumal Rangajeewa', '23432987', '+947656778', 10, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W123', 'Piyadasa Sirisena', NULL, '123', 8, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W12345', 'Nimal Kariyawasam', '952611224V', '12345', 8, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W2147483647', 'Srinath Sekara', NULL, '07668972390', 2, 'asithaindrajithk9@gmail.com', 'online', ''),
+('W711149263', 'Sachintha Rathnayake', NULL, '0711149263', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/IMG_20181017_164206.jpg'),
+('W766897345', 'Sachi Ama', NULL, '0766897345', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/Picture1.png'),
+('W766897568', 'ejijnkjn', NULL, '0766897568', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/35417748_435970473496905_2404464409041698816_o.jpg'),
+('W767456789', 'Anne Lasanthika', NULL, '0767456789', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/35643637_435969096830376_5367740317111943168_o.jpg'),
+('W768902312', 'Warniu Samarakon', NULL, '0768902312', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/IMG_20181017_164206.jpg'),
 ('W772447123', 'Nivedan Kanakaraja', NULL, '0772447123', 0, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W772447479', 'Devis Imesha', NULL, '0772447479', 5, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W772447875', 'Kumaraswami banadara', NULL, '0772447875', 6, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W786578902', 'Pisiri Mangala', NULL, '0786578902', 7, 'kentsteinwall@gmail.com', 'online', '../Assests/worker/35417748_435970473496905_2404464409041698816_o.jpg'),
 ('W787689237', 'Nimali Kanchana', NULL, '0787689237', 0, 'asithaindrajithk9@gmail.com', 'online', '../../img/img-worker/cocentric.png'),
+('W789237893', 'Gimhan Chamntha', NULL, '0789237893', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/IMG_20181017_164206.jpg'),
+('W789345678', 'Anne Lasinthikka', NULL, '0789345678', 0, 'asithaindrajithk9@gmail.com', NULL, '../../img/img-worker/Picture1.png'),
 ('W89897889', 'Diyon Malaka', '967856112V', '89897889', 0, 'asithaindrajithk9@gmail.com', 'online', ''),
 ('W987654', 'Pasindu Madusanka', '3987398', '0987654', 0, 'asithaindrajithk9@gmail.com', 'offline', '');
 
@@ -464,7 +509,8 @@ CREATE TABLE `worker_leaves` (
 
 INSERT INTO `worker_leaves` (`id`, `workerID`, `JobID`, `date`, `time`) VALUES
 (4, 'W12345', '180032', '2019-01-05', '08:44 pm'),
-(5, 'W12', '180000', '2019-1-07', '09:40:40pm');
+(5, 'W12', '180000', '2019-1-07', '09:40:40pm'),
+(8, 'W987654', '180044', '2019-1-10', '05:59:05am');
 
 -- --------------------------------------------------------
 
@@ -484,19 +530,8 @@ CREATE TABLE `worker_pending` (
 --
 
 INSERT INTO `worker_pending` (`id`, `jobID`, `workerID`, `isDone`) VALUES
-(13, 180000, 'W987654', 1),
-(14, 180036, 'W987654', 1),
-(18, 180037, 'W987654', 1),
-(19, 180038, 'W987654', 1),
-(20, 180039, 'W987654', 1),
-(23, 180040, 'W12', 1),
-(24, 180040, 'W987654', 1),
-(25, 180041, 'W12', 1),
-(26, 180041, 'W987654', 1),
-(27, 180042, 'W12', 1),
-(28, 180042, 'W987654', 1),
-(29, 180025, 'W12', 0),
-(30, 180025, 'W987654', 0);
+(33, 180044, 'W12', 1),
+(34, 180044, 'W987654', 0);
 
 -- --------------------------------------------------------
 
@@ -599,17 +634,17 @@ ALTER TABLE `worker_pending`
 -- AUTO_INCREMENT for table `company_job`
 --
 ALTER TABLE `company_job`
-  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `invoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT for table `ratings`
 --
@@ -619,17 +654,17 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `supplier_job`
 --
 ALTER TABLE `supplier_job`
-  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180043;
+  MODIFY `jobID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=180046;
 --
 -- AUTO_INCREMENT for table `worker_leaves`
 --
 ALTER TABLE `worker_leaves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `worker_pending`
 --
 ALTER TABLE `worker_pending`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- Constraints for dumped tables
 --
