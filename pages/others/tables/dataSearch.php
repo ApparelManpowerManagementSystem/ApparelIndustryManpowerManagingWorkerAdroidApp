@@ -275,7 +275,7 @@
                 <form class="form-inline" method="get" action="dataSearch.php">
                   <div class="form-group">
                     
-                    <input style="margin:5px" placeholder="search" type="text" class="form-control" id="search">
+                    <input style="margin:5px" placeholder="search" type="text" class="form-control" id="search" required>
                   </div>
                   
                   <button type="submit" class="btn btn-primary">Submit</button>

@@ -271,7 +271,7 @@
                 <div class="pull-right">
                 <form class="form-inline" method="get" action="./dataJobSSearch.php">
                   <div class="form-group">
-                   <select style="margin:5px" class="form-control" id="select_area" name="type">
+                   <select style="margin:5px" class="form-control" id="select_area" name="type" required>
                         <option value="1">Select Type</option>
                         <option value="CPI">CPI</option>
                         <option value="Cutting">Cutting</option>
@@ -279,7 +279,7 @@
                         <option value="Other">Other</option>
                     </select>
                     
-                      <select style="margin:5px" class="form-control" id="select_area" name="status">
+                      <select style="margin:5px" class="form-control" id="select_area" name="status" required>
                         <option value="1">Select Status</option>
                         <option value="online">Online</option>
                         <option value="offline">Offline</option>

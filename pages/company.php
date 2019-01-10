@@ -260,7 +260,7 @@
                                 <input type="number" class="form-control" id="jobPrice" placeholder="Enter Job Price" name="jobPrice" required>
                             </div>
                             <div class="form-group hidden">
-                                <input type="date" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate" required>
+                                <input type="text" class="form-control" id="jobDate" value="<?=date('Y-n-j') ?>" name="jobDate" required>
                             </div>                        
                            
                             <div class="form-row text-right">

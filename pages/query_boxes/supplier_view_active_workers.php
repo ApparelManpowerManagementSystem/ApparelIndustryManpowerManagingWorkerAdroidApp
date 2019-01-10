@@ -38,11 +38,10 @@
                           <div class='modal-content' style='width: 70%'>
                             <div class='modal-header bg-danger'>Warning!</div>
                             <div class='modal-body'>
-                            <form action='../../query_boxes/supplier_leave_worker.php' autocomplete='on' method='post'>
+                            <form action='../../query_boxes/supplier_remove_active_worker.php' autocomplete='on' method='post'>
                                 <div style='display:none' class='.d-none'>
 
-                                    <input value='" . $row['workerID'] . "' type='text' class='form-control hidden' name='locID' required>
-                                    <input value='" . $row['workerID'] . "' type='text' class='form-control hidden' name='locID' required>
+                                    <input value='" . $row['workerID'] . "' type='text' class='form-control hidden' name='workerID' required>
                                 </div>
 
                                 <div class='form-group' style='margin-top: 25px'>
@@ -50,7 +49,7 @@
 
                                 </div>
                                   <div class=\"modal-footer\">
-                                    <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='leave' required>
+                                    <input type='submit' class='form-control btn btn-danger' style='width:25%'' value='Yes' name='remWork' required>
                                     <input type='button' class='form-control btn btn-default' style='width:25%'' value='No' data-dismiss=\"modal\">
                                 </div>
 

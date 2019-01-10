@@ -3,7 +3,6 @@
     
 /*Register company and worker*/
 
-
 if(isset($_POST['submitRegister'])){
     require_once("../../db_config/config.php");
 
