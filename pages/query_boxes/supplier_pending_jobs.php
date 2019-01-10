@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all pending supplier jobs*/
+
     $queryJob="select DISTINCT supplier_job.workerCount,supplier_job.jobID,supplier_job.comID,supplier_job.jobTitle from company,supplier_job,worker_pending where worker_pending.jobID=supplier_job.jobID AND supplier_job.jobStatus='pending' AND  company.comID=supplier_job.comID";
     $resultJob=mysqli_query($conn,$queryJob);
 

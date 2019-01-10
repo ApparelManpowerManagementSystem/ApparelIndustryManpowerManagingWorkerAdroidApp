@@ -1,4 +1,9 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs which type is Mending*/
+
+
     $queryJob="SELECT * FROM company_job WHERE jobType='Mending'";
     $resultJob=mysqli_query($conn,$queryJob);
 

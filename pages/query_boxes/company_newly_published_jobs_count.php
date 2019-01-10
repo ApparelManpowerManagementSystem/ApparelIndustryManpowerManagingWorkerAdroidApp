@@ -1,4 +1,7 @@
 <?php
+    /*Company Function*/
+    
+    /*View all jobs company jobs count where job state is offline*/
     
     $query="SELECT COUNT(jobID) AS jobCount  FROM company_job WHERE jobStatus='offline' ";
     $result=mysqli_query($conn,$query);

@@ -1,9 +1,10 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all invoices*/
+
     $queryJob="SELECT * FROM invoice,worker,supplier_job WHERE invoice.workerID=worker.workerID && supplier_job.jobID=invoice.jobID && supplier_job.jobStatus='done'";
     $resultJob=mysqli_query($conn,$queryJob);
-
-    
-
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){

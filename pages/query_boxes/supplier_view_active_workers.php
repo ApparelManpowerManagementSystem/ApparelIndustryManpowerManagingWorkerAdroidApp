@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*View all workers who joined in the pending jobs*/
+
     $query="SELECT * FROM worker WHERE workerStatus='offline'";
     $result=mysqli_query($conn,$query);
     if(mysqli_num_rows($result)>0){

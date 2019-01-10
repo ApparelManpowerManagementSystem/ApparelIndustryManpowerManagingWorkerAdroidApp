@@ -1,5 +1,9 @@
 <?php
 session_start();
+/*All User Function*/
+    
+/*Login function*/
+
 if(isset($_POST['submitLogin'])){
     require_once('../../db_config/config.php');
     
@@ -19,7 +23,7 @@ if(isset($_POST['submitLogin'])){
         $_SESSION["userType"]=$userlogin["userType"];
         
         
-               
+        /*If user type is worker*/  
         if($userlogin["userType"]==3){
             $queryUser="SELECT * FROM worker WHERE workerID='$username' LIMIT 1";
             $resultUser=mysqli_query($conn,$queryUser);
@@ -32,6 +36,7 @@ if(isset($_POST['submitLogin'])){
             $_SESSION["userStatus"]=$userDetails["workerStatus"];
             echo "<script>window.location.replace('../worker.php');</script>";
         }
+        /*If user type is supplier*/
         else if($userlogin["userType"]==2){
             $queryUser="SELECT * FROM supplier WHERE supID='$username' LIMIT 1";
             $resultUser=mysqli_query($conn,$queryUser);
@@ -39,6 +44,7 @@ if(isset($_POST['submitLogin'])){
             $_SESSION["userName"]=$userDetails["supName"];
             echo "<script>window.location.replace('../supplier.php');alert('Login Success!!!');</script>";
         }
+        /*If user type is company*/
         else if($userlogin["userType"]==1){
             $queryUser="SELECT * FROM company WHERE comID='$username' LIMIT 1";
             $resultUser=mysqli_query($conn,$queryUser);

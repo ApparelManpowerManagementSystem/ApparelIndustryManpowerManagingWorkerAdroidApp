@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all invoices reletaed to the invoices*/
+
     $queryLoc="SELECT * FROM invoice ";
     $resultLoc=mysqli_query($conn,$queryLoc);
 

@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Supplier publish new company job*/
     session_start();
 	if(isset($_POST['publishJob'])){
 		require_once '../../db_config/config.php';

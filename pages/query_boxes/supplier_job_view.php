@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*View all supplier jobs*/
+
     $jobID=$_SESSION['jobID'];
     $queryJob="SELECT * FROM supplier_job WHERE jobId='$jobID'";
     $resultJob=mysqli_query($conn,$queryJob);

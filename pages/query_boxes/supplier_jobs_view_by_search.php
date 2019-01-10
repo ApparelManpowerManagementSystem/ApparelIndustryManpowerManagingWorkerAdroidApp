@@ -1,4 +1,7 @@
 <?php
+/*Supplier Function*/
+    
+/*View all supplier jobs by search keyword*/
 
 if(isset($_GET['search']) or isset($_GET['keyword'])) {
     $value = $_GET['keyword'];

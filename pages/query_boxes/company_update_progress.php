@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Update supplier job progress*/
+
     if(isset($_POST["updateJob"])){
         $jobID=$_POST["jobID"];
         $jobProgress=$_POST["jobProgress"];

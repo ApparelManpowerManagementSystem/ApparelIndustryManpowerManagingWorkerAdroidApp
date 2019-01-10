@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*View all supplier jobs by job type*/
+
     $query="SELECT jobType,COUNT(*) AS typeCount FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' GROUP BY jobType";
     $result=mysqli_query($conn,$query);
 

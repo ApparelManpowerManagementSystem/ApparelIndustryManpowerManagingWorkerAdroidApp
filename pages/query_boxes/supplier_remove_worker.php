@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Remove workers*/
+
 	if(isset($_POST['removeWorker'])){
 		require_once "../../db_config/config.php";
 		$workerID=$_POST['workerID'];

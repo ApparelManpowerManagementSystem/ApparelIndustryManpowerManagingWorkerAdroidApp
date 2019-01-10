@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all recent supplier jobs*/
+
     $queryJob="SELECT * FROM supplier_job WHERE (jobStatus='online' OR jobStatus='pending') order by jobID DESC LIMIT 3";
     $resultJob=mysqli_query($conn,$queryJob);
     $userStatus=$_SESSION['userStatus'];

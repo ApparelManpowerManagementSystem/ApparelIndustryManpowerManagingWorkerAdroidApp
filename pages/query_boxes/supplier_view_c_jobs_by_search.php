@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all company jobs by search*/
+
     if(isset($_GET['type'])){
         $type=$_GET['type'];
         $upprice=$_GET['price'];

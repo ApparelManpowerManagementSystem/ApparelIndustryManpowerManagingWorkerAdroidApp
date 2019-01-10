@@ -1,4 +1,7 @@
 <?php
+    /*Company Function*/
+    
+    /*Delete company job where job state is cancel*/
 
 
     if (isset($_POST['DeleteJob'])) {

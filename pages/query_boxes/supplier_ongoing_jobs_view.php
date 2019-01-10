@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all started jobs of supplier*/
+
     $queryJob="SELECT * FROM supplier_job WHERE jobStatus='start' LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);
 

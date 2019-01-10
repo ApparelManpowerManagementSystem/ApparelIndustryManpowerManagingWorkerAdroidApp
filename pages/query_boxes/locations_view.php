@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all working locations*/
+
     $queryLoc="SELECT * FROM location LIMIT 10";
     $resultLoc=mysqli_query($conn,$queryLoc);
 
@@ -54,6 +58,7 @@
                     </div>
                 </div>";
             
+            /*Display location editing modal*/
             echo "<div>
                     <div class='modal fade' id='cancle".$rowLoc['locID']."' role='dialog'>
                         <div class='modal-dialog'>

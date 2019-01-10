@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Count all online company jobs*/
     
     $query="SELECT COUNT(jobID) AS comJCount  FROM company_job WHERE jobStatus='online'";
     $result=mysqli_query($conn,$query);

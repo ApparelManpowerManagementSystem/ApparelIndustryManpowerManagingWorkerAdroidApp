@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all locations by search keyword*/
+
     if(isset($_GET['search'])){
     $value=$_GET['search'];
    

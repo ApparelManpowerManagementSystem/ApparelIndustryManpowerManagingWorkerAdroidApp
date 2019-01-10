@@ -1,4 +1,7 @@
 <?php
+    /*Worker Function*/
+    
+    /*Worker temporary leave from the job*/
 
 	session_start();
 	require_once '../../db_config/config.php';

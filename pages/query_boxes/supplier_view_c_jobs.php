@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*View all company jobs*/
+
     $query="SELECT * FROM company_job,company WHERE company_job.comID=company.comID ORDER BY jobID DESC";
     $result=mysqli_query($conn,$query);
     if(mysqli_num_rows($result)>0){

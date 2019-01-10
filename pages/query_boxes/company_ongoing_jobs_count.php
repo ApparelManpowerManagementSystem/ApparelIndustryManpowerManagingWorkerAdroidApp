@@ -1,5 +1,8 @@
 <?php
+    /*Company Function*/
     
+    /*Count all company jobs which state is online*/
+
     $query="SELECT COUNT(jobID) AS jobCount  FROM company_job WHERE jobStatus='online' ";
     $result=mysqli_query($conn,$query);
 

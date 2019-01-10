@@ -1,4 +1,9 @@
 <?php
+/*Suplier Function*/
+    
+/*Add working locations*/
+
+
 if(isset($_POST['addLoc'])){
     require_once('../../db_config/config.php');
     $locID=$_POST['locID'];

@@ -1,4 +1,7 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs where job state is rejected*/
 
 
     $queryJob="SELECT * FROM company_job WHERE jobStatus='rejected'";

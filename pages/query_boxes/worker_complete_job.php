@@ -1,5 +1,9 @@
 <?php
 session_start();
+/*Worker Function*/
+    
+/*When worker print the invoice his states are changed to accept new jobs*/
+
 if(isset($_GET['jobID'])){
 
         require_once("../../db_config/config.php");

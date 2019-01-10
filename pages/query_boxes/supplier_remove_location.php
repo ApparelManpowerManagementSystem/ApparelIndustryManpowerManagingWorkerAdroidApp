@@ -1,5 +1,7 @@
 <?php
-
+    /*Supplier Function*/
+    
+    /*Remove locations*/
     if(isset($_POST['locID'])){
         require_once('../../db_config/config.php');
         $id=$_POST['locID'];

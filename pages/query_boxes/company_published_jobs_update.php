@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+    
+    /*Update published company jobs*/
+
     if(isset($_POST['publishedJobUpdate'])){ // Fetching variables of the form which travels in URL
         require_once("../../db_config/config.php");
         $jobID=$_POST['jobID'];

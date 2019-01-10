@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*View all workers count*/
+
     $query="SELECT COUNT(workerID) AS workerCount  FROM worker WHERE workerStatus='offline' ";
     $result=mysqli_query($conn,$query);
 

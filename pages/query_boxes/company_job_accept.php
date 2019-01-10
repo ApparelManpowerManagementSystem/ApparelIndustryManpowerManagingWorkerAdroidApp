@@ -1,6 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View offline compnay jobs whih state is offline*/
 
-    //Display company jobs which are offline means that they are not still accpeted
     $queryJob="SELECT * FROM company_job,company WHERE company_job.jobStatus='offline' AND company_job.comID=company.comID ORDER BY jobID DESC LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);
 

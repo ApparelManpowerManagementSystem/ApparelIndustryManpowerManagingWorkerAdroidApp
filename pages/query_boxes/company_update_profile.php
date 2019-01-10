@@ -1,5 +1,10 @@
 <?php
     session_start();
+    /*Company Function*/
+    
+    /*uPDATE company profile*/
+
+
     if(isset($_POST['updateProfile'])){ // Fetching variables of the form which travels in URL
         
         require_once '../../db_config/config.php';

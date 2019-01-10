@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+    
+    /*View all locations*/
+
     $queryJob="SELECT * FROM locations";
     $resultJob=mysqli_query($conn,$queryJob);
 

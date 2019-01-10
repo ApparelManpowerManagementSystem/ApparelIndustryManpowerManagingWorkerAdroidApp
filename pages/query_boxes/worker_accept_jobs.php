@@ -1,6 +1,11 @@
 <?php
+/*Worker Function*/
+    
+/*Worker accpet a new job*/
+
 session_start();
 if(isset($_GET['jobID'])){
+    //Deny access if he already in a job
     if($_SESSION['userStatus']=='offline'){
         //
         echo "<script>window.location.replace('../worker.php');alert('You are already joined a job');</script>";

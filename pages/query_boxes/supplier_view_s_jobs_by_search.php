@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all supplier job by search keyword*/
+
     if(isset($_GET['type'])){
         $type=$_GET['type'];
         $status=$_GET['status'];

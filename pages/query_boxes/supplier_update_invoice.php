@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Change invoice's paid state to paid*/
 
     if(isset($_GET['invID'])){
         require_once('../../db_config/config.php');

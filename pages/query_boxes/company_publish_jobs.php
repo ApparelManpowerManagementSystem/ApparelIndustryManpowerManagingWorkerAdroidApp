@@ -1,7 +1,10 @@
 <?php
-    //Continue session to access $_SESSION vaiables
     session_start();
-    //Check if the addComJob submit data
+    /*Company Function*/
+    
+    /*Company adds new company jobs*/
+
+
     if(isset($_POST['addComJob'])){ 
         //Require database connection
         require_once('../../db_config/config.php');

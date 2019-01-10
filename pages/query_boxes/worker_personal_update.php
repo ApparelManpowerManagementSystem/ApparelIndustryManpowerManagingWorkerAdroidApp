@@ -1,5 +1,9 @@
 <?php
     session_start();
+    /*Worker Function*/
+    
+    /*Update worker personal data*/
+
     if(isset($_POST['save'])){ // Fetching variables of the form which travels in URL
         require_once '../../db_config/config.php';
         $workerID=$_POST['workerID'];

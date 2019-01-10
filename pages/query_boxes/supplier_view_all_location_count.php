@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*Count all locations*/
+
     $query="SELECT COUNT(locID) AS locCount  FROM location";
     $result=mysqli_query($conn,$query);
 

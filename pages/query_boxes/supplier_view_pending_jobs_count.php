@@ -1,5 +1,8 @@
 <?php
+    /*Supplier Function*/
     
+    /*Count all supplier jobs which are pending*/
+
     $query="SELECT COUNT(jobID) AS jobCount  FROM supplier_job WHERE jobStatus='pending' ";
     $result=mysqli_query($conn,$query);
 

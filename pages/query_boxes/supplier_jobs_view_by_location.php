@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all supplier jobs by location*/
     
     $query="SELECT location.locCity, COUNT(*) AS locCount FROM supplier_job,location WHERE location.locID=supplier_job.locationID AND (jobStatus='online' OR jobStatus='pending') GROUP BY supplier_job.locationID";
     $result=mysqli_query($conn,$query);

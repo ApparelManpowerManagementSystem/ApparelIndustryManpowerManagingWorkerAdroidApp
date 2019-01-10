@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all supplier jobs which are online or pending*/
+
     $queryJob="SELECT * FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' order by jobID DESC";
     $resultJob=mysqli_query($conn,$queryJob);
     $userStatus=$_SESSION['userStatus'];

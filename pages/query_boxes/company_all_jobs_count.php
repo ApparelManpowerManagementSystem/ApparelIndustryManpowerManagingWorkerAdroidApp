@@ -1,5 +1,8 @@
 <?php
+    /*Company Function*/
     
+    /*Count all jobs published by the company*/
+
     $query="SELECT COUNT(jobID) AS jobCount FROM company_job";
     $result=mysqli_query($conn,$query);
 

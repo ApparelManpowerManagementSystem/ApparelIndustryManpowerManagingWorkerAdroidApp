@@ -1,4 +1,8 @@
 <?php
+    /*Supplier Function*/
+    
+    /*View all supplier jobs for visitors*/
+
     $queryJob="SELECT * FROM supplier_job WHERE jobStatus='online' OR jobStatus='pending' ORDER BY jobID DESC LIMIT 5";
     $resultJob=mysqli_query($conn,$queryJob);
 

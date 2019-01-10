@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs*/
+
     $queryJob="SELECT * FROM company_job";
     $resultJob=mysqli_query($conn,$queryJob);
 

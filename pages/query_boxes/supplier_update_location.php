@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Update working location detail*/
 
     if(isset($_POST['locUpdate'])){
         require_once('../../db_config/config.php');

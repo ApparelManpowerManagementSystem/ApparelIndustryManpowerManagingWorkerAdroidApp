@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs which price are greater 75000 and less 100000*/
+
     $queryJob="SELECT * FROM company_job WHERE jobPrice>75000 AND jobPrice<100000";
     $resultJob=mysqli_query($conn,$queryJob);
 

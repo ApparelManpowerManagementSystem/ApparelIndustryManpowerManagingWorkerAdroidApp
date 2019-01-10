@@ -1,4 +1,7 @@
 <?php
+    /*Supplier Function*/
+    
+    /*Reject company jobs*/
 	session_start();
     if(isset($_POST['jobID'])){
         require_once '../../db_config/config.php';

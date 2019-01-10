@@ -1,4 +1,8 @@
 <?php
+/*Supplier Function*/
+    
+/*Start the newly published jobs*/
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

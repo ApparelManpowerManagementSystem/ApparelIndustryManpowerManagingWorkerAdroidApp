@@ -1,4 +1,7 @@
 <?php
+/*Worker Function*/
+    
+/*Check after worker accepted the job what happend to the job*/
 
 if($_SESSION['userStatus']=='offline'){
     $userID=$_SESSION['userID'];
@@ -17,7 +20,8 @@ if($_SESSION['userStatus']=='offline'){
             $locationAddress=$rowLocation['locStreet'].", ".$rowLocation['locVillage'].", ".$rowLocation['locCity'];
         
             $_SESSION['JobID']=$rowJob['jobID'];
-            
+        
+            //If job state change to pending change the format
             if($rowJob['jobStatus']=='pending'){
                 echo "<div style='margin-top:10px' class='single-post d-flex flex-row'><div class='thumb'>
 				    <img src='../img/img-worker/post.png' alt=''>

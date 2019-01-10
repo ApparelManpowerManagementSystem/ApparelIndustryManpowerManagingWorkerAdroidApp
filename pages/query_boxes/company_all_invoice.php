@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+
+    /*Company view and print invoices releated for him*/
+    
     $userID=$_SESSION['userID'];
     $queryJob="SELECT * FROM invoice,supplier_job WHERE supplier_job.comID='$userID' AND supplier_job.jobID=invoice.jobID AND invoice.userID='$userID' AND supplier_job.jobStatus='done'";
     $resultJob=mysqli_query($conn,$queryJob);

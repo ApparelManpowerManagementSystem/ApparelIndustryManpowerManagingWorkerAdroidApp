@@ -1,4 +1,8 @@
 <?php
+    /*Vsitor Function*/
+    
+    /*View all top ranked workers*/
+
     $queryWorker="SELECT * FROM worker ORDER BY workerRank DESC LIMIT 5";
     $resultWorker=mysqli_query($conn,$queryWorker);
 

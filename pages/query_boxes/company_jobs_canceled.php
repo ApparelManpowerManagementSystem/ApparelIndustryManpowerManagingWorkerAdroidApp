@@ -1,4 +1,7 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs which state is cancel*/
 	
     $queryJob="SELECT * FROM company_job WHERE jobStatus='cancle' LIMIT 10";
     $resultJob=mysqli_query($conn,$queryJob);

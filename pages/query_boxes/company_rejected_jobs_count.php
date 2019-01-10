@@ -1,5 +1,8 @@
 <?php
+    /*Company Function*/
     
+    /*View rejected company jobs count*/
+
     $query="SELECT COUNT(jobID) AS jobCount  FROM company_job WHERE jobStatus='rejected' ";
     $result=mysqli_query($conn,$query);
 

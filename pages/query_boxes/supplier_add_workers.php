@@ -1,4 +1,8 @@
 <?php
+/*Supplier Function*/
+    
+/*add new worker to the system*/
+
     
 if(isset($_POST['addWorker'])){
     require_once("../../db_config/config.php");

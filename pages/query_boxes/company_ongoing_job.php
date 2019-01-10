@@ -1,10 +1,14 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs where job state is online*/
+
     $queryJob="SELECT * FROM company_job WHERE jobStatus='online'";
     $resultJob=mysqli_query($conn,$queryJob);
 
     if(mysqli_num_rows($resultJob)>0){
         while($rowJob=mysqli_fetch_assoc($resultJob)){
-            $date=date("y-m-d");
+            $date=date("y-n-d");
             echo "<tr>
                     <td>".$rowJob['jobID']."</td>
                     <td>".$rowJob['jobTitle']."</td>

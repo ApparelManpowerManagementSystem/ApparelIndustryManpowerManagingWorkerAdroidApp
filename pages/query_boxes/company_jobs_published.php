@@ -1,4 +1,8 @@
 <?php
+    /*Company Function*/
+    
+    /*View all company jobs where job state is offline*/
+
     $queryJob="SELECT * FROM company_job WHERE jobStatus='offline'";
     $resultJob=mysqli_query($conn,$queryJob);
 

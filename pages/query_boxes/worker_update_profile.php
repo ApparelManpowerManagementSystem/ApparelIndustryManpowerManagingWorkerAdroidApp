@@ -1,5 +1,8 @@
 <?php
 session_start();
+/*Worker Function*/
+    
+/*Update worker details*/
 if(isset($_POST['updateProfile'])){ 
 
     require_once '../../db_config/config.php';

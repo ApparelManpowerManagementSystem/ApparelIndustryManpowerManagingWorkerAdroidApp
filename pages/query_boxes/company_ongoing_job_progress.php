@@ -1,4 +1,7 @@
 <?php
+    /*Company Function*/
+    
+    /*View all supplier jobs where job status is start*/
     
     $query="SELECT * FROM supplier_job WHERE jobStatus='start' ";
     $result=mysqli_query($conn,$query);
