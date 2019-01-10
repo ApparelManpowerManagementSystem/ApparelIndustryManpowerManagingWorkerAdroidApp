@@ -236,19 +236,19 @@
                                 </div>
                                 Name
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="workerName"  name="workerName" value='<?=$_SESSION['userName']?>'>
+                                    <input type="text" class="form-control" id="workerName"  name="workerName" value='<?=$_SESSION['userName']?>' required>
                                 </div>
                                 Contact No
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="workerPhone" name="workerPhone" value='<?=$_SESSION['userMobile']?>'>
+                                    <input type="text" pattern="[07]{2}[0-9]{1}[0-9]{7}" class="form-control" id="workerPhone" name="workerPhone" value='<?=$_SESSION['userMobile']?>' required>
                                 </div>
                                 NIC
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="workerNIC" name="workerNIC" value='<?=$_SESSION['userNIC']?>'>
+                                    <input type="text" class="form-control" id="workerNIC" name="workerNIC" value='<?=$_SESSION['userNIC']?>' required>
                                 </div>
                                 Email Address
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="workerEmail" name="workerEmail" value='<?=$_SESSION['userEmail']?>'>
+                                    <input type="email" class="form-control" id="workerEmail" name="workerEmail" value='<?=$_SESSION['userEmail']?>' required>
                                 </div>
 
 
