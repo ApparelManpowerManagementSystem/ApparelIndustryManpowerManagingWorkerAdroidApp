@@ -55,11 +55,11 @@
                                     </div>
                                     <div class='form-group'>
                                         <lable>Enter Worker Count<lable>
-                                        <input type='text' class='form-control' name='workerCount' required>
+                                        <input type='number' class='form-control' name='workerCount' required>
                                     </div>
                                     <div class='form-group'>
                                         <lable>Enter Location ID<lable>
-                                        <input type='text' class='form-control' name='locID' required>
+                                        <input type='number' class='form-control' name='locID' required>
                                     </div>
                                     <div style='display:none' class='form-group'>
                                         <lable>Company ID<lable>
