@@ -300,44 +300,26 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Title</th>
                   <th>Type</th>
-                  <th>Status</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Published</th>
-                    <th>Progress</th>
-                  <th>Location</th>
-                  <th>Customer</th>
-                  <th>Nature</th>
-                  <th>Joined Workers</th>
-                    <th>Ratings</th>
+                  <th>Company</th>
+                  <th>Count</th>
+                    <th>Price</th>
                 </tr>
                 </thead>
                 <tbody>
                     
                     <?php
                             require_once('../../../db_config/config.php');
-                            require_once('../../query_boxes/supplier_view_s_jobs.php');
+                            require_once('../../query_boxes/supplier_job_by_type.php');
                     ?>
                 
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ID</th>
-                  <th>Title</th>
                   <th>Type</th>
-                  <th>Status</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Published</th>
-                    <th>Progress</th>
-                  <th>Location</th>
-                  <th>Customer</th>
-                  <th>Nature</th>
-                  <th>Joined Workers</th>
-                    <th>Ratings</th>
+                  <th>Company</th>
+                  <th>Count</th>
+                    <th>Price</th>
                 </tr>
                 </tfoot>
               </table>

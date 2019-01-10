@@ -244,9 +244,21 @@
                                 <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" name="jobTitle" required>
                             </div>
                             Enter Job Type
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="jobType" placeholder="Enter Job type" name="jobType" required>
-                            </div>
+                            <div class='form-group'>
+                                <select name='jobType' id='jobType' class='form-control'>
+                                    <?php
+                                        $query="SELECT DISTINCT jobType FROM company_job";
+                                        $result=mysqli_query($conn,$query);
+                                        if(mysqli_num_rows($result)>0){
+                                            while($row=mysqli_fetch_assoc($result)){
+                                                echo "<option value='".$row['jobType']."'>".$row['jobType']."</option>";
+                                            }
+                                        }
+                                    ?>
+                                     </select>
+                                </div>
+                            
+                            
                             Enter Job Amount
                              <div class="form-group">
                                 <input type="number" class="form-control" id="jobAmount" placeholder="Enter Job Amount" name="jobAmount" required>
